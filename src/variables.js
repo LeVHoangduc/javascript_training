@@ -48,8 +48,7 @@ console.log("After change value", array);
 /* Note to variables       */
 
 let b = 1;
-let b = 2;
-
 // get a "duplicate declaration" error
+// let b = 2;
 
 /* End note to variables   */
