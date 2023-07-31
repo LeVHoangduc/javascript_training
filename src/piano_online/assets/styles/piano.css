@@ -158,23 +158,23 @@
 }
 
 /* ========= FOOTER ===== */
-#footer {
+#main-footer {
   height: 100px;
   padding: 64px 16px;
   background-color: darkslategray;
   text-align: center;
 }
 
-#footer .social-list {
+#main-footer .social-list {
   font-size: 24px;
 }
 
-#footer .social-list a {
+#main-footer .social-list a {
   padding: 20px;
   color: #000;
   text-decoration: none;
 }
 
-#footer .social-list a:hover {
+#main-footer .social-list a:hover {
   opacity: 0.6;
 }
