@@ -1,0 +1,50 @@
+.language {
+  padding: 35px 100px;
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+.language__list {
+  display: flex;
+  gap: 60px;
+  overflow-x: scroll;
+}
+
+.language__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 190px;
+  padding: 18px;
+  background: var(--light-color);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.language__item:hover {
+  color: var(--primary-color);
+  border: 1px solid var(--text-color);
+}
+
+.language__delete {
+  width: 25px;
+  height: 25px;
+  opacity: 0.1;
+  cursor: pointer;
+}
+
+.language__delete:hover {
+  opacity: 1;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.language__list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.language__list {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
