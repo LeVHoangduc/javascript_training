@@ -1,0 +1,31 @@
+.btn {
+  min-width: 175px;
+  padding: 18px 23px;
+  color: var(--light-color);
+  font-family: "Inter";
+  font-size: 27px;
+  font-weight: var(--fw-normal);
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn-delete {
+  background: var(--button-color);
+}
+
+.btn-save {
+  color: var(--text-color);
+  background: var(--button-second-color);
+}
+
+.btn-login {
+  width: 100%;
+  background: var(--primary-color);
+  border-radius: 5px;
+}

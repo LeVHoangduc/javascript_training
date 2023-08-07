@@ -20,5 +20,30 @@
       </div>
     </header>
     <!-- end header          -->
+    <main class="main-content container">
+      <form class="login-form" novalidate>
+        <div class="login-form__header">
+          <p class="text text--3xl text--extrabold">Welcome back</p>
+          <img src="assets/images/login-image.png" alt="login-image" class="login-form__image" />
+        </div>
+        <div class="login-form__body">
+          <div class="login-form__username">
+            <label for="username">
+              <img src="assets/icons/username.svg" alt="username" class="login-form__icon" />
+            </label>
+            <input type="email" placeholder="Username" id="username" class="login-form__username--input" />
+            <p class="username-error">error</p>
+          </div>
+          <div class="login-form__password">
+            <label for="password">
+              <img src="assets/icons/password.svg" alt="password" class="login-form__icon" />
+            </label>
+            <input type="password" placeholder="Password" id="password" class="login-form__password--input" />
+            <p class="password-error">error</p>
+          </div>
+          <button type="submit" class="text text--light btn btn-login login-form__button">Login</button>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
