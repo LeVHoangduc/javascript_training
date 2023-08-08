@@ -34,12 +34,12 @@ h1 {
   font-weight: var(--fw-normal);
 }
 
-.text--lg {
+.text--md {
   font-size: 26px;
   font-weight: var(--fw-light);
 }
 
-.text--small--xl {
+.text--lg {
   font-size: 27px;
   font-weight: var(--fw-normal);
 }
@@ -49,7 +49,7 @@ h1 {
   font-weight: var(--fw-extrabold);
 }
 
-.text--2xl {
+.text--xxl {
   font-size: 35px;
   font-weight: var(--fw-normal);
 }
