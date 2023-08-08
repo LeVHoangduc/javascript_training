@@ -39,17 +39,17 @@ h1 {
   font-weight: var(--fw-light);
 }
 
-.text--xl {
+.text--small--xl {
   font-size: 27px;
   font-weight: var(--fw-normal);
 }
 
-.text--2xl {
+.text--xl {
   font-size: 30px;
   font-weight: var(--fw-extrabold);
 }
 
-.text--3xl {
+.text--2xl {
   font-size: 35px;
   font-weight: var(--fw-normal);
 }
