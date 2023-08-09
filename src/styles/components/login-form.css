@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 30px;
   margin-top: 100px;
   border-radius: 15px;
 }
@@ -19,15 +20,10 @@
   gap: 30px;
 }
 
-.login-form__username {
-  margin-top: 30px;
-}
-
-.login-form__username,
-.login-form__password {
+.login-form__inputs {
   display: flex;
-  flex-wrap: wrap;
   width: 350px;
+  flex-wrap: wrap;
 }
 
 .login-form__icon {
@@ -36,8 +32,7 @@
   height: 40px;
 }
 
-.login-form__password--input,
-.login-form__username--input {
+.login-form__input {
   width: 291px;
   height: 40px;
   padding-left: 10px;
@@ -45,14 +40,16 @@
   border-radius: 5px;
 }
 
-.username-error,
-.password-error {
+.login-form__button {
+  width: 100%;
+}
+
+.login-form__input + p {
   padding: 10px 0 0 50px;
   visibility: hidden;
 }
 
-.username-error.active,
-.password-error.active {
+.login-form__input + p.active {
   visibility: visible;
   color: var(--error-color);
 }
