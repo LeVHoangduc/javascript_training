@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header__content container">
+        <h1 class="text text--light text--md text--extrabold text--uppercase">Flashcards</h1>
+        <div class="header__search">
+          <input type="text" placeholder="Find your vocabulary" class="header__search__input" />
+          <img src="assets/icons/search.svg" alt="icon-search" class="header__search__icon" />
+        </div>
+        <a href="#" class="text text--light text--md text--uppercase header__information">About</a>
+      </div>
+    </header>
+
+    <main class="main-content container">
+      <form class="login-form" novalidate>
+        <div class="login-form__header">
+          <p class="text text--xxl text--extrabold">Welcome back</p>
+          <img src="assets/images/login-image.png" alt="login-image" />
+        </div>
+        <div class="login-form__body">
+          <div class="login-form__inputs">
+            <label for="username">
+              <img src="assets/icons/username.svg" alt="username" class="login-form__icon" />
+            </label>
+            <input type="email" placeholder="Username" id="username" name="email" class="login-form__input" />
+            <p>error</p>
+          </div>
+          <div class="login-form__inputs">
+            <label for="password">
+              <img src="assets/icons/password.svg" alt="password" class="login-form__icon" />
+            </label>
+            <input type="password" placeholder="Password" id="password" name="password" class="login-form__input" />
+            <p>error</p>
+          </div>
+          <button type="submit" class="text text--light btn btn-submit login-form__button">Login</button>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="./javascripts/main.js"></script>
+  </body>
+</html>
