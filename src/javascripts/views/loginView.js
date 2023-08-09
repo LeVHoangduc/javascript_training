@@ -10,7 +10,7 @@ class LoginView {
   //----- EVENT HANDLER -----//
 
   /**
-   * Add event listener for login action to the add contact button.
+   * Add event listener for login action when the login button is clicked.
    * @param {callback} getUser
    */
   addEventLogin = (getUsers) => {
@@ -29,7 +29,7 @@ class LoginView {
         });
         isUser ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
       } else {
-        alert("Something maybe is wrong in your information!");
+        alert(`${ERROR_MESSAGE.INVALID_INFORMATION}`);
       }
     });
   };
