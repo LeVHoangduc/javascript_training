@@ -25,6 +25,7 @@
   flex-wrap: wrap;
   gap: 90px;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -44,6 +45,7 @@
 .card__term {
   padding: 30px 0 10px 0;
 }
+
 .card__picture {
   width: 255px;
   height: 245px;
