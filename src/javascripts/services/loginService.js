@@ -1,5 +1,5 @@
 import API_GATEWAY_URL from "../constants/urls";
-import ApiRequest from "../helpers/apiRequest";
+import ApiRequest from "./apiRequest";
 
 class LoginService {
   constructor() {
@@ -7,10 +7,10 @@ class LoginService {
   }
 
   /**
-   * Get user by Id from database.
+   * Get user list from database and returns for users model.
    * @returns {Object} User object
    */
-  getUsers = async () => {
+  getUserList = async () => {
     const data = await this.apiRequest.get();
     return data;
   };
