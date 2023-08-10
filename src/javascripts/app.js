@@ -3,9 +3,6 @@ import Model from "./models/model";
 import Controller from "./controllers/controller";
 
 export class App {
-  /**
-   * Constructor off App object
-   */
   constructor() {}
 
   /**
