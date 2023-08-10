@@ -6,6 +6,7 @@ class ValidationService {
   /**
    * Method to validate form data
    * @param {String} validation
+   * @param {HTMLElement} form
    * @param {Object} object
    * @returns {Boolean} object is validated
    */
