@@ -21,8 +21,9 @@ class LoginView {
         email: this.loginForm.email.value,
         password: this.loginForm.password.value,
       };
-      if (this.service.formValidatorCurrying("user")(userCurrent)) {
-        isValidUSer(userCurrent) ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
+      if (this.service.formValidator("user")(userCurrent)) {
+        const isUSer = await isValidUSer(userCurrent);
+        isUSer ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
       } else {
         alert(`${ERROR_MESSAGE.INVALID_INFORMATION}`);
       }
