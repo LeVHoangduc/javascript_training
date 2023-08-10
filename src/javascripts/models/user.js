@@ -1,19 +1,32 @@
-import LoginService from "../services/loginService";
-
-class Users {
+import ApiService from "../services/apiService";
+class User {
   constructor() {
-    this.service = new LoginService();
+    this.service = new ApiService();
     this.userList;
   }
 
   /**
-   * Method to get list of users from service
+   * Function to get list of users from service
    * @returns {Object} userList object
    */
   getUserList = async () => {
-    this.userList = await this.service.getUserList();
+    // service for fetch data
+    this.userList = await this.service.getList("/users");
     return this.userList;
+  };
+
+  /**
+   * Method to check user current is valid
+   * @param {Object} userCurrent
+   * @returns {Boolean} is exist user
+   */
+  isValidUser = async (userCurrent) => {
+    const userList = await this.getUserList();
+    const isValidUSer = userList.find((user) => {
+      return user.username === userCurrent.username && user.password === userCurrent.password ? true : false;
+    });
+    return isValidUSer;
   };
 }
 
-export default Users;
+export default User;

@@ -1,11 +1,11 @@
-import Users from "./users";
+import User from "./user";
 
 class Model {
   /**
    * Constructor of Model object
    */
   constructor() {
-    this.users = new Users();
+    this.user = new User();
   }
 }
 
