@@ -9,7 +9,7 @@ class ValidationService {
    * @param {Object} object
    * @returns
    */
-  formValidatorCurrying = (validation) => (object) => {
+  formValidator = (validation) => (object) => {
     if (validation === "card") {
       const modalForm = document?.querySelector(".modal-add");
       const wordInput = modalForm.word;
