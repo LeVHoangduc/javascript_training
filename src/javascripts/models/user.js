@@ -10,8 +10,8 @@ class User {
    * @returns {Object} userList object
    */
   getUserList = async () => {
-    // service for fetch data
     this.userList = await this.service.getList("/users");
+
     return this.userList;
   };
 
@@ -20,11 +20,12 @@ class User {
    * @param {Object} userCurrent
    * @returns {Boolean} is exist user
    */
-  isValidUser = async (userCurrent) => {
+  isValidUser = async ({ email, password }) => {
     const userList = await this.getUserList();
-    const isValidUSer = userList.find((user) => {
-      return user.username === userCurrent.username && user.password === userCurrent.password ? true : false;
-    });
+    const isValidUSer = userList.find((user) =>
+      user.email === email && user.password === password ? true : false
+    );
+
     return isValidUSer;
   };
 }
