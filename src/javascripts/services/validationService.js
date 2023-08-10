@@ -9,10 +9,8 @@ class ValidationService {
    * @param {Object} object
    * @returns {Boolean} object is validated
    */
-  formValidator = (validation) => (object) => {
+  formValidator = (validation) => (form, object) => {
     if (validation === "card") {
-      const modalForm = document?.querySelector(".modal-add");
-
       // Object to store field validation data
       const cardFields = [
         { name: "word", regex: REGEX.CONTENT, requiredMessage: MESSAGE.CONTENT_REQUIRED, invalidMessage: MESSAGE.INVALID_CONTENT },
@@ -23,18 +21,15 @@ class ValidationService {
         { name: "descriptionPhoto", regex: REGEX.IMAGE, requiredMessage: MESSAGE.CONTENT_REQUIRED, invalidMessage: MESSAGE.INVALID_IMAGE },
       ];
 
-      return this.validationFields(modalForm, cardFields, object);
+      return this.validationFields(form, cardFields, object);
     }
     if (validation === "user") {
-      const loginForm = document?.querySelector(".login-form");
-
-      // Object to store field validation data
       const loginFields = [
         { name: "email", regex: REGEX.EMAIL, requiredMessage: MESSAGE.EMAIL_REQUIRED, invalidMessage: MESSAGE.INVALID_EMAIL },
         { name: "password", regex: REGEX.PASSWORD, requiredMessage: MESSAGE.PASSWORD_REQUIRED, invalidMessage: MESSAGE.INVALID_PASSWORD },
       ];
 
-      return this.validationFields(loginForm, loginFields, object);
+      return this.validationFields(form, loginFields, object);
     } else {
       return false;
     }
