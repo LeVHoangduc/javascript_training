@@ -1,33 +1,28 @@
 import { ERROR_MESSAGE } from "../constants/constants";
-import { formValidator } from "../helpers/formValidator";
+import ValidationService from "../services/validationService.js";
 
 class LoginView {
   constructor() {
-    this.buttonEl = document.querySelector(".login-form__button");
+    this.service = new ValidationService();
     this.loginForm = document.querySelector(".login-form");
+    this.buttonEl = document.querySelector(".login-form__button");
   }
 
   //----- EVENT HANDLER -----//
 
   /**
-   * Add event listener for login action when the login button is clicked.
-   * @param {callback} getUser
+   * Method to login action
+   * @param {Callback} isValidUSer User is exist in database
    */
-  addEventLogin = (getUsers) => {
+  addEventLogin = (isValidUSer) => {
     this.buttonEl?.addEventListener("click", async (e) => {
       e.preventDefault();
-
       const userCurrent = {
-        email: this.loginForm.username.value,
+        email: this.loginForm.email.value,
         password: this.loginForm.password.value,
       };
-
-      if (formValidator("user")(userCurrent)) {
-        const users = await getUsers();
-        let isUser = users.find((user) => {
-          return user.username === userCurrent.email && user.password === userCurrent.password;
-        });
-        isUser ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
+      if (this.service.formValidatorCurrying("user")(userCurrent)) {
+        isValidUSer(userCurrent) ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
       } else {
         alert(`${ERROR_MESSAGE.INVALID_INFORMATION}`);
       }
