@@ -34,3 +34,12 @@ export const REGEX = {
   CONTENT: /^.{1,128}$/,
   IMAGE: /^https?:\/\/.*\.(jpg|jpeg|png|gif|bmp)$/,
 };
+
+/**
+ * Three types of forms in this app
+ */
+export const FORM_TYPES = {
+  user: "user",
+  card: "card",
+  language: "language",
+};
