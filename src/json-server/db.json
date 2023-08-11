@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "Alexandre@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": 2,
+      "email": "herry@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": 3,
+      "email": "chelsea@gmail.com",
+      "password": "Taikhoan@46"
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "word": "Hello",
+      "type": "noun",
+      "meaning": "Xin Chào",
+      "description": "Lời chào lịch sự",
+      "descriptionPhoto": "https://bom.so/hoY25O"
+    },
+    {
+      "id": "17c0c683-f289-462c-8f2b-e90a2707fd40",
+      "word": "love",
+      "type": "verbe",
+      "meaning": "yeu",
+      "description": "dsadasdasdaassa",
+      "descriptionPhoto": "https://www.desicomments.com/wallpapers/wp-content/uploads/2014/12/Beautiful-Waterfall-Image.jpg"
+    }
+  ]
+}
