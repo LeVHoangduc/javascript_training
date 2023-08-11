@@ -1,24 +1,24 @@
 import ApiService from "../services/apiService";
 class User {
   constructor() {
-    this.service = new ApiService();
+    this.service = new ApiService("/users");
     this.userList;
   }
 
   /**
-   * Function to get list of users from service
-   * @returns {Object} userList object
+   * Method to get a list of users from the service.
+   * @returns {Object[]} An array of user objects.
    */
-  getUserList = async () => {
-    this.userList = await this.service.getList("/users");
+  getUserList = () => {
+    this.userList = this.service.getList();
 
     return this.userList;
   };
 
   /**
-   * Method to check user current is valid
-   * @param {Object} userCurrent
-   * @returns {Boolean} is exist user
+   * Method to check if the provided user credentials are valid.
+   * @param {Object} - An object containing user credentials (email and password).
+   * @returns {Boolean} True if the user is valid, otherwise false.
    */
   isValidUser = async ({ email, password }) => {
     const userList = await this.getUserList();
