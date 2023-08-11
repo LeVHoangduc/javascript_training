@@ -1,0 +1,103 @@
+.modal-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.modal-card__wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 747px;
+  border-radius: 15px;
+  background: var(--light-color);
+  backdrop-filter: blur(2px);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.modal-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--primary-color);
+}
+
+.modal-card__header img {
+  width: 100px;
+  height: 100px;
+  background: var(--primary-color);
+}
+
+.modal-card__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 40px 20px;
+}
+
+.modal-card__inputs {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 48%;
+}
+
+.modal-card__input {
+  height: 40px;
+  margin-top: 10px;
+  padding: 0 10px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+}
+
+.error {
+  border: 1px solid var(--error-color);
+}
+
+.modal-card__input + p {
+  padding: 10px 0;
+  visibility: hidden;
+}
+/* .modal-card__input--error {
+    padding: 10px 0;
+    visibility: hidden;
+  } */
+
+.modal-card__input + p.active {
+  color: var(--error-color);
+  visibility: visible;
+}
+/* .modal-card__input--error.active {
+    color: var(--error-color);
+    visibility: visible;
+  } */
+
+#description {
+  padding: 10px;
+  width: 400px;
+  height: auto;
+  overflow: auto;
+}
+
+.modal-card__footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.modal-card.open {
+  display: block;
+}
