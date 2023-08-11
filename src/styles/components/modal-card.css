@@ -45,7 +45,6 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-
   padding: 40px 20px;
 }
 
@@ -71,19 +70,11 @@
   padding: 10px 0;
   visibility: hidden;
 }
-/* .modal-card__input--error {
-    padding: 10px 0;
-    visibility: hidden;
-  } */
 
 .modal-card__input + p.active {
   color: var(--error-color);
   visibility: visible;
 }
-/* .modal-card__input--error.active {
-    color: var(--error-color);
-    visibility: visible;
-  } */
 
 #description {
   padding: 10px;
