@@ -16,6 +16,8 @@ export const MESSAGE = {
  */
 export const ERROR_MESSAGE = {
   LOGIN_VALIDATION: "Login failed, please check your username or password",
+  ADD_CARD: "Couldn't add card",
+  SERVER_ERROR: "Server Error! Please try again later",
 };
 
 /**
@@ -23,6 +25,7 @@ export const ERROR_MESSAGE = {
  */
 export const SUCCESS_MESSAGE = {
   LOGIN_VALIDATION: "Login successfully",
+  ADD_CARD: "Add card successfully",
 };
 
 /**
