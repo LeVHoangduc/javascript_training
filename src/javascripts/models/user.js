@@ -1,4 +1,5 @@
 import ApiService from "../services/apiService";
+
 class User {
   constructor() {
     this.service = new ApiService("/users");
