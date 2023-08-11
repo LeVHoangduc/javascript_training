@@ -7,10 +7,10 @@ class User {
 
   /**
    * Method to get a list of users from the service.
-   * @returns {Object[]} An array of user objects.
+   * @returns {Promise} A promise that resolves to the retrieved data.
    */
-  getUserList = () => {
-    this.userList = this.service.getList();
+  getUserList = async () => {
+    this.userList = await this.service.getList();
 
     return this.userList;
   };
