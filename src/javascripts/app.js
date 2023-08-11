@@ -3,13 +3,10 @@ import Model from "./models/model";
 import Controller from "./controllers/controller";
 
 export class App {
-  /**
-   * Constructor off App object
-   */
   constructor() {}
 
   /**
-   * Function for starting the App
+   * Starts the app by initializing and triggering the controller's setup.
    */
   start() {
     const controller = new Controller(new Model(), new View());
