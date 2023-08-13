@@ -12,11 +12,16 @@ class ModalCardView {
     this.btnCancelEl = document.querySelector(".modal-card_cancer");
   }
 
+  init = () => {
+    this.openModal();
+    this.closeModal();
+  };
+
   //----- EVENT HANDLER -----//
 
   /**
    * Method to add an event listener for form submission.
-   * @param {Callback} saveCard - is add card successfully
+   * @param {Promise<Boolean>} saveCard - is add card successfully
    */
   addEventSubmission = (saveCard) => {
     this.btnSaveEl?.addEventListener("click", async (e) => {
@@ -39,6 +44,7 @@ class ModalCardView {
       if (isValidation) {
         const isAddSuccess = await saveCard(cardCurrent);
         isAddSuccess ? alert(SUCCESS_MESSAGE.ADD_CARD) : alert(ERROR_MESSAGE.SERVER_ERROR);
+        this.closeModal();
       } else {
         alert(`${ERROR_MESSAGE.INVALID_INFORMATION}`);
       }
