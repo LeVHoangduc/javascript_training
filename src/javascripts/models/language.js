@@ -2,7 +2,7 @@ import ApiService from "../services/apiService";
 
 class Language {
   constructor() {
-    this.service = new new ApiService("/languages")();
+    this.apiService = new new ApiService("/languages")();
     this.languageList;
   }
 
@@ -13,7 +13,7 @@ class Language {
    * @returns {Object[]} userList object
    */
   getLanguageList = () => {
-    this.languageList = this.service.getList();
+    this.languageList = this.apiService.getList();
 
     return this.languageList;
   };
