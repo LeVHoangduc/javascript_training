@@ -2,8 +2,7 @@ import ApiService from "../services/apiService";
 
 class Card {
   constructor() {
-    this.service = new ApiService("/cards");
-    this.cardList;
+    this.apiService = new ApiService("/cards");
   }
 
   /**
@@ -11,7 +10,7 @@ class Card {
    * @returns {Promise<Object[]>} A promise that resolves with the list of card.
    */
   getCardList = async () => {
-    const data = await this.service.getList();
+    const data = await this.apiService.getList();
 
     return data;
   };
@@ -22,7 +21,7 @@ class Card {
    * @returns {Promise} A promise that resolves with the result of adding the card.
    */
   addCard = async (cardCurrent) => {
-    const addCard = await this.service.postItem(cardCurrent);
+    const addCard = await this.apiService.postItem(cardCurrent);
 
     return addCard;
   };
@@ -32,8 +31,7 @@ class Card {
    * @param {string} cardId - The ID of the card to be deleted.
    */
   deleteCard = async (cardId) => {
-    console.log("id of model is:", cardId);
-    await this.service.deleteItem(cardId);
+    await this.apiService.deleteItem(cardId);
   };
 
   // TODO: editCard
