@@ -2,7 +2,7 @@ import ApiService from "../services/apiService";
 
 class Language {
   constructor() {
-    this.apiService = new new ApiService("/languages")();
+    this.apiService = new ApiService("/languages");
     this.languageList;
   }
 
