@@ -54,7 +54,7 @@ class ModalCardView {
           console.error("Error while saving card:", error);
           alert(ERROR_MESSAGE.SERVER_ERROR);
         }
-      } else alert(`${ERROR_MESSAGE.INVALID_INFORMATION}`);
+      } else alert(ERROR_MESSAGE.INVALID_INFORMATION);
     });
   };
 
