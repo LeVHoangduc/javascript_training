@@ -48,7 +48,7 @@ class ModalCardView {
           if (isAddSuccess) {
             alert(SUCCESS_MESSAGE.ADD_CARD);
             loadCards(cardCurrent.language);
-          } else alert(ERROR_MESSAGE.SERVER_ERROR);
+          } else alert(ERROR_MESSAGE.ADD_CARD);
           this.closeModal();
         } catch (error) {
           console.error("Error while saving card:", error);
