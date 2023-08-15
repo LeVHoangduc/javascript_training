@@ -1,46 +1,39 @@
+import Error from "./errorView";
 class ModalDetailView {
   constructor() {
-    this.modalFormEL = document.querySelector(".modal-detail");
+    this.error = new Error();
+
+    this.detailFormEl = document.querySelector(".modal-detail");
     this.modalConfirmEl = document.querySelector(".modal-confirm");
 
     this.meaning = document.querySelector(".modal-detail__meaning");
     this.description = document.querySelector(".modal-detail__description");
     this.descriptionPhoto = document.querySelector(".modal-detail__picture");
 
-    this.btnClose = document.querySelector(".modal-detail__close");
-    this.btnDelete = document.querySelector(".modal-detail__button__delete");
-    this.btnEdit = document.querySelector(".modal-detail__button__edit");
+    this.cardListEl = document.querySelector(".card__list");
   }
 
-  /**
-   * Initialize the ModalDetailView with data.
-   * @param {Array} data - The list of card data.
-   */
-  init = (data) => {
-    this.cardEl = document.querySelectorAll(".card");
-    this.cardList = data;
-
-    this.openModal();
-    this.closeModal();
+  init = () => {
+    this.addOpenModalListener();
+    this.addCloseModalListener();
   };
 
-  openModal = () => {
-    this.cardEl.forEach((card) => {
-      card.addEventListener("click", () => {
-        const cardCurrent = this.cardList.find(
-          (cardItem) => cardItem.id === card.getAttribute("data-id")
-        );
-        this.modalFormEL.setAttribute("data-id", cardCurrent.id);
-        this.meaning.textContent = `${cardCurrent.meaning}`;
-        this.description.textContent = `${cardCurrent.description}`;
-        this.descriptionPhoto.src = `${cardCurrent.descriptionPhoto}`;
-        this.modalFormEL.classList.add("open");
-      });
+  addOpenModalListener = () => {
+    this.cardListEl.addEventListener("click", (e) => {
+      const card = e.target.closest(".card");
+      if (card) {
+        // TODO: get card detail
+        this.detailFormEl.setAttribute("data-id", card.getAttribute("data-id"));
+        this.meaning.textContent = `${card.meaning}`;
+        this.description.textContent = `${card.description}`;
+        this.descriptionPhoto.src = `${card.descriptionPhoto}`;
+        this.detailFormEl.classList.add("open");
+      }
     });
   };
 
-  closeModal = () => {
-    this.btnClose.addEventListener("click", (e) => {
+  addCloseModalListener = () => {
+    this.detailFormEl.btnClose.addEventListener("click", (e) => {
       e.preventDefault();
       this.modalFormEL.classList.remove("open");
       this.modalFormEL.removeAttribute("data-id");
@@ -54,9 +47,10 @@ class ModalDetailView {
    * @param {Callback} deleteCard - The deleteCard function to pass for confirming deletion.
    */
   addEventDelete = (deleteCard) => {
-    this.btnDelete.addEventListener("click", (e) => {
+    this.detailFormEl.btnDelete.addEventListener("click", (e) => {
       e.preventDefault();
-      this.confirmDelete(deleteCard);
+
+      this.confirmDeleteCard(deleteCard);
     });
   };
 
@@ -66,19 +60,54 @@ class ModalDetailView {
    */
   confirmDelete = (deleteCard) => {
     this.modalConfirmEl.classList.add("open");
+
     this.modalConfirmEl.delete.addEventListener("click", () => {
       // send id to database
-      let id = this.modalFormEL.getAttribute("data-id");
+      let id = this.detailFormEl.getAttribute("data-id");
       if (id) {
         deleteCard(id);
       }
       this.modalConfirmEl.classList.remove("open");
-      this.modalFormEL.classList.remove("open");
-      this.modalFormEL.removeAttribute("data-id");
+      this.detailFormEl.classList.remove("open");
+      this.detailFormEl.removeAttribute("data-id");
     });
+
     this.modalConfirmEl.cancel.addEventListener("click", () => {
       this.modalConfirmEl.classList.remove("open");
     });
+  };
+
+  addEventEdit = (getCardDetail) => {
+    this.detailFormEl.btnEdit?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      this.cardFormEl = document.querySelector(".modal-card");
+      this.cardFormEl.classList.add("open");
+      const cardID = this.detailFormEl.getAttribute("data-id");
+      // get card by ID for show data in form edit
+      const getCardID = await getCardDetail(cardID);
+
+      // load data current to form
+      this.handleEdit(cardID, getCardID);
+      this.detailFormEl.classList.remove("open");
+    });
+  };
+
+  /**
+   * Handle the editing of a card's details.
+   * @param {string} cardId - The ID of the card being edited.
+   * @param {Object} card - The card object containing details to populate the form with.
+   */
+  handleEdit = (cardId, card) => {
+    // Set data-id attribute to link modal-card with modal-detail
+    this.cardFormEl.setAttribute("data-id", cardId);
+
+    // Populate form fields with card details
+    this.cardFormEl.language.value = card.language;
+    this.cardFormEl.word.value = card.word;
+    this.cardFormEl.type.value = card.type;
+    this.cardFormEl.meaning.value = card.meaning;
+    this.cardFormEl.description.value = card.description;
+    this.cardFormEl.descriptionPhoto.value = card.descriptionPhoto;
   };
 }
 
