@@ -16,6 +16,17 @@ class Card {
   };
 
   /**
+   * Method to retrieve detailed information for a specific card from the API.
+   * @param {string} id - The ID of the card to retrieve details for.
+   * @returns {Promise<Object>} A promise that resolves with the detailed information of the card.
+   */
+  getCardDetail = async (id) => {
+    const data = await this.apiService.getDetail(id);
+
+    return data;
+  };
+
+  /**
    * Method to add a new card to the card list.
    * @param {Object} cardCurrent - The card object to be added.
    * @returns {Promise<boolean>} A promise that resolves with a boolean indicating success.
