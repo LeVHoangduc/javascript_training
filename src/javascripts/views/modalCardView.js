@@ -29,19 +29,22 @@ class ModalCardView {
     this.btnSaveEl?.addEventListener("click", async (e) => {
       e.preventDefault();
 
-      const isEdit = this.cardFormEl.getAttribute("data-id");
+      const isEdit = this.cardFormEl.formEl.getAttribute("data-id");
       // Prepare card data for submission
       const cardData = {
         ...(isEdit ? { id: isEdit } : {}),
-        word: this.addFormEl.word.value,
-        type: this.addFormEl.type.value,
-        meaning: this.addFormEl.meaning.value,
-        description: this.addFormEl.description.value,
-        descriptionPhoto: this.addFormEl.descriptionPhoto.value,
+        word: this.cardFormEl.formEl.word.value,
+        type: this.cardFormEl.formEl.type.value,
+        meaning: this.cardFormEl.formEl.meaning.value,
+        description: this.cardFormEl.formEl.description.value,
+        descriptionPhoto: this.cardFormEl.formEl.descriptionPhoto.value,
       };
 
       // Validate form inputs
-      const inputCheck = this.validationService.formValidator(FORM_TYPES.card, this.addFormEl);
+      const inputCheck = this.validationService.formValidator(
+        FORM_TYPES.card,
+        this.cardFormEl.formEl
+      );
       const isValidation = this.isValidation(inputCheck);
 
       // Handle validation result
@@ -50,7 +53,7 @@ class ModalCardView {
           const isAddSuccess = await saveCard(cardData);
           if (isAddSuccess) {
             isEdit ? alert(SUCCESS_MESSAGE.ADD_LANGUAGE) : alert(SUCCESS_MESSAGE.ADD_CARD);
-            loadCards(cardCurrent.language);
+            loadCards(cardData.language);
           } else alert(ERROR_MESSAGE.ADD_CARD);
           this.closeModal();
         } catch (error) {
@@ -62,13 +65,13 @@ class ModalCardView {
 
   //----- METHOD -----//
   openModal = () => {
-    this.btnAddEl?.addEventListener("click", () => {
-      this.addFormEl.classList.add("open");
+    this.cardFormEl.btnAddEl?.addEventListener("click", () => {
+      this.cardFormEl.formEl.classList.add("open");
     });
   };
 
   closeModal = () => {
-    this.addFormEl.classList.remove("open");
+    this.cardFormEl.formEl.classList.remove("open");
   };
 
   /**
