@@ -16,7 +16,7 @@ class Card {
   };
 
   /**
-   * MEthod to add a new card to the card list.
+   * Method to add a new card to the card list.
    * @param {Object} cardCurrent - The card object to be added.
    * @returns {Promise<boolean>} A promise that resolves with a boolean indicating success.
    */
