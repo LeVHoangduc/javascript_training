@@ -18,23 +18,48 @@ class Card {
   /**
    * MEthod to add a new card to the card list.
    * @param {Object} cardCurrent - The card object to be added.
-   * @returns {Promise} A promise that resolves with the result of adding the card.
+   * @returns {Promise<boolean>} A promise that resolves with a boolean indicating success.
    */
   addCard = async (cardCurrent) => {
-    const addCard = await this.apiService.postItem(cardCurrent);
+    try {
+      await this.apiService.postItem(cardCurrent);
 
-    return addCard;
+      return true;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   /**
    * Method to delete a card from the card list.
    * @param {string} cardId - The ID of the card to be deleted.
+   * @returns {Promise<boolean>} A promise that resolves with a boolean indicating success.
    */
   deleteCard = async (cardId) => {
-    await this.apiService.deleteItem(cardId);
+    try {
+      await this.apiService.deleteItem(cardId);
+
+      return true;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  // TODO: editCard
+  /**
+   * Method to edit an existing card in the card list.
+   * @param {Object} cardCurrent - The updated card object.
+   * @returns {Promise<boolean>} A promise that resolves with a boolean indicating success.
+   */
+  editCard = async (cardCurrent) => {
+    try {
+      await this.apiService.updateItem(cardCurrent.id, cardCurrent);
+
+      return true;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // TODO: filterCard
 }
 
