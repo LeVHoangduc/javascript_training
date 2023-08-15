@@ -8,8 +8,8 @@ class Template {
    */
   static renderLanguage = (language) =>
     `
-      <li class="text text--2xl language__item">
-        ${language.name}
+      <li class="text text--2xl language__item" data-id="${language.id}">
+        ${language.language}
         <img src="/delete.e0c1e186.svg" alt="icon-delete" class="language__delete" />
       </li>`;
 
@@ -32,7 +32,7 @@ class Template {
    * @returns {HTMLElement} HTML element for displaying a language in a select dropdown.
    */
   static renderSelectLanguage = (language) => `
-     <option value="${language.name}" class="text text--capitalize">${language.name}</option>
+    <option value="${language.language}" class="text text--capitalize">${language.language}</option>
   `;
 }
 
