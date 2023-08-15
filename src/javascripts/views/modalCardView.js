@@ -6,16 +6,17 @@ class ModalCardView {
   constructor() {
     this.validationService = new ValidationService();
     this.error = new Error();
-    this.btnAddEl = document.querySelector(".cards__add");
-    this.addFormEl = document.querySelector(".modal-card");
-    this.btnSaveEl = document.querySelector(".modal-card__save");
-    this.btnCancelEl = document.querySelector(".modal-card_cancer");
-  }
 
-  init = () => {
+    this.cardFormEl = {
+      formEl: document.querySelector(".modal-card"),
+      btnAddEl: document.querySelector(".cards_add"),
+      btnSave: formEl.btnSave,
+      btnCancel: formEl.btnCancel,
+    };
+
     this.openModal();
     this.closeModal();
-  };
+  }
 
   //----- EVENT HANDLER -----//
 
@@ -24,12 +25,14 @@ class ModalCardView {
    * @param {Promise<Boolean>} saveCard - Promise indicating successful card addition.
    * @param {Callback} loadCards - Renders cards after successful addition.
    */
-  addEventSubmission = (saveCard) => {
+  addEventSubmission = (saveCard, loadCards) => {
     this.btnSaveEl?.addEventListener("click", async (e) => {
       e.preventDefault();
 
+      const isEdit = this.cardFormEl.getAttribute("data-id");
       // Prepare card data for submission
       const cardData = {
+        ...(isEdit ? { id: isEdit } : {}),
         word: this.addFormEl.word.value,
         type: this.addFormEl.type.value,
         meaning: this.addFormEl.meaning.value,
@@ -46,12 +49,11 @@ class ModalCardView {
         try {
           const isAddSuccess = await saveCard(cardData);
           if (isAddSuccess) {
-            alert(SUCCESS_MESSAGE.ADD_CARD);
+            isEdit ? alert(SUCCESS_MESSAGE.ADD_LANGUAGE) : alert(SUCCESS_MESSAGE.ADD_CARD);
             loadCards(cardCurrent.language);
           } else alert(ERROR_MESSAGE.ADD_CARD);
           this.closeModal();
         } catch (error) {
-          console.error("Error while saving card:", error);
           alert(ERROR_MESSAGE.SERVER_ERROR);
         }
       } else alert(ERROR_MESSAGE.INVALID_INFORMATION);
