@@ -3,7 +3,7 @@ import API_BASE_URL from "../constants/urls";
 class ApiService {
   /**
    * Constructor function for ApiService object.
-   * @param {String} path - The endpoint path for the API.
+   * @param {String} path
    */
   constructor(path) {
     this.baseUrl = API_BASE_URL;
@@ -11,28 +11,43 @@ class ApiService {
   }
 
   /**
-   * Method to fetch a list of items from the API.
-   * @return {Promise} A promise that resolves to the retrieved data.
+   * Method to return an array of object list
+   * @returns {Array}
    */
-  getList = async () => {
-    const data = await this.sendRequest("GET");
-
-    return data;
-  };
+  getList = () => this.sendRequest(null, "GET");
 
   /**
-   * Method to fetch details of an item from the API with the specified ID.
+   * Method to fetch details of an item from the API.
    * @param {String} id - The ID of the item to retrieve.
-   * @return {Promise} A promise that resolves to the retrieved data.
+   * @return {Promise<Object>} A promise that resolves to the retrieved data.
    */
-  getDetail = async (id) => {
-    const data = await this.sendRequest(id, "GET");
 
-    return data;
-  };
+  getDetail = (id) => this.sendRequest(id, "GET");
 
   /**
-   * Method to send an HTTP request to the API endpoint.
+   * Send POST HTTP request.
+   * @param {Object} data
+   * @returns {Promise<Object>} response from server.
+   */
+  postItem = (data) => this.sendRequest(null, "POST", data);
+
+  /**
+   * Send DELETE HTTP request.
+   * @param {String} id
+   * @returns {Promise<Object>} response from server.
+   */
+  deleteItem = (id) => this.sendRequest(id, "DELETE");
+
+  /**
+   * Send PATCH HTTP request.
+   * @param {String} id - The ID of the item to be updated.
+   * @param {Object} data - The data to update the item with.
+   * @returns {Promise<Object>} - The response from the server.
+   */
+  updateItem = (id, data) => this.sendRequest(id, "PATCH", data);
+
+  /**
+   * MEthod to send an HTTP request to the API endpoint.
    * @param {String} path - The endpoint path for the request.
    * @param {String} method - The HTTP method (GET, POST, PUT, DELETE, etc.).
    * @param {Object} body - The request body (optional).
@@ -48,11 +63,8 @@ class ApiService {
       },
       body: JSON.stringify(body),
     });
-    if (response.ok) {
-      return await response.json();
-    } else {
-      throw new Error("Error while sending request");
-    }
+    if (response.ok) await response.json();
+    else throw new Error("Error while sending request");
   };
 }
 
