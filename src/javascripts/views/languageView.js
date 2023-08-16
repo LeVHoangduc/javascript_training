@@ -86,33 +86,6 @@ class LanguageView {
   openConfirmDelete = () => {
     this.confirmFormEl.classList.add("open");
   };
-
-  /**
-   * Method to check validation on UI
-   * @param {Object} inputs - Input object lists to show/remove errors on the UI
-   * input{
-   *  field: language
-   *  isValid: true
-   *  message: "Add language successfully"
-   * }
-   * @returns {Boolean} form is validated
-   */
-  isValidation = (inputs) => {
-    let isValid = true;
-    inputs.forEach((input) => {
-      const inputEl = this.formLanguageEL[input.field];
-      const errorEl = inputEl.nextElementSibling;
-
-      if (input.isValid) {
-        this.error.clearError(inputEl, errorEl);
-      } else {
-        this.error.showError(inputEl, errorEl, input.message);
-        isValid = false;
-      }
-    });
-
-    return isValid;
-  };
 }
 
 export default LanguageView;
