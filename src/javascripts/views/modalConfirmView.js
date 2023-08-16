@@ -8,10 +8,10 @@ class ModalConfirm {
 
   /**
    * Adds event listeners for the confirmation modal.
-   * @param {Callback} deleteCard - Function to delete a card.
-   * @param {Callback} deleteLanguage - Function to delete a language.
-   * @param {Callback} updateLanguageView - Function to update the language view.
-   * @param {Callback} updatePage - Function to update the page.
+   * @param {Function} deleteCard - Function to delete a card.
+   * @param {Function} deleteLanguage - Function to delete a language.
+   * @param {Function} updateLanguageView - Function to update the language view.
+   * @param {Function} updatePage - Function to update the page.
    */
   addEventConfirm = (deleteCard, deleteLanguage, updateLanguageView, updatePage) => {
     this.confirmFormEl.addEventListener("submit", async (e) => {
@@ -31,13 +31,20 @@ class ModalConfirm {
         alert(SUCCESS_MESSAGE.DELETE_CARD);
       }
 
-      this.confirmFormEl.classList.remove("open");
+      this.closeForm();
     });
 
     this.btnCancelEl.addEventListener("click", () => {
-      this.confirmFormEl.classList.remove("open");
+      this.closeForm();
     });
   };
 }
 
+// ---- METHOD ---- //
+
+closeForm = () => {
+  this.confirmFormEl.classList.remove("open");
+  this.confirmFormEl.removeAttribute("data-id");
+  this.confirmFormEl.removeAttribute("type");
+};
 export default ModalConfirm;
