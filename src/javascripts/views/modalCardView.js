@@ -10,29 +10,25 @@ class ModalCardView {
     this.cardFormEl = {
       formEl: document.querySelector(".modal-card"),
       btnAddEl: document.querySelector(".cards_add"),
-      btnSave: formEl.btnSave,
-      btnCancel: formEl.btnCancel,
+      btnSaveEl: formEl.btnSave,
+      btnCancelEl: formEl.btnCancel,
     };
-
-    this.openModal();
-    this.closeModal();
   }
 
   //----- EVENT HANDLER -----//
-
   /**
    * Method to add an event listener for form submission.
    * @param {Promise<Boolean>} saveCard - Promise indicating successful card addition.
    * @param {Callback} loadCards - Renders cards after successful addition.
    */
   addEventSubmission = (saveCard, loadCards) => {
-    this.btnSaveEl?.addEventListener("click", async (e) => {
+    this.cardFormEl.formEl?.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const isEdit = this.cardFormEl.formEl.getAttribute("data-id");
       // Prepare card data for submission
       const cardData = {
-        ...(isEdit ? { id: isEdit } : {}),
+        id: this.cardFormEl.formEl.getAttribute("data-id"),
+        language: this.cardFormEl.formEl.language.value,
         word: this.cardFormEl.formEl.word.value,
         type: this.cardFormEl.formEl.type.value,
         meaning: this.cardFormEl.formEl.meaning.value,
@@ -47,49 +43,47 @@ class ModalCardView {
       );
       const isValidation = this.isValidation(inputCheck);
 
-      // Handle validation result
       if (isValidation) {
-        try {
-          const isAddSuccess = await saveCard(cardData);
-          if (isAddSuccess) {
-            isEdit ? alert(SUCCESS_MESSAGE.ADD_LANGUAGE) : alert(SUCCESS_MESSAGE.ADD_CARD);
-            loadCards(cardData.language);
-          } else alert(ERROR_MESSAGE.ADD_CARD);
-          this.closeModal();
-        } catch (error) {
-          alert(ERROR_MESSAGE.SERVER_ERROR);
-        }
-      } else alert(ERROR_MESSAGE.INVALID_INFORMATION);
+        const isSaveSuccess = await saveCard(cardData);
+
+        if (isSaveSuccess) loadCards(cardData.language);
+        this.closeForm();
+      }
     });
   };
 
-  //----- METHOD -----//
-  openModal = () => {
+  addEventOpenFormListener = () => {
     this.cardFormEl.btnAddEl?.addEventListener("click", () => {
       this.cardFormEl.formEl.classList.add("open");
     });
   };
 
-  closeModal = () => {
+  addEventCloseFormListener = () => {
+    this.cardFormEl.btnCancelEl?.addEventListener("click", () => {
+      this.cardFormEl.formEl.classList.remove("open");
+    });
+  };
+
+  //----- METHOD -----//
+
+  closeForm = () => {
     this.cardFormEl.formEl.classList.remove("open");
   };
 
   /**
    * Method to check validation on UI
    * @param {Array} inputs Array of input object lists to show/remove errors on the UI
-   * inputs[
-   * word: Hello,
-   * type: noun,
-   * meaning: Xin Chào ,
-   * description: Lời chào lịch sự,
-   * descriptionPhoto: https://bom.so/hoY25O,
-   * ]
+   * input[{
+   * field: 'word',
+   * isValid: false,
+   * message: 'The content is required' ,
+   * },]
    * @returns {Boolean} form is validated
    */
   isValidation = (inputs) => {
     let isValid = true;
     inputs.forEach((input) => {
-      const inputEl = this.addFormEl[input.field];
+      const inputEl = this.cardFormEl.formEl[input.field];
       const errorEl = inputEl.nextElementSibling;
       if (input.isValid) {
         this.error.clearError(inputEl, errorEl);
