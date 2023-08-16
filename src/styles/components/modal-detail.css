@@ -16,11 +16,12 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+
   padding: 0 38px 45px 38px;
+
   width: 496px;
   height: 747px;
   background: var(--light-color);
-  backdrop-filter: blur(2px);
   transform: translate(-50%, -50%);
   z-index: 1;
 }
@@ -53,13 +54,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 30px;
 }
 
-.modal-detail__type {
-  padding: 15px;
-}
-
-.modal-detail__footer {
+.modal-detail__buttons {
   display: flex;
   gap: 70px;
 }

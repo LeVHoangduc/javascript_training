@@ -81,13 +81,50 @@
       </section>
     </main>
 
-    <form class="modal-card">
+    <!-- modal detail -->
+    <form class="modal-detail">
+      <div class="modal-detail__wrapper">
+        <div class="modal-detail__header">
+          <img
+            class="modal-detail__picture"
+            src="https://th.bing.com/th/id/R.f6d19108472c1a6c0883cc3c5f1f28ac?rik=pA22UQYQWktZcg&riu=http%3a%2f%2fobrazki.4ever.eu%2fdata%2fdownload%2frysunkowe%2fhello%2c-rysunkowa-postac%2c-chmury-235781.jpg%3fno-logo&ehk=bfeXHm%2bGU3NSDQf4bHxC1DewSvuDQRZ1qfKHlQHeu6o%3d&risl=&pid=ImgRaw&r=0"
+            alt="picture"
+          />
+          <img src="assets/icons/close.svg" alt="icon-close" class="modal-detail__close" />
+        </div>
+        <div class="modal-detail__body">
+          <p class="text text--3xl modal-detail__meaning">Xin Chào</p>
+          <!-- <p class="text text--blue text--3xl modal-detail__type" name>Danh từ</p> -->
+          <p class="text text--xl modal-detail__description">
+            Lời chào trang trọng khi mới gặp mặt.
+          </p>
+        </div>
+        <div class="modal-detail__buttons">
+          <button class="btn btn--delete modal-detail__button__delete" name="delete">Delete</button>
+          <button class="btn btn--save modal-detail__button__edit" name="edit">Edit</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- modal card -->
+    <form class="modal-card" autocomplete="on">
       <div class="modal-card__wrapper">
         <div class="modal-card__header">
           <p class="text text--xl text--extrabold text--light">Add your vocabulary</p>
           <img src="assets/images/add-image.png" alt="logo" />
         </div>
         <div class="modal-card__body">
+          <div class="modal-card__inputs">
+            <label for="language" class="text text--lg">Select language </label>
+            <select
+              name="language"
+              id="language"
+              class="modal-card__input modal-card__input__select"
+            >
+              <option value="english" selected class="text text--capitalize">English</option>
+              <!-- render selection-->
+            </select>
+          </div>
           <div class="modal-card__inputs">
             <label for="vocabulary" class="text text--lg">Vocabulary</label>
             <input type="text" name="word" id="vocabulary" class="modal-card__input" />
@@ -120,8 +157,48 @@
           </div>
         </div>
         <div class="modal-card__footer">
-          <button class="btn btn-submit modal-card__save">Save</button>
-          <button class="btn btn-delete modal-card__cancel">Cancel</button>
+          <button type="submit" name="btnSave" class="btn btn-submit modal-card__save">Save</button>
+          <button type="button" name="btnCancel" class="btn btn-delete modal-card__cancel">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- modal language -->
+    <form class="modal-language" autocomplete="on">
+      <div class="modal-language__wrapper">
+        <div class="modal-language__header">
+          <p class="text text--xl text--extrabold text--light">Add your language</p>
+          <img src="assets/images/add-image.png" alt="logo" />
+        </div>
+        <div class="modal-language__body">
+          <input
+            type="text"
+            name="language"
+            placeholder="Typing your language here"
+            class="modal-language__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-language__footer">
+          <button type="button" class="btn btn--submit" name="btnSave">Save</button>
+          <button type="button" class="btn btn--delete" name="btnCancel">Cancel</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- modal confirm -->
+    <form class="modal-confirm">
+      <div class="modal-confirm__wrapper open">
+        <p class="modal-confirm__message text text--xl text--center">
+          Do you want to delete language
+        </p>
+        <div class="modal-confirm__buttons">
+          <button type="submit" name="delete" class="btn btn--delete modal-confirm__delete">
+            Yes
+          </button>
+          <button type="button" name="cancel" class="btn btn--submit">Cancel</button>
         </div>
       </div>
     </form>

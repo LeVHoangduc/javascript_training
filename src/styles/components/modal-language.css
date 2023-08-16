@@ -1,4 +1,4 @@
-.modal-card {
+.modal-language {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,14 +9,13 @@
   z-index: 1;
 }
 
-.modal-card__wrapper {
+.modal-language__wrapper {
   position: fixed;
   left: 50%;
   top: 50%;
   display: flex;
   flex-direction: column;
   width: 550px;
-  height: 800px;
   border-radius: 15px;
   background: var(--light-color);
   backdrop-filter: blur(2px);
@@ -25,74 +24,61 @@
   z-index: 1;
 }
 
-.modal-card__header {
+.modal-language__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 15px 15px 15px 30px;
   background: var(--primary-color);
 }
 
-.modal-card__header img {
+.modal-language__header img {
   width: 100px;
   height: 100px;
   background: var(--primary-color);
 }
 
-.modal-card__body {
+.modal-add__body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
-
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
 
-.modal-card__inputs {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 48%;
+.modal-language__body {
+  padding: 35px 30px 0 30px;
 }
 
-.modal-card__input {
-  height: 40px;
-  margin-top: 10px;
+.modal-language__input {
+  width: 100%;
+  height: 60px;
   padding: 0 10px;
   border: 1px solid var(--text-color);
   border-radius: 5px;
-}
-
-.modal-card__input__select {
-  margin-bottom: 35px;
 }
 
 .error {
   border: 1px solid var(--error-color);
 }
 
-.modal-card__input + p {
+.modal-language__input + p {
   padding: 10px 0;
   visibility: hidden;
 }
 
-.modal-card__input + p.active {
+.modal-language__input + p.active {
   color: var(--error-color);
   visibility: visible;
 }
 
-#description {
-  padding: 10px;
-  height: 80px;
-  overflow: auto;
-}
-
-.modal-card__footer {
+.modal-language__footer {
   display: flex;
   justify-content: space-around;
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
 }
 
-.modal-card.open {
+.modal-language.open {
   display: block;
 }
