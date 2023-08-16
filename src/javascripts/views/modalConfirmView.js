@@ -47,4 +47,5 @@ closeForm = () => {
   this.confirmFormEl.removeAttribute("data-id");
   this.confirmFormEl.removeAttribute("type");
 };
+
 export default ModalConfirm;
