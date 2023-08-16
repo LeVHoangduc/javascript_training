@@ -8,7 +8,7 @@ class Template {
    */
   static renderLanguage = (language) =>
     `
-      <li class="text text--2xl language__item" data-id="${language.id}">
+      <li class="text text--2xl language__item" data-id="${language.id}" type="language">
         ${language.language}
         <img src="/delete.e0c1e186.svg" alt="icon-delete" class="language__delete" />
       </li>`;
@@ -21,7 +21,7 @@ class Template {
   static renderCard = (card) =>
     `
       <div class="card" data-id="${card.id}">
-        <img class="card__picture" src="${card.descriptionPhoto}" alt="picture"/>
+        <img class="card__picture" src="${card.descriptionPhoto}" alt="picture" type="card"/>
         <p class="text text--xl card__term">${card.word}</p>
         <p class="text text--blue text--xl card__type">${card.type}</p>
       </div>`;
