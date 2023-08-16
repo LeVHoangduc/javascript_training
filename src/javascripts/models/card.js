@@ -9,22 +9,14 @@ class Card {
    * Method to retrieve the list of card from the API.
    * @returns {Promise<Object[]>} A promise that resolves with the list of card.
    */
-  getCardList = async () => {
-    const data = await this.apiService.getList();
-
-    return data;
-  };
+  getCardList = () => this.apiService.getList();
 
   /**
    * Method to retrieve detailed information for a specific card from the API.
    * @param {string} id - The ID of the card to retrieve details for.
-   * @returns {Promise<Object>} A promise that resolves with the detailed information of the card.
+   * @returns {Promise<Object>} A promise that resolves with the detailed card object.
    */
-  getCardDetail = async (id) => {
-    const data = await this.apiService.getDetail(id);
-
-    return data;
-  };
+  getCardDetail = (id) => this.apiService.getDetail(id);
 
   /**
    * Method to add a new card to the card list.
@@ -70,8 +62,6 @@ class Card {
       console.log(error);
     }
   };
-
-  // TODO: filterCard
 }
 
 export default Card;
