@@ -40,29 +40,43 @@ class ValidationService {
         });
       }
     }
-
     return fieldCheck;
   };
 
   /**
    * Method to validate form data
-   * @param {String} validation  Type validation for which form
+   * @param {String} validation Type validation for which form
    * user, card, language
    * @param {HTMLElement} form
    * user form, card form, language form
-   * @returns {Object/Boolean} returns object for deal with errors on UI
+   * @param {Oject} Object
+   * user = {
+   *  email : "Admin@gmail.com",
+   *  password: "Taikhoan@46"
+   * }
+   * [
+   * {
+   *  field: "email",
+   *  value: "Taikhoan@46"
+   * },
+   * {
+   *  field: "password",
+   *  value: "Taikhoan@46"
+   * }
+   * ]
+   *
+   * @returns {Object} returns object for deal with errors on UI
    * or returns False if type validation is not defined
    */
   formValidator = (validation, form) => {
     switch (validation) {
       case "card":
-        // Get object for validation
         const card = {
-          word: form[word],
-          type: form[type],
-          meaning: form[meaning],
-          description: form[description],
-          descriptionPhoto: form[descriptionPhoto],
+          word: form.word.value,
+          type: form.type.value,
+          meaning: form.meaning.value,
+          description: form.description.value,
+          descriptionPhoto: form.descriptionPhoto.value,
         };
 
         // Object to store field validation data
@@ -99,9 +113,9 @@ class ValidationService {
           },
         ];
 
-        return this.validationFields(form, cardFields, card);
+        return this.validationFields(cardFields, card);
+
       case "user":
-        // Get object for validation
         const user = {
           email: form.email.value,
           password: form.password.value,
@@ -123,6 +137,21 @@ class ValidationService {
         ];
 
         return this.validationFields(loginFields, user);
+
+      case "language":
+        const language = {
+          language: form.language.value,
+        };
+        const languageFields = [
+          {
+            name: "language",
+            regex: REGEX.LANGUAGE,
+            requiredMessage: MESSAGE.CONTENT_REQUIRED,
+            invalidMessage: MESSAGE.INVALID_CONTENT,
+          },
+        ];
+
+        return this.validationFields(languageFields, language);
       default:
         false;
     }
