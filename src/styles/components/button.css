@@ -15,17 +15,17 @@
   opacity: 0.7;
 }
 
-.btn-delete {
+.btn--delete {
   background: var(--button-color);
+  border-radius: 5px;
 }
 
-.btn-save {
+.btn--save {
   color: var(--text-color);
-  background: var(--button-second-color);
+  background: #c4c4c4;
 }
 
-.btn-login {
-  width: 100%;
+.btn--submit {
   background: var(--primary-color);
   border-radius: 5px;
 }
