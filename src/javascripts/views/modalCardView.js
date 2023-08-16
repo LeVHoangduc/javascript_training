@@ -41,6 +41,7 @@ class ModalCardView {
         FORM_TYPES.card,
         this.cardFormEl.formEl
       );
+
       const isValidation = this.isValidation(inputCheck);
 
       if (isValidation) {
@@ -60,7 +61,7 @@ class ModalCardView {
 
   addEventCloseFormListener = () => {
     this.cardFormEl.btnCancelEl?.addEventListener("click", () => {
-      this.cardFormEl.formEl.classList.remove("open");
+      this.closeForm();
     });
   };
 
