@@ -13,20 +13,24 @@ class ModalDetailView {
     this.cardListEl = document.querySelector(".card__list");
   }
 
-  init = () => {
-    this.addOpenModalListener();
-    this.addCloseModalListener();
-  };
-
-  addOpenModalListener = () => {
-    this.cardListEl.addEventListener("click", (e) => {
-      const card = e.target.closest(".card");
-      if (card) {
-        // TODO: get card detail
-        this.detailFormEl.setAttribute("data-id", card.getAttribute("data-id"));
-        this.meaning.textContent = `${card.meaning}`;
-        this.description.textContent = `${card.description}`;
-        this.descriptionPhoto.src = `${card.descriptionPhoto}`;
+  //----- EVENT HANDLER -----//
+  /**
+   * Method
+   * @param {Promise<Object>} getCardDetail
+   */
+  addOpenModalListener = (getCardDetail) => {
+    this.cardListEl.addEventListener("click", async (e) => {
+      const cardEl = e.target.closest(".card");
+      if (cardEl) {
+        // get card
+        const cardData = await getCardDetail(cardEl.getAttribute("data-id"));
+        // set data-id for form confirm delete
+        this.confirmFormEl.setAttribute("data-id", cardData.id);
+        // set data-id for form edit
+        this.detailFormEl.setAttribute("data-id", cardData.id);
+        this.meaning.textContent = `${cardData.meaning}`;
+        this.description.textContent = `${cardData.description}`;
+        this.descriptionPhoto.src = `${cardData.descriptionPhoto}`;
         this.detailFormEl.classList.add("open");
       }
     });
@@ -40,16 +44,15 @@ class ModalDetailView {
     });
   };
 
-  //----- EVENT HANDLER -----//
-
   /**
    * Method to add an event listener to the delete button.
    * @param {Callback} deleteCard - The deleteCard function to pass for confirming deletion.
    */
-  addEventDelete = (deleteCard) => {
+  addEventDeleteListener = (deleteCard) => {
     this.detailFormEl.btnDelete.addEventListener("click", (e) => {
       e.preventDefault();
 
+      // Confirm and handle card deletion.
       this.confirmDeleteCard(deleteCard);
     });
   };
@@ -62,31 +65,41 @@ class ModalDetailView {
     this.modalConfirmEl.classList.add("open");
 
     this.modalConfirmEl.delete.addEventListener("click", () => {
-      // send id to database
       let id = this.detailFormEl.getAttribute("data-id");
-      if (id) {
-        deleteCard(id);
-      }
+
+      // Call the deleteCard function with the card ID.
+      if (id) deleteCard(id);
+
+      // Close the confirmation modal and reset detail form state.
       this.modalConfirmEl.classList.remove("open");
       this.detailFormEl.classList.remove("open");
       this.detailFormEl.removeAttribute("data-id");
     });
 
+    // Event listener for canceling the delete action.
     this.modalConfirmEl.cancel.addEventListener("click", () => {
       this.modalConfirmEl.classList.remove("open");
     });
   };
 
-  addEventEdit = (getCardDetail) => {
+  /**
+   * Method to add an event listener for the edit button.
+   * @param {Promise<Object>} getCardDetail - Function to fetch card details.
+   */
+  addEventEditListener = (getCardDetail) => {
     this.detailFormEl.btnEdit?.addEventListener("click", async (e) => {
       e.preventDefault();
+
+      // Show the edit modal.
       this.cardFormEl = document.querySelector(".modal-card");
       this.cardFormEl.classList.add("open");
+
       const cardID = this.detailFormEl.getAttribute("data-id");
-      // get card by ID for show data in form edit
+
+      // Fetch card details for editing.
       const getCardID = await getCardDetail(cardID);
 
-      // load data current to form
+      // Load current data into the edit form.
       this.handleEdit(cardID, getCardID);
       this.detailFormEl.classList.remove("open");
     });
