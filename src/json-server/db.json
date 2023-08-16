@@ -33,5 +33,23 @@
       "description": "dsadasdasdaassa",
       "descriptionPhoto": "https://www.desicomments.com/wallpapers/wp-content/uploads/2014/12/Beautiful-Waterfall-Image.jpg"
     }
+  ],
+  "languages": [
+    {
+      "language": "english"
+    },
+    {
+      "language": "china"
+    },
+    {
+      "language": "france"
+    },
+    {
+      "language": "Korea"
+    },
+    {
+      "id": "e5f07a5c-fa98-47d2-acd4-000fd8cd7bda",
+      "language": "espanol"
+    }
   ]
 }
