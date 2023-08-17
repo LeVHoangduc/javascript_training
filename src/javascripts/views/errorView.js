@@ -1,5 +1,9 @@
+import Template from "../templates/templates";
+
 class Error {
-  constructor() {}
+  constructor() {
+    this.cardListEl = document.querySelector(".card__list");
+  }
 
   /**
    * Method to show an error message for a specific input element.
@@ -22,6 +26,12 @@ class Error {
     inputEl.classList.remove("error");
     errorEl.textContent = "";
     errorEl.classList.remove("active");
+  }
+
+  showEmpty() {
+    this.cardListEl.innerHTML = "";
+    this.cardListEl.innerHTML += Template.renderEmpty();
+    console.log("show empty");
   }
 }
 

@@ -8,9 +8,11 @@ class Template {
    */
   static renderLanguage = (language) =>
     `
-      <li class="text text--xl text--capitalize language__item" data-id="${language.id}" type="language">
+      <li class="text text--xl text--capitalize language__item" data-id="${
+        language.id
+      }" type="language">
         ${language.language}
-        <img src="/delete.e0c1e186.svg" alt="icon-delete" class="language__delete" />
+        <img src="${require("../../assets/icons/delete.svg")}" alt="icon-delete" class="language__delete" />
       </li>`;
 
   /**
@@ -34,6 +36,12 @@ class Template {
   static renderSelectLanguage = (language) => `
     <option value="${language.language}" class="text text--capitalize">${language.language}</option>
   `;
+
+  static renderEmpty = () => `<div class="card__list__empty">
+    <img src="${require("../../assets/images/empty.png")}" alt="empty" />
+    <p class="text text--md text--extrabold">Vocabulary not found</p>
+    <p class="text text--md">Expand your search or add new vocabulary</p>
+  </div>`;
 }
 
 export default Template;
