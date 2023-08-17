@@ -24,7 +24,8 @@
   cursor: pointer;
 }
 
-.language__item:hover {
+.language__item:hover,
+.language__item.active {
   color: var(--primary-color);
   border: 1px solid var(--text-color);
 }

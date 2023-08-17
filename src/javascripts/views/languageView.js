@@ -19,15 +19,15 @@ class LanguageView {
   addEventShowCard = (loadCards) => {
     console.log("addEventShowCard");
     let categoryCurrent;
-    // Retrieve language item elements after data is available.
-    this.languageItemEl = document.querySelectorAll(".language__item");
 
-    this.languageItemEl.forEach((item) => {
-      item.addEventListener("click", () => {
-        // Pass the selected category to the loadCards function.
-        loadCards(item.textContent.trim());
-        categoryCurrent = item.textContent.trim();
-      });
+    this.languageListEl.addEventListener("click", (e) => {
+      const languageEl = e.target.closest(".language__item");
+
+      // Pass the selected category to the loadCards function.
+      categoryCurrent = languageEl.textContent.trim();
+      loadCards(categoryCurrent);
+
+      this.switchLanguage(languageEl);
     });
 
     return categoryCurrent;
@@ -85,6 +85,16 @@ class LanguageView {
 
   openConfirmDelete = () => {
     this.confirmFormEl.classList.add("open");
+  };
+
+  switchLanguage = (languageEl) => {
+    const languageItem = document.querySelector(".language__item.active");
+
+    // remove active in language outdated
+    languageItem?.classList.remove("active");
+
+    // language current is active
+    languageEl.classList.add("active");
   };
 }
 
