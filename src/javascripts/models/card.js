@@ -38,6 +38,13 @@ class Card {
    * @returns {Promise<boolean>} A promise that resolves with a boolean indicating success.
    */
   editCard = async (cardCurrent) => await this.apiService.updateItem(cardCurrent.id, cardCurrent);
+
+  searchCard = async (searchData) => {
+    const cardList = await this.getCardList();
+    const card = cardList.filter((card) => card.word.toLowerCase().includes(searchData));
+
+    return card;
+  };
 }
 
 export default Card;

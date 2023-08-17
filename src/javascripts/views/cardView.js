@@ -1,10 +1,24 @@
 import Template from "../templates/templates";
+import Error from "./errorView";
 
 class CardView {
   constructor() {
+    this.error = new Error();
+
     this.cardListEl = document.querySelector(".card__list");
+    this.searchEl = document.querySelector(".header__search__input");
   }
 
+  //----- EVENT LISTENER -----//
+
+  addEventSearchContact = (findCard) => {
+    this.searchEl.addEventListener("keyup", async (e) => {
+      let searchData = e.target.value.toLowerCase();
+      const cards = await findCard(searchData);
+      // console.log(card);
+      this.renderSearchCard(cards);
+    });
+  };
   //----- RENDERING -----//
 
   /**
@@ -22,6 +36,7 @@ class CardView {
 
     // Filter and render cards based on the specified category
     const cards = cardListData.filter((card) => card.language === category);
+
     cards.forEach((card) => {
       this.renderCard(card);
     });
@@ -39,6 +54,16 @@ class CardView {
     if (this.cardListEl) {
       this.cardListEl.innerHTML += cardTemplate;
     }
+  };
+
+  renderSearchCard = (cards) => {
+    this.cardListEl.innerHTML = "";
+    if (cards.length === 0) {
+      this.error.showEmpty();
+    }
+    cards.forEach((card) => {
+      this.renderCard(card);
+    });
   };
 }
 

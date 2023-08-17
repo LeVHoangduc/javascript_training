@@ -24,6 +24,7 @@ class Controller {
     this.initModalCard();
     this.initModalDetail();
     this.initModalLanguageView();
+    this.initCardView();
   };
 
   //----- LOGIN CONTROLLER          -----//
@@ -39,6 +40,9 @@ class Controller {
     this.view.languageView.addEventDeleteLanguage();
   };
 
+  initCardView = () => {
+    this.view.cardView.addEventSearchContact(this.findCard);
+  };
   //----- MODAL CONTROLLER          -----//
 
   initModalConfirm = () => {
@@ -154,6 +158,14 @@ class Controller {
       await this.model.card.editCard(cardCurrent);
 
       return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  findCard = async (searchData) => {
+    try {
+      return await this.model.card.searchCard(searchData);
     } catch (error) {
       return false;
     }
