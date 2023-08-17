@@ -77,6 +77,7 @@ class Controller {
    */
   isValidUser = async (userCurrent) => {
     try {
+      console.log(userCurrent);
       const isUser = await this.model.user.isValidUser(userCurrent);
 
       return isUser;

@@ -7,12 +7,9 @@ class ModalCardView {
     this.validationService = new ValidationService();
     this.error = new Error();
 
-    this.cardFormEl = {
-      formEl: document.querySelector(".modal-card"),
-      btnAddEl: document.querySelector(".cards_add"),
-      btnSaveEl: formEl.btnSave,
-      btnCancelEl: formEl.btnCancel,
-    };
+    this.cardFormEl = document.querySelector(".modal-card");
+    this.btnAddEl = document.querySelector(".cards__add");
+    this.btnCancelEl = document.querySelector(".modal-card__cancel");
   }
 
   //----- EVENT HANDLER -----//
@@ -22,25 +19,22 @@ class ModalCardView {
    * @param {Callback} loadCards - Renders cards after successful addition.
    */
   addEventSubmission = (saveCard, loadCards) => {
-    this.cardFormEl.formEl?.addEventListener("submit", async (e) => {
+    this.cardFormEl?.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       // Prepare card data for submission
       const cardData = {
-        id: this.cardFormEl.formEl.getAttribute("data-id"),
-        language: this.cardFormEl.formEl.language.value,
-        word: this.cardFormEl.formEl.word.value,
-        type: this.cardFormEl.formEl.type.value,
-        meaning: this.cardFormEl.formEl.meaning.value,
-        description: this.cardFormEl.formEl.description.value,
-        descriptionPhoto: this.cardFormEl.formEl.descriptionPhoto.value,
+        id: this.cardFormEl.getAttribute("data-id"),
+        language: this.cardFormEl.language.value,
+        word: this.cardFormEl.word.value,
+        type: this.cardFormEl.type.value,
+        meaning: this.cardFormEl.meaning.value,
+        description: this.cardFormEl.description.value,
+        descriptionPhoto: this.cardFormEl.descriptionPhoto.value,
       };
 
       // Validate form inputs
-      const inputCheck = this.validationService.formValidator(
-        FORM_TYPES.card,
-        this.cardFormEl.formEl
-      );
+      const inputCheck = this.validationService.formValidator(FORM_TYPES.card, this.cardFormEl);
 
       const isValidation = this.isValidation(inputCheck);
 
@@ -54,13 +48,13 @@ class ModalCardView {
   };
 
   addEventOpenFormListener = () => {
-    this.cardFormEl.btnAddEl?.addEventListener("click", () => {
-      this.cardFormEl.formEl.classList.add("open");
+    this.btnAddEl.addEventListener("click", () => {
+      this.cardFormEl.classList.add("open");
     });
   };
 
   addEventCloseFormListener = () => {
-    this.cardFormEl.btnCancelEl?.addEventListener("click", () => {
+    this.btnCancelEl?.addEventListener("click", () => {
       this.closeForm();
     });
   };
@@ -68,7 +62,7 @@ class ModalCardView {
   //----- METHOD -----//
 
   closeForm = () => {
-    this.cardFormEl.formEl.classList.remove("open");
+    this.cardFormEl.classList.remove("open");
   };
 
   /**
@@ -84,7 +78,7 @@ class ModalCardView {
   isValidation = (inputs) => {
     let isValid = true;
     inputs.forEach((input) => {
-      const inputEl = this.cardFormEl.formEl[input.field];
+      const inputEl = this.cardFormEl[input.field];
       const errorEl = inputEl.nextElementSibling;
       if (input.isValid) {
         this.error.clearError(inputEl, errorEl);

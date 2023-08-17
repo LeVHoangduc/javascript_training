@@ -54,7 +54,7 @@ class LanguageView {
   renderLanguageList = async (getLanguageList, loadCards) => {
     const languageList = await getLanguageList();
 
-    this.languageListEl.innerHTML = "";
+    this.languageListEl.innerHTML = " ";
     languageList.forEach((language) => {
       this.renderLanguage(language);
     });

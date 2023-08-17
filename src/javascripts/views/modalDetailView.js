@@ -7,8 +7,8 @@ class ModalDetailView {
     this.detailFormEl = document.querySelector(".modal-detail");
     this.btnFormDetailEl = {
       close: document.querySelector(".modal-detail__close"),
-      delete: this.detailFormEl.delete,
-      edit: this.detailFormEl.edit,
+      delete: this.detailFormEl?.delete,
+      edit: this.detailFormEl?.edit,
     };
 
     this.confirmFormEl = document.querySelector(".modal-confirm");

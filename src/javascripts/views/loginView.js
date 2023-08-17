@@ -30,6 +30,7 @@ class LoginView {
       const isValidation = this.isValidation(inputCheck);
       if (isValidation) {
         const isUSer = await isValidUSer(userCurrent);
+        console.log(isUSer);
         isUSer ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
       } else {
         alert(`${ERROR_MESSAGE.INVALID_INFORMATION}`);

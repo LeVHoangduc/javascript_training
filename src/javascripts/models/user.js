@@ -3,7 +3,6 @@ import ApiService from "../services/apiService";
 class User {
   constructor() {
     this.service = new ApiService("/users");
-    this.userList;
   }
 
   /**
@@ -11,9 +10,9 @@ class User {
    * @returns {Promise} A promise that resolves to the retrieved data.
    */
   getUserList = async () => {
-    this.userList = await this.service.getList();
-
-    return this.userList;
+    const data = await this.service.getList();
+    console.log(data);
+    return data;
   };
 
   /**
@@ -23,6 +22,7 @@ class User {
    */
   isValidUser = async ({ email, password }) => {
     const userList = await this.getUserList();
+    console.log(userList);
     const isValidUSer = userList.find((user) =>
       user.email === email && user.password === password ? true : false
     );

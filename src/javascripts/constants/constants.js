@@ -34,6 +34,7 @@ export const ERROR_MESSAGE = {
 export const SUCCESS_MESSAGE = {
   LOGIN_VALIDATION: "Login successfully",
   ADD_CARD: "Add card successfully",
+  ADD_LANGUAGE: "Add language successfully",
   DELETE_CARD: "Delete card successfully",
   DELETE_LANGUAGE: "Delete language successfully",
 };

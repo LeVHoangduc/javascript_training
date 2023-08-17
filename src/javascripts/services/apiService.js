@@ -63,8 +63,11 @@ class ApiService {
       },
       body: JSON.stringify(body),
     });
-    if (response.ok) await response.json();
-    else throw new Error("Error while sending request");
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw new Error("Error while sending request");
+    }
   };
 }
 
