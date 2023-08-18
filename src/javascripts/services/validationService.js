@@ -9,37 +9,108 @@ class ValidationService {
    * @param {Object} object the validation object
    * @returns {Boolean} is object valid
    */
+  // validationFields = (fields, object) => {
+  //   const fieldCheck = [];
+  //   for (const field of fields) {
+  //     let value = "";
+  //     let valueOptional = "";
+  //     let isValidOptional = true;
+
+  //     if (field.name === "captionPhoto") {
+  //       valueOptional = object[field.name];
+  //       if (valueOptional !== "") isValidOptional = field.regex.test(valueOptional);
+  //     }
+
+  //     value = object[field.name];
+
+  //     const isValidField = field.regex.test(value);
+
+  //     // Check to validation the field optional
+  //     if (!isValidOptional) {
+  //       console.log("vao day");
+  //       fieldCheck.push({
+  //         field: field.name,
+  //         isValid: false,
+  //         message: field.invalidMessage,
+  //       });
+  //     }
+
+  //     if (isValidOptional) {
+  //       fieldCheck.push({
+  //         field: field.name,
+  //         isValid: true,
+  //       });
+  //     }
+
+  //     // Check to validation the field required
+  //     if (value.trim() === "") {
+  //       if (field.name !== "captionPhoto") {
+  //         fieldCheck.push({
+  //           field: field.name,
+  //           isValid: false,
+  //           message: field.requiredMessage,
+  //         });
+  //       }
+  //     }
+
+  //     // Check if the field value matches the regex pattern
+  //     else if (!isValidField) {
+  //       fieldCheck.push({
+  //         field: field.name,
+  //         isValid: false,
+  //         message: field.invalidMessage,
+  //       });
+  //     }
+  //     // If the field is valid, remove any error styling and message
+  //     else {
+  //       fieldCheck.push({
+  //         field: field.name,
+  //         isValid: true,
+  //       });
+  //     }
+  //   }
+  //   return fieldCheck;
+  // };
+
   validationFields = (fields, object) => {
     const fieldCheck = [];
-    for (const field of fields) {
-      const value = object[field.name];
-      const isValidField = field.regex.test(value);
 
-      // Check if the field value is empty
-      if (value.trim() === "") {
-        fieldCheck.push({
-          field: field.name,
-          isValid: false,
-          message: field.requiredMessage,
-        });
+    for (const field of fields) {
+      let value = object[field.name];
+      let isValidField = field.regex.test(value);
+
+      if (field.name === "captionPhoto") {
+        isValidField = value !== "" && field.regex.test(value);
+        if (value === "") isValidField = !field.regex.test(value);
       }
-      // Check if the field value matches the regex pattern
-      else if (!isValidField) {
+
+      if (value.trim() === "") {
+        if (field.name !== "captionPhoto") {
+          fieldCheck.push({
+            field: field.name,
+            isValid: false,
+            message: field.requiredMessage,
+          });
+        } else {
+          fieldCheck.push({
+            field: field.name,
+            isValid: true,
+          });
+        }
+      } else if (!isValidField) {
         fieldCheck.push({
           field: field.name,
           isValid: false,
           message: field.invalidMessage,
         });
-      }
-      // If the field is valid, remove any error styling and message
-      else {
+      } else {
         fieldCheck.push({
           field: field.name,
           isValid: true,
-          message: field.requiredMessage,
         });
       }
     }
+
     return fieldCheck;
   };
 
@@ -73,22 +144,15 @@ class ValidationService {
       case "card":
         const card = {
           word: form.word.value,
-          type: form.type.value,
           meaning: form.meaning.value,
           description: form.description.value,
-          descriptionPhoto: form.descriptionPhoto.value,
+          captionPhoto: form.captionPhoto.value,
         };
 
         // Object to store field validation data
         const cardFields = [
           {
             name: "word",
-            regex: REGEX.CONTENT,
-            requiredMessage: MESSAGE.CONTENT_REQUIRED,
-            invalidMessage: MESSAGE.INVALID_CONTENT,
-          },
-          {
-            name: "type",
             regex: REGEX.CONTENT,
             requiredMessage: MESSAGE.CONTENT_REQUIRED,
             invalidMessage: MESSAGE.INVALID_CONTENT,
@@ -106,7 +170,7 @@ class ValidationService {
             invalidMessage: MESSAGE.INVALID_CONTENT,
           },
           {
-            name: "descriptionPhoto",
+            name: "captionPhoto",
             regex: REGEX.IMAGE,
             requiredMessage: MESSAGE.CONTENT_REQUIRED,
             invalidMessage: MESSAGE.INVALID_IMAGE,

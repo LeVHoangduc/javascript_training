@@ -24,7 +24,7 @@ class Error {
    */
   clearError(inputEl, errorEl) {
     inputEl.classList.remove("error");
-    errorEl.textContent = "";
+    // errorEl.textContent = "";
     errorEl.classList.remove("active");
   }
 

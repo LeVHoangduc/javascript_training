@@ -15,7 +15,7 @@
           <input type="text" placeholder="Find your vocabulary" class="header__search__input" />
           <img src="assets/icons/search.svg" class="header__search__icon" />
         </div>
-        <a href="#" class="text text--light text--md text--uppercase header__information">About</a>
+        <a href="#" class="text text--light text--md text--uppercase header__logout">Log out</a>
       </div>
     </header>
 
@@ -65,7 +65,7 @@
     </form>
 
     <!-- modal card -->
-    <form class="modal-card" autocomplete="on">
+    <form class="modal-card">
       <div class="modal-card__wrapper">
         <div class="modal-card__header">
           <p class="text text--lg text--extrabold text--light">Add your vocabulary</p>
@@ -73,43 +73,38 @@
         </div>
         <div class="modal-card__body">
           <div class="modal-card__inputs">
-            <label for="language" class="text text--md">Select language </label>
-            <select
-              name="language"
-              id="language"
-              class="modal-card__input modal-card__input__select"
-            >
+            <label for="language" class="text text--md">Select language*</label>
+            <select name="language" id="language" class="modal-card__select">
               <option value="english" selected class="text text--capitalize">English</option>
               <!-- render selection-->
             </select>
           </div>
           <div class="modal-card__inputs">
-            <label for="vocabulary" class="text text--md">Vocabulary</label>
+            <label for="vocabulary" class="text text--md">Vocabulary*</label>
             <input type="text" name="word" id="vocabulary" class="modal-card__input" />
             <p class="text text--sm">error</p>
           </div>
           <div class="modal-card__inputs">
-            <label for="type" class="text text--md">Type</label>
-            <input type="text" name="type" id="type" class="modal-card__input" />
-            <p class="text text--sm">error</p>
+            <label for="type" class="text text--md">Type*</label>
+            <select name="type" id="type" class="modal-card__select">
+              <option value="noun" selected class="text text--capitalize">Noun</option>
+              <option value="verb" selected class="text text--capitalize">Verb</option>
+              <option value="adjective" selected class="text text--capitalize">Adjective</option>
+              <option value="adverb" selected class="text text--capitalize">Adverb</option>
+            </select>
           </div>
           <div class="modal-card__inputs">
-            <label for="meaning" class="text text--md">Meaning</label>
+            <label for="meaning" class="text text--md">Meaning*</label>
             <input type="text" name="meaning" id="meaning" class="modal-card__input" />
             <p class="text text--sm">error</p>
           </div>
           <div class="modal-card__inputs">
-            <label for="description-photo" class="text text--md">Description photo</label>
-            <input
-              type="text"
-              id="description-photo"
-              name="descriptionPhoto"
-              class="modal-card__input"
-            />
+            <label for="caption-photo" class="text text--md">Caption photo</label>
+            <input type="text" id="caption-photo" name="captionPhoto" class="modal-card__input" />
             <p class="text text--sm">error</p>
           </div>
           <div class="modal-card__inputs">
-            <label for="description" class="text text--md">Description</label>
+            <label for="description" class="text text--md">Description*</label>
             <textarea id="description" name="description" class="modal-card__input"></textarea>
             <p class="text text--sm">error</p>
           </div>
@@ -126,7 +121,7 @@
     </form>
 
     <!-- modal language -->
-    <form class="modal-language" autocomplete="on">
+    <form class="modal-language">
       <div class="modal-language__wrapper">
         <div class="modal-language__header">
           <p class="text text--xl text--extrabold text--light">Add your language</p>

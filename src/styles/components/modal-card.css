@@ -63,8 +63,12 @@
   border-radius: 5px;
 }
 
-.modal-card__input__select {
-  margin-bottom: 35px;
+.modal-card__select {
+  height: 40px;
+  margin: 10px 0 35px 0;
+  padding: 0 10px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
 }
 
 .error {

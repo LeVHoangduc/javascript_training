@@ -110,7 +110,7 @@ class ModalDetailView {
     this.cardFormEl.type.value = card.type;
     this.cardFormEl.meaning.value = card.meaning;
     this.cardFormEl.description.value = card.description;
-    this.cardFormEl.descriptionPhoto.value = card.descriptionPhoto;
+    this.cardFormEl.captionPhoto.value = card.captionPhoto;
   };
 }
 

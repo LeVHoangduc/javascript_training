@@ -2,8 +2,8 @@
  * Message for the form validator.
  */
 export const MESSAGE = {
-  EMAIL_REQUIRED: "The username is required",
-  INVALID_EMAIL: "The username is invalid",
+  EMAIL_REQUIRED: "The email is required",
+  INVALID_EMAIL: "The email is invalid",
 
   PASSWORD_REQUIRED: "The password is required",
   INVALID_PASSWORD: "The password is invalid",
@@ -34,6 +34,7 @@ export const ERROR_MESSAGE = {
 export const SUCCESS_MESSAGE = {
   LOGIN_VALIDATION: "Login successfully",
   ADD_CARD: "Add card successfully",
+  EDIT_CARD: "Edit card successfully",
   ADD_LANGUAGE: "Add language successfully",
   DELETE_CARD: "Delete card successfully",
   DELETE_LANGUAGE: "Delete language successfully",
@@ -57,4 +58,9 @@ export const FORM_TYPES = {
   user: "user",
   card: "card",
   language: "language",
+};
+
+export const CARD_ACTIONS = {
+  add: "add",
+  edit: "edit",
 };

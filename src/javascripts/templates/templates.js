@@ -23,7 +23,9 @@ class Template {
   static renderCard = (card) =>
     `
       <div class="card" data-id="${card.id}">
-        <img class="card__picture" src="${card.descriptionPhoto}" alt="picture" type="card"/>
+        <img class="card__picture" src="${
+          card.captionPhoto ? card.captionPhoto : require("../../assets/images/flash-card.png")
+        }" alt="picture" type="card"/>
         <p class="text text--lg card__term">${card.word}</p>
         <p class="text text--blue text--lg card__type">${card.type}</p>
       </div>`;

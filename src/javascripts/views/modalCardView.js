@@ -30,7 +30,7 @@ class ModalCardView {
         type: this.cardFormEl.type.value,
         meaning: this.cardFormEl.meaning.value,
         description: this.cardFormEl.description.value,
-        descriptionPhoto: this.cardFormEl.descriptionPhoto.value,
+        captionPhoto: this.cardFormEl.captionPhoto.value,
       };
 
       // Validate form inputs
@@ -39,12 +39,15 @@ class ModalCardView {
       const isValidation = this.isValidation(inputCheck);
 
       if (isValidation) {
-        const isSaveSuccess = await saveCard(cardData);
+        const methodSuccess = await saveCard(cardData);
 
-        if (isSaveSuccess) {
+        if (methodSuccess.isSuccess) {
           loadCards(cardData.language);
-          alert(SUCCESS_MESSAGE.ADD_CARD);
+          methodSuccess.type === "add"
+            ? alert(SUCCESS_MESSAGE.ADD_CARD)
+            : alert(SUCCESS_MESSAGE.EDIT_CARD);
         }
+        this.resetForm();
         this.closeForm();
       }
     });
@@ -58,6 +61,7 @@ class ModalCardView {
 
   addEventCloseFormListener = () => {
     this.btnCancelEl?.addEventListener("click", () => {
+      this.resetForm();
       this.closeForm();
     });
   };
@@ -66,6 +70,21 @@ class ModalCardView {
 
   closeForm = () => {
     this.cardFormEl.classList.remove("open");
+  };
+
+  resetForm = () => {
+    const inputs = document.querySelectorAll(".modal-card__input");
+    inputs.forEach((input) => {
+      const errorEl = input.nextElementSibling;
+
+      this.error.clearError(input, errorEl);
+    });
+
+    this.cardFormEl.word.value = "";
+    this.cardFormEl.type.value = "";
+    this.cardFormEl.meaning.value = "";
+    this.cardFormEl.description.value = "";
+    this.cardFormEl.captionPhoto.value = "";
   };
 
   /**
@@ -82,6 +101,7 @@ class ModalCardView {
     let isValid = true;
     inputs.forEach((input) => {
       const inputEl = this.cardFormEl[input.field];
+
       const errorEl = inputEl.nextElementSibling;
       if (input.isValid) {
         this.error.clearError(inputEl, errorEl);

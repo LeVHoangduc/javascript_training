@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { helpers } from "../helpers/helpers";
+import { CARD_ACTIONS } from "../constants/constants";
 
 class Controller {
   /**
@@ -142,13 +143,23 @@ class Controller {
    * @returns {Promise<boolean>} - A Promise that resolves to true if add success, otherwise false.
    */
   saveCard = async (cardCurrent) => {
+    let methodCard = {
+      isSuccess: false,
+      type: "",
+    };
+
     if (!cardCurrent.id) {
       const newCard = { id: uuidv4(), ...cardCurrent };
 
       try {
         await this.model.card.addCard(newCard);
 
-        return true;
+        methodCard = {
+          isSuccess: true,
+          type: CARD_ACTIONS.add,
+        };
+
+        return methodCard;
       } catch (error) {
         return false;
       }
@@ -157,7 +168,12 @@ class Controller {
     try {
       await this.model.card.editCard(cardCurrent);
 
-      return true;
+      methodCard = {
+        isSuccess: true,
+        type: CARD_ACTIONS.edit,
+      };
+
+      return methodCard;
     } catch (error) {
       return false;
     }

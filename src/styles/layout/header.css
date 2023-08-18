@@ -30,11 +30,11 @@
   right: 14px;
 }
 
-.header__information {
+.header__logout {
   position: relative;
 }
 
-.header__information::after {
+.header__logout::after {
   content: "";
   position: absolute;
   bottom: 0;
