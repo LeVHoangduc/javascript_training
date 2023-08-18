@@ -41,7 +41,10 @@ class ModalCardView {
       if (isValidation) {
         const isSaveSuccess = await saveCard(cardData);
 
-        if (isSaveSuccess) loadCards(cardData.language);
+        if (isSaveSuccess) {
+          loadCards(cardData.language);
+          alert(SUCCESS_MESSAGE.ADD_CARD);
+        }
         this.closeForm();
       }
     });

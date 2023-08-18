@@ -45,7 +45,7 @@ export const SUCCESS_MESSAGE = {
 export const REGEX = {
   EMAIL: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   PASSWORD: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
-  LANGUAGE: /^[a-z]+$/,
+  LANGUAGE: /^[^\d\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/,
   CONTENT: /^.{1,128}$/,
   IMAGE: /^https?:\/\/.*\.(jpg|jpeg|png|gif|bmp)$/,
 };

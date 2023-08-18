@@ -33,7 +33,7 @@ class ModalLanguageView {
       e.preventDefault();
 
       const languageData = {
-        language: this.formLanguageEL.language.value,
+        language: this.formLanguageEL.language.value.toLowerCase(),
       };
 
       // Return a field result of check with regex
