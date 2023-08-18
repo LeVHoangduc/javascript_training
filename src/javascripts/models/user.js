@@ -9,9 +9,9 @@ class User {
    * Method to get a list of users from the service.
    * @returns {Promise} A promise that resolves to the retrieved data.
    */
-  getUserList = async () => {
-    const data = await this.service.getList();
-    console.log(data);
+  getUserList = () => {
+    const data = this.service.getList();
+
     return data;
   };
 
