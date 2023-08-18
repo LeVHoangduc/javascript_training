@@ -29,6 +29,11 @@ h1 {
   color: var(--button-second-color);
 }
 
+.text--input {
+  font-size: 18px;
+  font-weight: var(--fw-normal);
+}
+
 .text--sm {
   font-size: 15px;
   font-weight: var(--fw-normal);

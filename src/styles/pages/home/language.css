@@ -15,7 +15,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 190px;
   padding: 18px;
   background: var(--light-color);
   border: 1px solid transparent;
@@ -33,6 +32,7 @@
 .language__delete {
   width: 25px;
   height: 25px;
+  margin-left: 30px;
   opacity: 0.1;
   cursor: pointer;
 }
@@ -52,15 +52,4 @@
 
 .language__add:hover {
   opacity: 1;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.language__list::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.language__list {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }

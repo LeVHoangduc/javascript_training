@@ -5,14 +5,17 @@
 
 .header__content {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
 }
 
 .header__search {
   position: relative;
-  width: 663px;
-  margin: 0 56px 0 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 750px;
+  height: 40px;
   padding: 5px 13px;
   border-radius: 20px;
   background: var(--light-color);
@@ -25,9 +28,8 @@
 }
 
 .header__search__icon {
-  position: absolute;
-  top: 2px;
-  right: 14px;
+  width: 25px;
+  height: 25px;
 }
 
 .header__logout {
@@ -38,8 +40,8 @@
   content: "";
   position: absolute;
   bottom: 0;
-  left: -10px;
-  width: 106px;
+  left: 2px;
+  width: 110px;
   height: 1px;
   background: var(--light-color);
 }
