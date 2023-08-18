@@ -55,6 +55,7 @@ class LanguageView {
     const languageList = await getLanguageList();
 
     this.languageListEl.innerHTML = " ";
+    this.cardFormEl.language.innerHTML = " ";
     languageList.forEach((language) => {
       this.renderLanguage(language);
     });

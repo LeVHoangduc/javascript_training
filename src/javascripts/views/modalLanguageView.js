@@ -29,6 +29,7 @@ class ModalLanguageView {
   addEventAddLanguage = (saveLanguage, updateLanguageView) => {
     const btnSave = this.formLanguageEL.btnSave;
     const btnCancel = this.formLanguageEL.btnCancel;
+
     btnSave.addEventListener("click", async (e) => {
       e.preventDefault();
 
