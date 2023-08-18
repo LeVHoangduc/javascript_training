@@ -57,11 +57,16 @@ class ModalLanguageView {
     });
 
     btnCancel.addEventListener("click", () => {
+      this.resetForm();
       this.closeForm();
     });
   };
 
   // ---- METHOD ----- //
+
+  resetForm = () => {
+    this.formLanguageEL.language.value = "";
+  };
 
   closeForm = () => {
     this.formLanguageEL.classList.remove("open");

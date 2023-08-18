@@ -17,5 +17,9 @@
   --error-color: #ff0000;
   --button-second-color: #c4c4c4;
   --light-color: #ffffff;
+  --overlay-color: #00000096;
+  --shadow-color: #00000080;
+  --border-card-color: #ada6a6cc;
+  /* --hover-card-color:; */
   /* End color          */
 }

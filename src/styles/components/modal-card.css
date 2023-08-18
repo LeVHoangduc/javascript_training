@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   display: none;
-  backdrop-filter: blur(2px);
+  background-color: var(--overlay-color);
   z-index: 1;
 }
 
@@ -19,6 +19,7 @@
   height: 800px;
   border-radius: 15px;
   background: var(--light-color);
+  box-shadow: 0px 0px 60px var(--shadow-color);
   backdrop-filter: blur(2px);
   transform: translate(-50%, -50%);
   overflow: hidden;

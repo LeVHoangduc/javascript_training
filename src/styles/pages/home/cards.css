@@ -34,11 +34,13 @@
   min-width: 360px;
   padding: 12px 0 25px 0;
   border-radius: 15px;
-  background: rgba(183, 139, 255, 0.35);
+  border: 1px solid var(--border-card-color);
   cursor: pointer;
 }
 
 .card:hover {
+  background-color: var(--primary-color);
+  border: unset;
   opacity: 0.8;
 }
 
