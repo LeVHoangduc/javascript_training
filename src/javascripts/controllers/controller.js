@@ -122,7 +122,7 @@ class Controller {
     }
   };
 
-  // click category from languageView
+  // Click category from languageView
   loadCards = async (category) => {
     try {
       // view receive category and render as follow category
