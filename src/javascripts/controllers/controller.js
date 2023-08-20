@@ -13,26 +13,30 @@ class Controller {
     this.view = view;
   }
 
-  /**
-   * Initializing the controller
-   */
-  init = async () => {
-    this.initLogin();
-
-    await this.initLanguageView();
-
-    this.initModalConfirm();
-    this.initModalCard();
-    this.initModalDetail();
-    this.initModalLanguageView();
-    this.initCardView();
-    this.initOverLay();
-  };
-
-  //----- LOGIN CONTROLLER          -----//
+  //----- LOGIN AND LOGOUT CONTROLLER          -----//
 
   initLogin = () => {
     this.view.loginView.addEventLogin(this.isValidUser);
+  };
+
+  initLogout = () => {
+    this.view.logoutView.addEventLogOut();
+  };
+
+  //----- HOME CONTROLLER          -----//
+
+  initHome = async () => {
+    if (helpers.saveStatusLogin()) {
+      await this.initLanguageView();
+      this.initModalConfirm();
+      this.initModalCard();
+      this.initModalDetail();
+      this.initModalLanguageView();
+      this.initCardView();
+      this.initOverLay();
+
+      this.initLogout();
+    }
   };
 
   //----- LANGUAGE CONTROLLER          -----//
@@ -42,9 +46,12 @@ class Controller {
     this.view.languageView.addEventDeleteLanguage();
   };
 
+  //----- CARD CONTROLLER          -----//
+
   initCardView = () => {
     this.view.cardView.addEventFindCard(this.findCard);
   };
+
   //----- MODAL CONTROLLER          -----//
 
   initModalConfirm = () => {
@@ -79,9 +86,12 @@ class Controller {
     this.view.modalLanguageView.addEventAddLanguage(this.saveLanguage, this.updateLanguageView);
   };
 
+  //----- OVERLAY CONTROLLER          -----//
+
   initOverLay = () => {
     this.view.overlayView.addEventClickOutSide();
   };
+
   //----- METHOD                   -----//
 
   /**
@@ -91,10 +101,9 @@ class Controller {
    */
   isValidUser = async (userCurrent) => {
     try {
-      console.log(userCurrent);
       const isUser = await this.model.user.isValidUser(userCurrent);
 
-      return isUser;
+      if (isUser) return true;
     } catch (error) {
       return false;
     }

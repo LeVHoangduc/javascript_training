@@ -34,6 +34,9 @@
 
 .header__logout {
   position: relative;
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
 }
 
 .header__logout::after {

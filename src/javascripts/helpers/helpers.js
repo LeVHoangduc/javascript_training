@@ -7,6 +7,20 @@ class Helpers {
    */
   saveCategoryCurrent = (categoryCurrent) => (this.categoryCurrent = categoryCurrent);
 
+  saveLocalStorage = (key, item) => {
+    localStorage.setItem(key, item);
+  };
+
+  removeLocalStorage = (key) => {
+    localStorage.removeItem(key);
+  };
+
+  saveStatusLogin = () => {
+    const isUserLogged = localStorage.getItem("user");
+
+    return isUserLogged ? true : false;
+  };
+
   wait = (time) =>
     new Promise((resolve) => {
       setTimeout(() => resolve(), time);

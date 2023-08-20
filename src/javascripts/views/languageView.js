@@ -19,7 +19,6 @@ class LanguageView {
    * @returns {string} - Current selected category.
    */
   addEventShowCard = (loadCards) => {
-    console.log("addEventShowCard");
     let categoryCurrent;
 
     this.languageListEl.addEventListener("click", (e) => {
@@ -93,7 +92,6 @@ class LanguageView {
   };
 
   switchLanguage = (languageEl, nameLanguage) => {
-    console.log(nameLanguage);
     const languageItem = document.querySelector(".language__item.active");
 
     // remove active in previous language

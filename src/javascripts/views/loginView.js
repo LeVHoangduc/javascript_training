@@ -1,4 +1,3 @@
-import { ERROR_MESSAGE } from "../constants/constants";
 import { FORM_TYPES } from "../constants/constants";
 import ValidationService from "../services/validationService.js";
 import Error from "./errorView";
@@ -30,8 +29,12 @@ class LoginView {
       const isValidation = this.isValidation(inputCheck);
       if (isValidation) {
         const isUSer = await isValidUSer(userCurrent);
-        console.log(isUSer);
-        isUSer ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
+
+        // isUSer ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
+
+        if (isUSer) {
+          window.location.href = "home.html";
+        }
       }
     });
   };
