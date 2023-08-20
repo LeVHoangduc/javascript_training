@@ -60,7 +60,11 @@ class Controller {
   initModalCard = () => {
     this.view.modalCardView.addEventOpenFormListener();
     this.view.modalCardView.addEventCloseFormListener();
-    this.view.modalCardView.addEventSubmission(this.saveCard, this.loadCards);
+    this.view.modalCardView.addEventSubmission(
+      this.saveCard,
+      this.loadCards,
+      this.view.languageView
+    );
   };
 
   initModalDetail = () => {

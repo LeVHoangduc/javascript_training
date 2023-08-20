@@ -19,7 +19,7 @@ class ModalCardView {
    * @param {Promise<Boolean>} saveCard - Promise indicating successful card addition.
    * @param {Callback} loadCards - Renders cards after successful addition.
    */
-  addEventSubmission = (saveCard, loadCards) => {
+  addEventSubmission = (saveCard, loadCards, languageView) => {
     this.cardFormEl?.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -43,6 +43,8 @@ class ModalCardView {
         await saveCard(cardData);
 
         loadCards(cardData.language);
+
+        languageView.switchLanguage(null, cardData.language);
 
         this.resetForm();
         this.closeForm();

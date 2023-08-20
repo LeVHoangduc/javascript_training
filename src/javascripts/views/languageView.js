@@ -92,14 +92,21 @@ class LanguageView {
     this.overlayEl.classList.add("open");
   };
 
-  switchLanguage = (languageEl) => {
+  switchLanguage = (languageEl, nameLanguage) => {
+    console.log(nameLanguage);
     const languageItem = document.querySelector(".language__item.active");
 
-    // remove active in language outdated
+    // remove active in previous language
     languageItem?.classList.remove("active");
 
-    // language current is active
-    languageEl.classList.add("active");
+    if (languageEl) languageEl.classList.add("active");
+    if (nameLanguage) {
+      const languageItemEL = this.languageListEl.querySelectorAll(".language__item");
+      const languageCurrent = Array.from(languageItemEL).find(
+        (item) => item.textContent.trim() === nameLanguage
+      );
+      languageCurrent.classList.add("active");
+    }
   };
 }
 
