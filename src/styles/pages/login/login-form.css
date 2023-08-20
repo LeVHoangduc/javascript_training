@@ -13,7 +13,7 @@
   margin-top: 100px;
   padding: 45px 0;
   border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-color), 0 8px 16px var(--shadow-color);
 }
 
 .login-form__header {
