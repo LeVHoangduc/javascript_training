@@ -18,7 +18,14 @@ class Language {
    * @param {Object} languageData - The card object to be added.
    * @returns {Promise<Boolean>} A promise that resolves with the result of adding the card.
    */
-  addLanguage = (languageData) => this.apiService.postItem(languageData);
+  // addLanguage = (languageData) => this.apiService.postItem(languageData);
+  addLanguage = async (languageData) => {
+    const languageList = await this.getLanguageList();
+
+    const isExist = languageList.some((language) => language.language === languageData.language);
+
+    return isExist ? false : this.apiService.postItem(languageData);
+  };
 
   /**
    * Method to delete a language based on its ID.

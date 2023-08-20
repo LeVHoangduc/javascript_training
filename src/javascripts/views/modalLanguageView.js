@@ -1,4 +1,4 @@
-import { FORM_TYPES, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
+import { FORM_TYPES, ERROR_MESSAGE } from "../constants/constants";
 import ValidationService from "../services/validationService";
 import Error from "./errorView";
 
@@ -26,7 +26,7 @@ class ModalLanguageView {
    * @param {Function} saveLanguage - The function to save the language data.
    * @param {Function} updateLanguageView - The function to update the language view.
    */
-  addEventAddLanguage = (saveLanguage, updateLanguageView) => {
+  addEventAddLanguage = (saveLanguage, updateLanguageView, toast) => {
     const btnSave = this.formLanguageEL.btnSave;
     const btnCancel = this.formLanguageEL.btnCancel;
 
@@ -49,9 +49,10 @@ class ModalLanguageView {
       if (isValidation) {
         await saveLanguage(languageData);
 
+        this.resetForm();
         this.closeForm();
         updateLanguageView();
-      } else alert(ERROR_MESSAGE.INVALID_INFORMATION);
+      }
     });
 
     btnCancel.addEventListener("click", () => {

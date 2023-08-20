@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { helpers } from "../helpers/helpers";
-import { CARD_ACTIONS, STATE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
+import { STATE, MESSAGE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
 
 class Controller {
   /**
@@ -194,9 +194,11 @@ class Controller {
       ...languageData,
     };
     try {
-      await this.model.language.addLanguage(newLanguage);
+      const isAdd = await this.model.language.addLanguage(newLanguage);
 
-      this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.ADD_LANGUAGE);
+      isAdd
+        ? this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.ADD_LANGUAGE)
+        : this.view.toastView.showToast(STATE.failed, MESSAGE.EXIST_LANGUAGE);
     } catch (error) {
       this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.ADD_LANGUAGE);
     }

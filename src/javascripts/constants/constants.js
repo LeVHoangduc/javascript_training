@@ -15,6 +15,8 @@ export const MESSAGE = {
 
   CARD_CONFIRM_MESSAGE: "Do you want to delete this card",
   LANGUAGE_CONFIRM_MESSAGE: "Do you want to delete this language",
+
+  EXIST_LANGUAGE: "Language is exist",
 };
 
 /**
@@ -23,12 +25,18 @@ export const MESSAGE = {
 export const ERROR_MESSAGE = {
   LOGIN_VALIDATION: "Login failed, please check your username or password",
   INVALID_INFORMATION: "Something maybe is wrong in your information!",
+
   ADD_CARD: "Couldn't add card",
-  EDIT_CARD: "Couldn't edit card",
   ADD_LANGUAGE: "Couldn't add language",
+
+  EDIT_CARD: "Couldn't edit card",
+
   DELETE_CARD: "Couldn't add card ",
   DELETE_LANGUAGE: "Couldn't add language ",
-  GET_LANGUAGE_LIST: "Server error! Couldn't load language",
+
+  GET_LANGUAGE_LIST: "Server error! Couldn't load language list",
+  GET_CARD_LIST: "Server error! Couldn't load card list",
+
   SERVER_ERROR: "Server Error! Please try again later",
 };
 
@@ -38,8 +46,10 @@ export const ERROR_MESSAGE = {
 export const SUCCESS_MESSAGE = {
   LOGIN_VALIDATION: "Login successfully",
   ADD_CARD: "Add card successfully",
-  EDIT_CARD: "Edit card successfully",
   ADD_LANGUAGE: "Add language successfully",
+
+  EDIT_CARD: "Edit card successfully",
+
   DELETE_CARD: "Delete card successfully",
   DELETE_LANGUAGE: "Delete language successfully",
 };
@@ -67,9 +77,4 @@ export const FORM_TYPES = {
   user: "user",
   card: "card",
   language: "language",
-};
-
-export const CARD_ACTIONS = {
-  add: "add",
-  edit: "edit",
 };
