@@ -39,14 +39,10 @@ class ModalCardView {
       const isValidation = this.isValidation(inputCheck);
 
       if (isValidation) {
-        const methodSuccess = await saveCard(cardData);
+        await saveCard(cardData);
 
-        if (methodSuccess.isSuccess) {
-          loadCards(cardData.language);
-          methodSuccess.type === "add"
-            ? alert(SUCCESS_MESSAGE.ADD_CARD)
-            : alert(SUCCESS_MESSAGE.EDIT_CARD);
-        }
+        loadCards(cardData.language);
+
         this.resetForm();
         this.closeForm();
       }

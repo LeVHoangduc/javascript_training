@@ -47,9 +47,7 @@ class ModalLanguageView {
       const isValidation = this.isValidation(inputCheck);
 
       if (isValidation) {
-        const isAddSuccess = await saveLanguage(languageData);
-
-        isAddSuccess ? alert(SUCCESS_MESSAGE.ADD_LANGUAGE) : alert(ERROR_MESSAGE.ADD_LANGUAGE);
+        await saveLanguage(languageData);
 
         this.closeForm();
         updateLanguageView();

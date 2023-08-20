@@ -1,0 +1,41 @@
+.toast {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 15px 30px;
+  border-radius: 15px;
+
+  visibility: hidden;
+}
+
+.toast--failed {
+  background-color: var(--error-color);
+  visibility: visible;
+}
+
+.toast--success {
+  background-color: var(--success-color);
+  visibility: visible;
+}
+
+.toast--failed .toast__icon {
+  width: 40px;
+  height: 40px;
+  background-image: url("../../assets/icons/toast-failed.svg");
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
+.toast--success .toast__icon {
+  width: 40px;
+  height: 40px;
+  background-image: url("../../assets/icons/toast-success.svg");
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}

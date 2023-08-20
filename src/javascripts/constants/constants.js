@@ -24,7 +24,11 @@ export const ERROR_MESSAGE = {
   LOGIN_VALIDATION: "Login failed, please check your username or password",
   INVALID_INFORMATION: "Something maybe is wrong in your information!",
   ADD_CARD: "Couldn't add card",
+  EDIT_CARD: "Couldn't edit card",
   ADD_LANGUAGE: "Couldn't add language",
+  DELETE_CARD: "Couldn't add card ",
+  DELETE_LANGUAGE: "Couldn't add language ",
+  GET_LANGUAGE_LIST: "Server error! Couldn't load language",
   SERVER_ERROR: "Server Error! Please try again later",
 };
 
@@ -49,6 +53,11 @@ export const REGEX = {
   LANGUAGE: /^[^\d\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/,
   CONTENT: /^.{1,128}$/,
   IMAGE: /^https?:\/\/.*\.(jpg|jpeg|png|gif|bmp)$/,
+};
+
+export const STATE = {
+  success: "success",
+  failed: "failed",
 };
 
 /**

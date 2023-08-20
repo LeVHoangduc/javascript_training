@@ -6,6 +6,11 @@ class Helpers {
    * @returns {string} The saved category.
    */
   saveCategoryCurrent = (categoryCurrent) => (this.categoryCurrent = categoryCurrent);
+
+  wait = (time) =>
+    new Promise((resolve) => {
+      setTimeout(() => resolve(), time);
+    });
 }
 
 export const helpers = new Helpers();

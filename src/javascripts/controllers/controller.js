@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { helpers } from "../helpers/helpers";
-import { CARD_ACTIONS } from "../constants/constants";
+import { CARD_ACTIONS, STATE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
 
 class Controller {
   /**
@@ -51,7 +51,8 @@ class Controller {
       this.deleteCard,
       this.deleteLanguage,
       this.updateLanguageView,
-      this.updatePage
+      this.updatePage,
+      this.toast
     );
   };
 
@@ -115,9 +116,9 @@ class Controller {
     try {
       await this.model.card.deleteCard(id);
 
-      return true;
+      this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.DELETE_CARD);
     } catch (error) {
-      return false;
+      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.DELETE_CARD);
     }
   };
 
@@ -143,39 +144,24 @@ class Controller {
    * @returns {Promise<boolean>} - A Promise that resolves to true if add success, otherwise false.
    */
   saveCard = async (cardCurrent) => {
-    let methodCard = {
-      isSuccess: false,
-      type: "",
-    };
+    if (cardCurrent.id) {
+      try {
+        await this.model.card.editCard(cardCurrent);
 
-    if (!cardCurrent.id) {
+        this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.EDIT_CARD);
+      } catch (error) {
+        this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.EDIT_CARD);
+      }
+    } else {
       const newCard = { id: uuidv4(), ...cardCurrent };
 
       try {
         await this.model.card.addCard(newCard);
 
-        methodCard = {
-          isSuccess: true,
-          type: CARD_ACTIONS.add,
-        };
-
-        return methodCard;
+        this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.ADD_CARD);
       } catch (error) {
-        return false;
+        this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.ADD_CARD);
       }
-    }
-
-    try {
-      await this.model.card.editCard(cardCurrent);
-
-      methodCard = {
-        isSuccess: true,
-        type: CARD_ACTIONS.edit,
-      };
-
-      return methodCard;
-    } catch (error) {
-      return false;
     }
   };
 
@@ -193,7 +179,7 @@ class Controller {
 
       return languageList;
     } catch (error) {
-      return false;
+      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.GET_LANGUAGE_LIST);
     }
   };
 
@@ -210,9 +196,9 @@ class Controller {
     try {
       await this.model.language.addLanguage(newLanguage);
 
-      return true;
+      this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.ADD_LANGUAGE);
     } catch (error) {
-      return false;
+      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.ADD_LANGUAGE);
     }
   };
 
@@ -220,9 +206,9 @@ class Controller {
     try {
       await this.model.language.deleteLanguage(id);
 
-      return true;
+      this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.DELETE_LANGUAGE);
     } catch (error) {
-      return false;
+      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.DELETE_LANGUAGE);
     }
   };
 

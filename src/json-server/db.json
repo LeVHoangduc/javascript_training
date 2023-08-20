@@ -126,15 +126,6 @@
       "captionPhoto": "https://images.ctfassets.net/awpxl2koull4/33guHHuo0EmeKUMAEESw2a/6c5c0b0a860a70d86b4dc9c72654e72b/goodbye-blue.jpg"
     },
     {
-      "id": "rxQewZW",
-      "language": "english",
-      "word": "Ni Hao Ma sa dsads",
-      "type": "adverb",
-      "meaning": "dasdas",
-      "description": "sdsa",
-      "captionPhoto": ""
-    },
-    {
       "id": "CUGaMCu",
       "language": "china",
       "word": "Ni Hao Ma sa dsads",
@@ -144,21 +135,12 @@
       "captionPhoto": ""
     },
     {
-      "id": "kFDYXRT",
+      "id": "-8Aj0ku",
       "language": "english",
-      "word": "a",
+      "word": "사랑",
       "type": "adverb",
-      "meaning": "a",
-      "description": "a",
-      "captionPhoto": ""
-    },
-    {
-      "id": "sJ0kN_O",
-      "language": "english",
-      "word": "das",
-      "type": "adverb",
-      "meaning": "dsa",
-      "description": "dsadsa",
+      "meaning": "dasdas",
+      "description": "jnjkmmmmkmkj",
       "captionPhoto": ""
     }
   ],
@@ -180,16 +162,12 @@
       "language": "korea"
     },
     {
-      "id": "3c11ef91-0566-44f8-bb66-6826dfdfcbe6",
-      "language": "das"
-    },
-    {
-      "id": "f9d45cc3-b447-45d2-9963-89c5c0ec3a66",
-      "language": "dasdas"
-    },
-    {
       "id": "272dccfd-bfcc-4ea4-a69f-f98e3d45addc",
       "language": "dasdasdasda"
+    },
+    {
+      "id": "93dcac71-ab59-4074-993d-0cc2d67f2d49",
+      "language": "malay"
     }
   ]
 }

@@ -13,7 +13,7 @@ class ModalConfirm {
    * @param {Function} updateLanguageView - Function to update the language view.
    * @param {Function} updatePage - Function to update the page.
    */
-  addEventConfirm = (deleteCard, deleteLanguage, updateLanguageView, updatePage) => {
+  addEventConfirm = (deleteCard, deleteLanguage, updateLanguageView, updatePage, toast) => {
     this.confirmFormEl.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -23,12 +23,12 @@ class ModalConfirm {
       // send id to database
       if (type === "language") {
         await deleteLanguage(id);
+
         updateLanguageView();
-        alert(SUCCESS_MESSAGE.DELETE_LANGUAGE);
       } else {
         await deleteCard(id);
+
         updatePage();
-        alert(SUCCESS_MESSAGE.DELETE_CARD);
       }
 
       this.closeForm();

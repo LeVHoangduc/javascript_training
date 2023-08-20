@@ -5,6 +5,7 @@ import ModalLanguageView from "./modalLanguageView";
 import ModalConfirmView from "./modalConfirmView";
 import ModalCardView from "./modalCardView";
 import ModalDetailView from "./modalDetailView";
+import ToastView from "./toastView";
 
 class View {
   constructor() {
@@ -14,7 +15,8 @@ class View {
     this.modalLanguageView = new ModalLanguageView();
     this.modalDetailView = new ModalDetailView();
     this.modalConfirm = new ModalConfirmView();
-    this.modalCardView = new ModalCardView(); // for add
+    this.modalCardView = new ModalCardView();
+    this.toastView = new ToastView();
   }
 }
 
