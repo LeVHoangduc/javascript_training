@@ -1,24 +1,15 @@
 .modal-confirm {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  background-color: var(--overlay-color);
-  z-index: 1;
-}
-
-.modal-confirm__wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  display: none;
   border-radius: 15px;
   background-color: var(--light-color);
   box-shadow: 0px 0px 60px var(--shadow-color);
   backdrop-filter: blur(2px);
+  transform: translate(-50%, -50%);
   overflow: hidden;
+  z-index: 1;
 }
 
 .modal-confirm__message {

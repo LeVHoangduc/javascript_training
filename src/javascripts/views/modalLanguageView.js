@@ -8,8 +8,10 @@ class ModalLanguageView {
     this.error = new Error();
 
     this.btnAddLanguage = document.querySelector(".language__add");
-    // this is modal language for show form language
+
     this.formLanguageEL = document.querySelector(".modal-language");
+
+    this.overlayEl = document.querySelector(".overlay");
   }
 
   // ---- EVENT LISTENER ---- //
@@ -18,6 +20,8 @@ class ModalLanguageView {
     this.btnAddLanguage.addEventListener("click", (e) => {
       e.preventDefault();
       this.formLanguageEL.classList.add("open");
+
+      this.overlayEl.classList.add("open");
     });
   };
 
@@ -69,6 +73,8 @@ class ModalLanguageView {
 
   closeForm = () => {
     this.formLanguageEL.classList.remove("open");
+
+    this.overlayEl.classList.remove("open");
   };
 
   /**

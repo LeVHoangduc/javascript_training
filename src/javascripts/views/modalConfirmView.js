@@ -4,6 +4,8 @@ class ModalConfirm {
   constructor() {
     this.confirmFormEl = document.querySelector(".modal-confirm");
     this.btnCancelEl = this.confirmFormEl?.cancel;
+
+    this.overlayEl = document.querySelector(".overlay");
   }
 
   /**
@@ -45,6 +47,8 @@ class ModalConfirm {
     this.confirmFormEl.classList.remove("open");
     this.confirmFormEl.removeAttribute("data-id");
     this.confirmFormEl.removeAttribute("type");
+
+    this.overlayEl.classList.remove("open");
   };
 }
 

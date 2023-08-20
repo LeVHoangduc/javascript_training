@@ -18,6 +18,8 @@ class ModalDetailView {
     this.descriptionPhoto = document.querySelector(".modal-detail__picture");
 
     this.cardListEl = document.querySelector(".card__list");
+
+    this.overlayEl = document.querySelector(".overlay");
   }
 
   //----- EVENT HANDLER -----//
@@ -41,6 +43,8 @@ class ModalDetailView {
         this.description.textContent = `${cardData.description}`;
         this.descriptionPhoto.src = `${cardData.descriptionPhoto}`;
         this.detailFormEl.classList.add("open");
+
+        this.overlayEl.classList.add("open");
       }
     });
   };
@@ -49,6 +53,8 @@ class ModalDetailView {
     this.btnFormDetailEl.close.addEventListener("click", (e) => {
       e.preventDefault();
       this.detailFormEl.classList.remove("open");
+
+      this.overlayEl.classList.remove("open");
       // this.detailFormEl.removeAttribute("data-id");
     });
   };
@@ -93,6 +99,8 @@ class ModalDetailView {
   openConfirmDelete = () => {
     this.confirmFormEl.classList.add("open");
     this.detailFormEl.classList.remove("open");
+
+    this.overlayEl.classList.remove("open");
   };
 
   /**

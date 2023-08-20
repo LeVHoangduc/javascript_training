@@ -7,6 +7,8 @@ class LanguageView {
     this.cardFormEl = document.querySelector(".modal-card");
 
     this.confirmFormEl = document.querySelector(".modal-confirm");
+
+    this.overlayEl = document.querySelector(".overlay");
   }
 
   //----- EVENT HANDLER -----//
@@ -86,6 +88,8 @@ class LanguageView {
 
   openConfirmDelete = () => {
     this.confirmFormEl.classList.add("open");
+
+    this.overlayEl.classList.add("open");
   };
 
   switchLanguage = (languageEl) => {

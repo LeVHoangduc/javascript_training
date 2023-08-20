@@ -81,15 +81,6 @@
       "captionPhoto": "https://images.ctfassets.net/awpxl2koull4/33guHHuo0EmeKUMAEESw2a/6c5c0b0a860a70d86b4dc9c72654e72b/goodbye-blue.jpg"
     },
     {
-      "id": "30b74ae1-627b-4598-bf52-5ea37cf0fcdc",
-      "language": "english",
-      "word": "bye",
-      "type": "verb",
-      "meaning": "tạm biệt",
-      "description": "Tạm biệt! Gặp lại bạn vào tuần tới.",
-      "captionPhoto": "https://thumbs.dreamstime.com/z/korean-love-sign-hand-folded-heart-symbol-i-you-gesture-vector-illustration-185192788.jpg"
-    },
-    {
       "id": "EdlUGKm",
       "language": "china",
       "word": "和平 ",
@@ -135,12 +126,12 @@
       "captionPhoto": ""
     },
     {
-      "id": "-8Aj0ku",
+      "id": "kOxk_Jn",
       "language": "english",
-      "word": "사랑",
-      "type": "adverb",
-      "meaning": "dasdas",
-      "description": "jnjkmmmmkmkj",
+      "word": "再见",
+      "type": "adjective",
+      "meaning": "xin chào",
+      "description": "dasdasas",
       "captionPhoto": ""
     }
   ],

@@ -26,6 +26,7 @@ class Controller {
     this.initModalDetail();
     this.initModalLanguageView();
     this.initCardView();
+    this.initOverLay();
   };
 
   //----- LOGIN CONTROLLER          -----//
@@ -74,6 +75,9 @@ class Controller {
     this.view.modalLanguageView.addEventAddLanguage(this.saveLanguage, this.updateLanguageView);
   };
 
+  initOverLay = () => {
+    this.view.overlayView.addEventClickOutSide();
+  };
   //----- METHOD                   -----//
 
   /**

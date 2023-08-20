@@ -45,82 +45,88 @@
 
     <!-- modal detail -->
     <form class="modal-detail">
-      <div class="modal-detail__wrapper">
-        <div class="modal-detail__header">
-          <img
-            class="modal-detail__picture"
-            src="https://th.bing.com/th/id/R.f6d19108472c1a6c0883cc3c5f1f28ac?rik=pA22UQYQWktZcg&riu=http%3a%2f%2fobrazki.4ever.eu%2fdata%2fdownload%2frysunkowe%2fhello%2c-rysunkowa-postac%2c-chmury-235781.jpg%3fno-logo&ehk=bfeXHm%2bGU3NSDQf4bHxC1DewSvuDQRZ1qfKHlQHeu6o%3d&risl=&pid=ImgRaw&r=0"
-            alt="picture"
-          />
-          <img src="assets/icons/close.svg" alt="icon-close" class="modal-detail__close" />
-        </div>
-        <div class="modal-detail__body">
-          <p class="text text--xxl modal-detail__meaning">Xin Chào</p>
-          <!-- <p class="text text--blue text--3xl modal-detail__type" name>Danh từ</p> -->
-          <p class="text text--lg modal-detail__description">
-            Lời chào trang trọng khi mới gặp mặt.
-          </p>
-        </div>
-        <div class="modal-detail__buttons">
-          <button class="btn btn--delete modal-detail__button__delete" name="delete">Delete</button>
-          <button class="btn btn--save modal-detail__button__edit" name="edit">Edit</button>
-        </div>
+      <div class="modal-detail__header">
+        <img
+          class="modal-detail__picture"
+          src="https://th.bing.com/th/id/R.f6d19108472c1a6c0883cc3c5f1f28ac?rik=pA22UQYQWktZcg&riu=http%3a%2f%2fobrazki.4ever.eu%2fdata%2fdownload%2frysunkowe%2fhello%2c-rysunkowa-postac%2c-chmury-235781.jpg%3fno-logo&ehk=bfeXHm%2bGU3NSDQf4bHxC1DewSvuDQRZ1qfKHlQHeu6o%3d&risl=&pid=ImgRaw&r=0"
+          alt="picture"
+        />
+        <img src="assets/icons/close.svg" alt="icon-close" class="modal-detail__close" />
+      </div>
+      <div class="modal-detail__body">
+        <p class="text text--xxl modal-detail__meaning">Xin Chào</p>
+        <p class="text text--lg modal-detail__description">Lời chào trang trọng khi mới gặp mặt.</p>
+      </div>
+      <div class="modal-detail__buttons">
+        <button class="btn btn--delete modal-detail__button__delete" name="delete">Delete</button>
+        <button class="btn btn--save modal-detail__button__edit" name="edit">Edit</button>
       </div>
     </form>
 
     <!-- modal card -->
     <form class="modal-card">
-      <div class="modal-card__wrapper">
-        <div class="modal-card__header">
-          <p class="text text--lg text--extrabold text--light">Add your vocabulary</p>
-          <img src="assets/images/add-image.png" alt="logo" />
+      <div class="modal-card__header">
+        <p class="text text--xxl text--extrabold text--light">Add your vocabulary</p>
+        <img src="assets/images/add-image.png" alt="logo" />
+      </div>
+      <div class="modal-card__body">
+        <div class="modal-card__inputs">
+          <label for="language" class="text text--md">Select language*</label>
+          <select name="language" id="language" class="text modal-card__select">
+            <!-- render selection-->
+          </select>
         </div>
-        <div class="modal-card__body">
-          <div class="modal-card__inputs">
-            <label for="language" class="text text--md">Select language*</label>
-            <select name="language" id="language" class="modal-card__select">
-              <option value="english" selected class="text text--capitalize">English</option>
-              <!-- render selection-->
-            </select>
-          </div>
-          <div class="modal-card__inputs">
-            <label for="vocabulary" class="text text--md">Vocabulary*</label>
-            <input type="text" name="word" id="vocabulary" class="modal-card__input" />
-            <p class="text text--sm">error</p>
-          </div>
-          <div class="modal-card__inputs">
-            <label for="type" class="text text--md">Type*</label>
-            <select name="type" id="type" class="modal-card__select">
-              <option value="noun" selected class="text text--capitalize">Noun</option>
-              <option value="verb" selected class="text text--capitalize">Verb</option>
-              <option value="adjective" selected class="text text--capitalize">Adjective</option>
-              <option value="adverb" selected class="text text--capitalize">Adverb</option>
-            </select>
-          </div>
-          <div class="modal-card__inputs">
-            <label for="meaning" class="text text--md">Meaning*</label>
-            <input type="text" name="meaning" id="meaning" class="modal-card__input" />
-            <p class="text text--sm">error</p>
-          </div>
-          <div class="modal-card__inputs">
-            <label for="caption-photo" class="text text--md">Caption photo</label>
-            <input type="text" id="caption-photo" name="captionPhoto" class="modal-card__input" />
-            <p class="text text--sm">error</p>
-          </div>
-          <div class="modal-card__inputs">
-            <label for="description" class="text text--md">Description*</label>
-            <textarea id="description" name="description" class="modal-card__input"></textarea>
-            <p class="text text--sm">error</p>
-          </div>
+        <div class="modal-card__inputs">
+          <label for="type" class="text text--md">Type*</label>
+          <select name="type" id="type" class="text modal-card__select">
+            <option value="noun" selected class="text text--capitalize">Noun</option>
+            <option value="verb" selected class="text text--capitalize">Verb</option>
+            <option value="adjective" selected class="text text--capitalize">Adjective</option>
+            <option value="adverb" selected class="text text--capitalize">Adverb</option>
+          </select>
         </div>
-        <div class="modal-card__footer">
-          <button type="submit" name="btnSave" class="btn btn--submit modal-card__save">
-            Save
-          </button>
-          <button type="button" name="btnCancel" class="btn btn--delete modal-card__cancel">
-            Cancel
-          </button>
+        <div class="modal-card__inputs">
+          <label for="vocabulary" class="text text--md">Vocabulary*</label>
+          <input
+            type="text"
+            name="word"
+            id="vocabulary"
+            class="text text--input modal-card__input"
+          />
+          <p class="text text--sm">error</p>
         </div>
+        <div class="modal-card__inputs">
+          <label for="meaning" class="text text--md">Meaning*</label>
+          <input
+            type="text"
+            name="meaning"
+            id="meaning"
+            class="text text--input modal-card__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="caption-photo" class="text text--md">Caption photo</label>
+          <input
+            type="text"
+            id="caption-photo"
+            name="captionPhoto"
+            class="text text--input modal-card__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="description" class="text text--md">Description*</label>
+          <textarea
+            id="description"
+            name="description"
+            class="text text--input modal-card__input modal-card__input--textarea"
+          ></textarea>
+          <p class="text text--sm">error</p>
+        </div>
+      </div>
+      <div class="modal-card__footer">
+        <button type="submit" name="btnSave" class="btn btn--submit modal-card__save">Save</button>
       </div>
     </form>
 
@@ -149,24 +155,25 @@
 
     <!-- modal confirm -->
     <form class="modal-confirm">
-      <div class="modal-confirm__wrapper open">
-        <p class="modal-confirm__message text text--lg text--center">
-          Do you want to delete language
-        </p>
-        <div class="modal-confirm__buttons">
-          <button type="submit" name="delete" class="btn btn--delete modal-confirm__delete">
-            Yes
-          </button>
-          <button type="button" name="cancel" class="btn btn--submit">Cancel</button>
-        </div>
+      <p class="modal-confirm__message text text--lg text--center">
+        Do you want to delete language
+      </p>
+      <div class="modal-confirm__buttons">
+        <button type="submit" name="delete" class="btn btn--delete modal-confirm__delete">
+          Yes
+        </button>
+        <button type="button" name="cancel" class="btn btn--submit">Cancel</button>
       </div>
     </form>
 
-    <!-- Start snackbar -->
+    <!-- Start toast -->
     <div class="toast">
       <div class="toast__icon"></div>
       <p class="text text--md text--light toast__message">Add card successfully</p>
     </div>
+
+    <!-- Start overlay -->
+    <div class="overlay"></div>
 
     <script type="module" src="./javascripts/main.js"></script>
   </body>

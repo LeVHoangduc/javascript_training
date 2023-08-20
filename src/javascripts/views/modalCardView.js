@@ -1,4 +1,4 @@
-import { FORM_TYPES, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
+import { FORM_TYPES } from "../constants/constants";
 import ValidationService from "../services/validationService";
 import Error from "./errorView";
 
@@ -9,7 +9,8 @@ class ModalCardView {
 
     this.cardFormEl = document.querySelector(".modal-card");
     this.btnAddEl = document.querySelector(".cards__add");
-    this.btnCancelEl = document.querySelector(".modal-card__cancel");
+
+    this.overlayEl = document.querySelector(".overlay");
   }
 
   //----- EVENT HANDLER -----//
@@ -52,13 +53,17 @@ class ModalCardView {
   addEventOpenFormListener = () => {
     this.btnAddEl.addEventListener("click", () => {
       this.cardFormEl.classList.add("open");
+
+      this.overlayEl.classList.add("open");
     });
   };
 
   addEventCloseFormListener = () => {
-    this.btnCancelEl?.addEventListener("click", () => {
-      this.resetForm();
-      this.closeForm();
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        this.resetForm();
+        this.closeForm();
+      }
     });
   };
 
@@ -66,6 +71,7 @@ class ModalCardView {
 
   closeForm = () => {
     this.cardFormEl.classList.remove("open");
+    this.overlayEl.classList.remove("open");
   };
 
   resetForm = () => {

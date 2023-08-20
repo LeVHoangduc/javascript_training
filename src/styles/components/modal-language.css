@@ -1,20 +1,8 @@
 .modal-language {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  background-color: var(--overlay-color);
-  z-index: 1;
-}
-
-.modal-language__wrapper {
-  position: fixed;
   left: 50%;
   top: 50%;
-  display: flex;
-  flex-direction: column;
+  display: none;
   width: 550px;
   border-radius: 15px;
   background: var(--light-color);
@@ -81,5 +69,6 @@
 }
 
 .modal-language.open {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
