@@ -16,40 +16,36 @@
 
     <main class="main-content container">
       <form class="login-form" novalidate>
-        <div class="login-form__header">
-          <p class="text text--xxl text--extrabold">Welcome back</p>
-          <img src="assets/images/login-image.png" alt="login-image" />
-        </div>
-        <div class="login-form__body">
-          <div class="login-form__inputs">
-            <label for="username">
-              <img src="assets/icons/username.svg" alt="username" class="login-form__icon" />
-            </label>
-            <input
-              type="email"
-              placeholder="Email"
-              id="username"
-              name="email"
-              class="login-form__input"
-            />
-            <p>error</p>
+        <div class="login-form__wrapper">
+          <div class="login-form__header">
+            <p class="text text--xxl text--extrabold">Welcome back</p>
+            <img src="assets/images/login-image.png" alt="login-image" />
           </div>
-          <div class="login-form__inputs">
-            <label for="password">
-              <img src="assets/icons/password.svg" alt="password" class="login-form__icon" />
-            </label>
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              name="password"
-              class="login-form__input"
-            />
-            <p>error</p>
+          <div class="login-form__body">
+            <div class="login-form__inputs">
+              <input
+                type="email"
+                placeholder="Email"
+                id="username"
+                name="email"
+                class="text text--input login-form__input"
+              />
+              <p>error</p>
+            </div>
+            <div class="login-form__inputs">
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+                class="text text--input login-form__input"
+              />
+              <p>error</p>
+            </div>
+            <button type="submit" class="text text--light btn btn--submit login-form__button">
+              Login
+            </button>
           </div>
-          <button type="submit" class="text text--light btn btn--submit login-form__button">
-            Login
-          </button>
         </div>
       </form>
     </main>

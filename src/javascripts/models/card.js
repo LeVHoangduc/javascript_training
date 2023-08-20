@@ -41,9 +41,10 @@ class Card {
 
   findCard = async (searchData) => {
     const cardList = await this.getCardList();
-    const card = cardList.filter((card) => card.word.toLowerCase().includes(searchData));
 
-    return card;
+    return searchData === ""
+      ? []
+      : cardList.filter((card) => card.word.toLowerCase().includes(searchData));
   };
 }
 
