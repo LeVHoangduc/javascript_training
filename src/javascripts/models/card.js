@@ -39,7 +39,7 @@ class Card {
    */
   editCard = async (cardCurrent) => await this.apiService.updateItem(cardCurrent.id, cardCurrent);
 
-  searchCard = async (searchData) => {
+  findCard = async (searchData) => {
     const cardList = await this.getCardList();
     const card = cardList.filter((card) => card.word.toLowerCase().includes(searchData));
 

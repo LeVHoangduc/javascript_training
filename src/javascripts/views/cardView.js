@@ -6,17 +6,18 @@ class CardView {
     this.error = new Error();
 
     this.cardListEl = document.querySelector(".card__list");
-    this.searchEl = document.querySelector(".header__search__input");
+    this.inputEl = document.querySelector(".header__search__input");
+    this.searchEL = document.querySelector(".header__search__icon");
   }
 
   //----- EVENT LISTENER -----//
+  addEventFindCard = (findCard) => {
+    this.searchEL.addEventListener("click", async () => {
+      let inputData = this.inputEl.value.toLowerCase();
 
-  addEventSearchContact = (findCard) => {
-    this.searchEl.addEventListener("keyup", async (e) => {
-      let searchData = e.target.value.toLowerCase();
-      const cards = await findCard(searchData);
-      // console.log(card);
-      this.renderSearchCard(cards);
+      const isCard = await findCard(inputData);
+
+      this.renderFindCard(isCard);
     });
   };
   //----- RENDERING -----//
@@ -56,7 +57,7 @@ class CardView {
     }
   };
 
-  renderSearchCard = (cards) => {
+  renderFindCard = (cards) => {
     this.cardListEl.innerHTML = "";
     if (cards.length === 0) {
       this.error.showEmpty();

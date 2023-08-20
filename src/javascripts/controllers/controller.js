@@ -42,7 +42,7 @@ class Controller {
   };
 
   initCardView = () => {
-    this.view.cardView.addEventSearchContact(this.findCard);
+    this.view.cardView.addEventFindCard(this.findCard);
   };
   //----- MODAL CONTROLLER          -----//
 
@@ -181,7 +181,7 @@ class Controller {
 
   findCard = async (searchData) => {
     try {
-      return await this.model.card.searchCard(searchData);
+      return await this.model.card.findCard(searchData);
     } catch (error) {
       return false;
     }
