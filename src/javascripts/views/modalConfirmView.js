@@ -1,8 +1,8 @@
-import { SUCCESS_MESSAGE } from "../constants/constants";
-
 class ModalConfirm {
   constructor() {
     this.confirmFormEl = document.querySelector(".modal-confirm");
+    this.confirmMessageEl = document.querySelector(".modal-confirm__message");
+
     this.btnCancelEl = this.confirmFormEl?.cancel;
 
     this.overlayEl = document.querySelector(".overlay");
@@ -15,7 +15,7 @@ class ModalConfirm {
    * @param {Function} updateLanguageView - Function to update the language view.
    * @param {Function} updatePage - Function to update the page.
    */
-  addEventConfirm = (deleteCard, deleteLanguage, updateLanguageView, updatePage, toast) => {
+  addEventConfirm = (deleteCard, deleteLanguage, updateLanguageView, updatePage) => {
     this.confirmFormEl.addEventListener("submit", async (e) => {
       e.preventDefault();
 

@@ -171,15 +171,6 @@
       "captionPhoto": ""
     },
     {
-      "id": "crutOnA",
-      "language": "english",
-      "word": "xsdas",
-      "type": "adverb",
-      "meaning": "dsadas",
-      "description": "dasdsa",
-      "captionPhoto": ""
-    },
-    {
       "id": "QBpmeNK",
       "language": "buncha",
       "word": "dsa",
@@ -204,15 +195,6 @@
       "type": "adverb",
       "meaning": "Từ vựng",
       "description": "dasas",
-      "captionPhoto": ""
-    },
-    {
-      "id": "Wemody_",
-      "language": "english",
-      "word": "再见",
-      "type": "adverb",
-      "meaning": "xin chào",
-      "description": "dsadsa",
       "captionPhoto": ""
     },
     {
@@ -259,10 +241,6 @@
     {
       "id": "18b5ca6c-4425-4cfd-87c6-a2f09eb23d32",
       "language": "korea"
-    },
-    {
-      "id": "65ee7368-0949-4b1c-bb22-7dfbd71ef512",
-      "language": "buncha"
     }
   ]
 }

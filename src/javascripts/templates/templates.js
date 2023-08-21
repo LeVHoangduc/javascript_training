@@ -8,10 +8,8 @@ class Template {
    */
   static renderLanguage = (language) =>
     `
-      <li class="text text--xl text--capitalize language__item" data-id="${
-        language.id
-      }" type="language">
-        ${language.language}
+      <li class="language__item" data-id="${language.id}" type="language">
+          <p class="text text--xl text--capitalize">${language.language} </p>
         <img src="${require("../../assets/icons/delete.svg")}" alt="icon-delete" class="language__delete" />
       </li>`;
 
@@ -22,10 +20,10 @@ class Template {
    */
   static renderCard = (card) =>
     `
-      <div class="card" data-id="${card.id}">
+      <div class="card" data-id="${card.id}" type="card">
         <img class="card__picture" src="${
           card.captionPhoto ? card.captionPhoto : require("../../assets/images/flash-card.png")
-        }" alt="picture" type="card"/>
+        }" alt="picture" />
         <p class="text text--lg card__term">${card.word}</p>
         <p class="text text--blue text--lg card__type">${card.type}</p>
       </div>`;

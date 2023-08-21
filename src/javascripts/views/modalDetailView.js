@@ -12,6 +12,7 @@ class ModalDetailView {
     };
 
     this.confirmFormEl = document.querySelector(".modal-confirm");
+    this.confirmMessageEl = document.querySelector(".modal-confirm__message");
 
     this.meaning = document.querySelector(".modal-detail__meaning");
     this.description = document.querySelector(".modal-detail__description");
@@ -30,13 +31,14 @@ class ModalDetailView {
    */
   addOpenDetailListener = (getCardDetail) => {
     this.cardListEl.addEventListener("click", async (e) => {
-      const cardEl = e.target.closest(".card");
+      this.cardEl = e.target.closest(".card");
+      console.log(this.cardEl);
 
-      const imageDefault = cardEl.querySelector(".card__picture").getAttribute("src");
+      const imageDefault = this.cardEl.querySelector(".card__picture").getAttribute("src");
 
-      if (cardEl) {
+      if (this.cardEl) {
         // Get card data and populate the detail form.
-        const cardData = await getCardDetail(cardEl.getAttribute("data-id"));
+        const cardData = await getCardDetail(this.cardEl.getAttribute("data-id"));
 
         this.confirmFormEl.setAttribute("data-id", cardData.id);
 
@@ -66,13 +68,12 @@ class ModalDetailView {
 
   /**
    * Method to add an event listener to the delete button.
-   * @param {Callback} deleteCard - The deleteCard function to pass for confirming deletion.
    */
-  addEventDeleteListener = (deleteCard) => {
+  addEventDeleteListener = () => {
     this.btnFormDetailEl.delete.addEventListener("click", (e) => {
       e.preventDefault();
 
-      this.openConfirmDelete(deleteCard);
+      this.openConfirmDelete();
     });
   };
 
@@ -102,10 +103,17 @@ class ModalDetailView {
   //----- METHOD   -----//
 
   openConfirmDelete = () => {
+    const type = this.cardEl.getAttribute("type");
+
+    const cardContent = this.cardEl.querySelector(".card__term").textContent;
+    const card = cardContent.charAt(0).toUpperCase() + cardContent.slice(1);
+
+    this.confirmFormEl.classList.add("open");
+    this.confirmMessageEl.textContent = `Do you want to delete ${card} ${type}`;
     this.confirmFormEl.classList.add("open");
     this.detailFormEl.classList.remove("open");
 
-    this.overlayEl.classList.remove("open");
+    this.overlayEl.classList.add("open");
   };
 
   /**

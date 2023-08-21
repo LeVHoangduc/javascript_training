@@ -7,6 +7,7 @@ class LanguageView {
     this.cardFormEl = document.querySelector(".modal-card");
 
     this.confirmFormEl = document.querySelector(".modal-confirm");
+    this.confirmMessageEl = document.querySelector(".modal-confirm__message");
 
     this.overlayEl = document.querySelector(".overlay");
   }
@@ -22,10 +23,10 @@ class LanguageView {
     let categoryCurrent;
 
     this.languageListEl.addEventListener("click", (e) => {
-      const languageEl = e.target.closest(".language__item");
+      const languageEl = e.target.closest(".language__item p");
 
       // Pass the selected category to the loadCards function.
-      categoryCurrent = languageEl.textContent.trim();
+      categoryCurrent = languageEl?.textContent.trim();
       loadCards(categoryCurrent);
 
       this.switchLanguage(languageEl);
@@ -42,7 +43,8 @@ class LanguageView {
       button.addEventListener("click", () => {
         this.confirmFormEl.setAttribute("data-id", button.parentElement.getAttribute("data-id"));
         this.confirmFormEl.setAttribute("type", button.parentElement.getAttribute("type"));
-        this.openConfirmDelete();
+
+        this.openConfirmDelete(button);
       });
     });
   };
@@ -85,8 +87,14 @@ class LanguageView {
 
   //----- METHOD -----//
 
-  openConfirmDelete = () => {
+  openConfirmDelete = (button) => {
+    const type = button.parentElement.getAttribute("type");
+
+    const languageData = button.parentElement.querySelector("p").textContent;
+    const language = languageData.charAt(0).toUpperCase() + languageData.slice(1);
+
     this.confirmFormEl.classList.add("open");
+    this.confirmMessageEl.textContent = `Do you want to delete ${language} ${type}`;
 
     this.overlayEl.classList.add("open");
   };
@@ -97,6 +105,7 @@ class LanguageView {
     // remove active in previous language
     languageItem?.classList.remove("active");
 
+<<<<<<< Updated upstream
     // remove active in previous language button
     languageItem?.querySelector(".language__delete").classList.remove("active");
 
@@ -107,6 +116,9 @@ class LanguageView {
       languageEl.querySelector(".language__delete").classList.add("active");
     }
 
+=======
+    if (languageEl) languageEl.parentNode.classList.add("active");
+>>>>>>> Stashed changes
     if (nameLanguage) {
       const languageItemEL = this.languageListEl.querySelectorAll(".language__item");
       const languageCurrent = Array.from(languageItemEL).find(

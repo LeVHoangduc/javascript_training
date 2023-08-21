@@ -17,6 +17,7 @@
   padding: 30px;
   color: var(--light-color);
   background-color: var(--primary-color);
+  line-height: 1.5;
 }
 
 .modal-confirm__buttons {

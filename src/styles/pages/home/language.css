@@ -7,7 +7,7 @@
 
 .language__list {
   display: flex;
-  gap: 60px;
+  gap: 50px;
   padding-bottom: 20px;
   overflow-x: scroll;
 }
@@ -26,14 +26,21 @@
 
 .language__item:hover,
 .language__item.active {
-  color: var(--primary-color);
   border: 1px solid var(--text-color);
 }
 
+.language__item:hover p,
+.language__item.active p {
+  color: var(--primary-color);
+}
+
+.language__item p {
+  padding-right: 30px;
+}
+
 .language__delete {
-  width: 25px;
-  height: 25px;
-  margin-left: 30px;
+  width: 28px;
+  height: 28px;
   opacity: 0.1;
   cursor: pointer;
 }
@@ -53,7 +60,7 @@
 .language__add {
   position: absolute;
   right: 5px;
-  top: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
   opacity: 0.5;
   cursor: pointer;
