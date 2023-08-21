@@ -45,14 +45,6 @@
   cursor: pointer;
 }
 
-.language__delete {
-  visibility: hidden;
-}
-
-.language__delete.active {
-  visibility: visible;
-}
-
 .language__delete:hover {
   opacity: 1;
 }
