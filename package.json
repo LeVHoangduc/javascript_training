@@ -1,22 +1,19 @@
 {
-  "name": "javascript-prepare",
+  "name": "database",
   "version": "1.0.0",
   "description": "",
-  "source": "src/index.html",
+  "main": "src/json-server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf dist && rm -rf .parcel-cache && parcel ./src/*.html --no-cache --no-source-maps --dist-dir dist",
-    "build": "rm -rf dist && rm -rf .parcel-cache && parcel build ./src/*.html --no-cache --no-source-maps --dist-dir dist"
+    "start": "node src/json-server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Duc Le",
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "parcel": "^2.9.3",
-    "process": "^0.11.10",
-    "util": "^0.12.5"
-  },
   "dependencies": {
+    "@ptkdev/logger": "^1.8.0",
+    "cors": "^2.8.5",
+    "json-serve": "^0.1.0",
     "json-server": "^0.17.3",
-    "uuidv4": "^6.2.13"
+    "local-ip-address": "^1.0.0"
   }
 }
