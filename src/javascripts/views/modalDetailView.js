@@ -31,6 +31,9 @@ class ModalDetailView {
   addOpenDetailListener = (getCardDetail) => {
     this.cardListEl.addEventListener("click", async (e) => {
       const cardEl = e.target.closest(".card");
+
+      const imageDefault = cardEl.querySelector(".card__picture").getAttribute("src");
+
       if (cardEl) {
         // Get card data and populate the detail form.
         const cardData = await getCardDetail(cardEl.getAttribute("data-id"));
@@ -41,7 +44,9 @@ class ModalDetailView {
         this.detailFormEl.setAttribute("data-id", cardData.id);
         this.meaning.textContent = `${cardData.meaning}`;
         this.description.textContent = `${cardData.description}`;
-        this.descriptionPhoto.src = `${cardData.descriptionPhoto}`;
+        this.descriptionPhoto.src = `${
+          cardData.captionPhoto ? cardData.captionPhoto : imageDefault
+        }`;
         this.detailFormEl.classList.add("open");
 
         this.overlayEl.classList.add("open");

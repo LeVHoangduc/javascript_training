@@ -12,12 +12,14 @@ class CardView {
 
   //----- EVENT LISTENER -----//
   addEventFindCard = (findCard) => {
-    this.searchEL.addEventListener("click", async () => {
-      let inputData = this.inputEl.value.toLowerCase();
+    this.searchEL.addEventListener("click", () => this.handleFindCard(findCard));
+  };
 
-      const isCard = await findCard(inputData);
-
-      this.renderFindCard(isCard);
+  addEventEnter = (findCard) => {
+    this.inputEl.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") {
+        this.handleFindCard(findCard);
+      }
     });
   };
   //----- RENDERING -----//
@@ -65,6 +67,14 @@ class CardView {
     cards.forEach((card) => {
       this.renderCard(card);
     });
+  };
+
+  handleFindCard = async (findCard) => {
+    let inputData = this.inputEl.value.toLowerCase();
+
+    const isCard = await findCard(inputData);
+
+    this.renderFindCard(isCard);
   };
 }
 

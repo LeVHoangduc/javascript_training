@@ -50,6 +50,7 @@ class Controller {
 
   initCardView = () => {
     this.view.cardView.addEventFindCard(this.findCard);
+    this.view.cardView.addEventEnter(this.findCard);
   };
 
   //----- MODAL CONTROLLER          -----//
