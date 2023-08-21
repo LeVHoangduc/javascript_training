@@ -33,6 +33,8 @@ class LoginView {
         // isUSer ? (window.location.href = "home.html") : alert(`${ERROR_MESSAGE.LOGIN_VALIDATION}`);
 
         if (isUSer) {
+          this.resetForm();
+
           window.location.href = "home.html";
         }
       }
@@ -71,6 +73,11 @@ class LoginView {
     });
 
     return isValid;
+  };
+
+  resetForm = () => {
+    this.loginForm.email.value = "";
+    this.loginForm.password.value = "";
   };
 }
 

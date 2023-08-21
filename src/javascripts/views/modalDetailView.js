@@ -33,7 +33,7 @@ class ModalDetailView {
     this.cardListEl.addEventListener("click", async (e) => {
       this.cardEl = e.target.closest(".card");
 
-      const imageDefault = this.cardEl.querySelector(".card__picture").getAttribute("src");
+      const imageDefault = this.cardEl?.querySelector(".card__picture").getAttribute("src");
 
       if (this.cardEl) {
         // Get card data and populate the detail form.
