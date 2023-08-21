@@ -32,7 +32,6 @@ class ModalDetailView {
   addOpenDetailListener = (getCardDetail) => {
     this.cardListEl.addEventListener("click", async (e) => {
       this.cardEl = e.target.closest(".card");
-      console.log(this.cardEl);
 
       const imageDefault = this.cardEl.querySelector(".card__picture").getAttribute("src");
 
