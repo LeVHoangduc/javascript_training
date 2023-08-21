@@ -112,7 +112,7 @@ class LanguageView {
       languageEl.classList.add("active");
 
       // Active for button delete
-      languageEl.querySelector(".language__delete").classList.add("active");
+      languageEl.querySelector(".language__delete")?.classList.add("active");
     }
 
     if (nameLanguage) {
