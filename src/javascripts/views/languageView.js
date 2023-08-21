@@ -105,7 +105,6 @@ class LanguageView {
     // remove active in previous language
     languageItem?.classList.remove("active");
 
-<<<<<<< Updated upstream
     // remove active in previous language button
     languageItem?.querySelector(".language__delete").classList.remove("active");
 
@@ -116,9 +115,6 @@ class LanguageView {
       languageEl.querySelector(".language__delete").classList.add("active");
     }
 
-=======
-    if (languageEl) languageEl.parentNode.classList.add("active");
->>>>>>> Stashed changes
     if (nameLanguage) {
       const languageItemEL = this.languageListEl.querySelectorAll(".language__item");
       const languageCurrent = Array.from(languageItemEL).find(
