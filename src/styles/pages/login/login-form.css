@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.login-form.hide {
+  display: none;
+}
+
 .login-form__wrapper {
   display: flex;
   justify-content: center;

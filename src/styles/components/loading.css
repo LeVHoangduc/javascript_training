@@ -1,0 +1,30 @@
+.loading {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+
+  transform: translate(-50%, 50%);
+
+  visibility: hidden;
+}
+
+.loading p {
+  animation: slideIn 1.5s infinite;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-90%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.loading.open {
+  visibility: visible;
+}
