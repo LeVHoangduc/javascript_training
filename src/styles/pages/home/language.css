@@ -9,6 +9,8 @@
   display: flex;
   gap: 60px;
   overflow-x: scroll;
+  /* scrollbar-color: red;
+  scroll-margin-top: 20px; */
 }
 
 .language__item {
@@ -53,3 +55,15 @@
 .language__add:hover {
   opacity: 1;
 }
+
+/* .language__list::-webkit-scrollbar {
+  width: 200px;
+} */
+
+/* .language__list::-webkit-scrollbar-track {
+  margin: 20px;
+}
+
+.language__list::-webkit-scrollbar-thumb {
+  background-color: var(--light-color);
+} */

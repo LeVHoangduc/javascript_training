@@ -59,6 +59,7 @@
   padding: 0 10px;
   border: 1px solid var(--text-color);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .error {

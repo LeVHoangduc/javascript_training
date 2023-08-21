@@ -30,6 +30,7 @@
 .header__search__icon {
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 
 .header__logout {
@@ -37,6 +38,7 @@
   border: none;
   outline: none;
   background-color: var(--primary-color);
+  cursor: pointer;
 }
 
 .header__logout::after {
