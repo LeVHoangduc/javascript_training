@@ -97,7 +97,16 @@ class LanguageView {
     // remove active in previous language
     languageItem?.classList.remove("active");
 
-    if (languageEl) languageEl.classList.add("active");
+    // remove active in previous language button
+    languageItem?.querySelector(".language__delete").classList.remove("active");
+
+    if (languageEl) {
+      languageEl.classList.add("active");
+
+      // Active for button delete
+      languageEl.querySelector(".language__delete").classList.add("active");
+    }
+
     if (nameLanguage) {
       const languageItemEL = this.languageListEl.querySelectorAll(".language__item");
       const languageCurrent = Array.from(languageItemEL).find(
