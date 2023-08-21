@@ -232,6 +232,15 @@
       "meaning": "d",
       "description": "d",
       "captionPhoto": ""
+    },
+    {
+      "id": "0Wbc-ns",
+      "language": "english",
+      "word": "Quality",
+      "type": "noun",
+      "meaning": "Chất lượng",
+      "description": "A quality of a product",
+      "captionPhoto": ""
     }
   ],
   "languages": [
@@ -250,10 +259,6 @@
     {
       "id": "18b5ca6c-4425-4cfd-87c6-a2f09eb23d32",
       "language": "korea"
-    },
-    {
-      "id": "272dccfd-bfcc-4ea4-a69f-f98e3d45addc",
-      "language": "dasdasdasda"
     },
     {
       "id": "65ee7368-0949-4b1c-bb22-7dfbd71ef512",

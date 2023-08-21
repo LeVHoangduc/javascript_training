@@ -30,7 +30,6 @@ class Error {
   showEmpty() {
     this.cardListEl.innerHTML = "";
     this.cardListEl.innerHTML += Template.renderEmpty();
-    console.log("show empty");
   }
 }
 
