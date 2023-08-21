@@ -8,8 +8,6 @@ class LoginView {
     this.error = new Error();
     this.loginForm = document.querySelector(".login-form");
     this.buttonEl = document.querySelector(".login-form__button");
-
-    this.loadingEl = document.querySelector(".loading");
   }
 
   //----- EVENT HANDLER -----//
@@ -32,14 +30,8 @@ class LoginView {
       if (isValidation) {
         const isUSer = await isValidUSer(userCurrent);
 
-        this.loginForm.classList.add("hide");
-        this.loadingEl.classList.add("open");
-
         if (isUSer) {
           this.resetForm();
-
-          this.loginForm.classList.remove("hide");
-          this.loadingEl.classList.remove("open");
 
           window.location.href = "home.html";
         }
