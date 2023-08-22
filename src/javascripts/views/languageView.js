@@ -109,17 +109,23 @@ class LanguageView {
     languageItem?.querySelector(".language__delete").classList.remove("active");
 
     if (languageEl) {
-      languageEl.classList.add("active");
+      // Apply the 'active' class to the language item
+      languageEl.parentElement.classList.add("active");
 
-      // Active for button delete
+      // Apply the 'active' class to the 'language__delete' button
       languageEl.querySelector(".language__delete")?.classList.add("active");
     }
 
+    // Activate the specified language after it has been added
     if (nameLanguage) {
       const languageItemEL = this.languageListEl.querySelectorAll(".language__item");
+
+      // Find the element that matches the specified language name
       const languageCurrent = Array.from(languageItemEL).find(
         (item) => item.textContent.trim() === nameLanguage
       );
+
+      // Apply the 'active' class to the found language element
       languageCurrent.classList.add("active");
     }
   };
