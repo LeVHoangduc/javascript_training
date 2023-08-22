@@ -34,7 +34,7 @@ class Template {
    * @returns {HTMLElement} HTML element for displaying a language in a select dropdown.
    */
   static renderSelectLanguage = (language) => `
-    <option value="${language.language}" class="text text--capitalize">${language.language}</option>
+    <option value="${language.language}" class="text text--input text--capitalize">${language.language}</option>
   `;
 
   static renderEmpty = () => `<div class="card__list__empty">
