@@ -16,7 +16,7 @@ class LanguageView {
 
   /**
    * Method to add an event listener to language items to show the modal card.
-   * @param {Callback} loadCards - Function to load cards.
+   * @param {Function} loadCards - Function to load cards.
    * @returns {string} - Current selected category.
    */
   addEventShowCard = (loadCards) => {
@@ -51,8 +51,8 @@ class LanguageView {
 
   /**
    * Renders the language list based on data from Models.
-   * @param {Promise<object>} getLanguageList - List of language objects.
-   * @param {Promise<object>} loadCards  - Promise that resolves language item.
+   * @param {Function} getLanguageList - List of language objects.
+   * @param {Function} loadCards  - Promise that resolves language item.
    */
   renderLanguageList = async (getLanguageList, loadCards) => {
     const languageList = await getLanguageList();
@@ -102,10 +102,10 @@ class LanguageView {
   switchLanguage = (languageEl, nameLanguage) => {
     const languageItem = document.querySelector(".language__item.active");
 
-    // remove active in previous language
+    // Remove active in previous language
     languageItem?.classList.remove("active");
 
-    // remove active in previous language button
+    // Remove active in previous language button
     languageItem?.querySelector(".language__delete").classList.remove("active");
 
     if (languageEl) {

@@ -26,7 +26,7 @@ class CardView {
 
   /**
    * Render the list of cards based on data from Models filtered by the specified category.
-   * @param {Callback<Promise>} cardList - A function that returns a Promise of card data.
+   * @param {Function} cardList - A function that returns a Promise of card data.
    * @param {String} category - The category of cards to be rendered.
    * @returns {Boolean} - Returns true when rendering is complete.
    */

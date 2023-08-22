@@ -27,7 +27,7 @@ class ModalDetailView {
 
   /**
    * Method to add an event listener for opening the modal when a card is clicked.
-   * @param {Promise<Object>} getCardDetail - Function to fetch card details.
+   * @param {Function} getCardDetail - Function to fetch card details.
    */
   addOpenDetailListener = (getCardDetail) => {
     this.cardListEl.addEventListener("click", async (e) => {
@@ -78,7 +78,7 @@ class ModalDetailView {
 
   /**
    * Method to add an event listener for the edit button.
-   * @param {Promise<Object>} getCardDetail - Function to fetch card details.
+   * @param {Function} getCardDetail - Function to fetch card details.
    */
   addEventEditListener = (getCardDetail) => {
     this.btnFormDetailEl.edit?.addEventListener("click", async (e) => {
