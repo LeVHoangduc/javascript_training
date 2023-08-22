@@ -60,8 +60,7 @@ class Controller {
       this.deleteCard,
       this.deleteLanguage,
       this.updateLanguageView,
-      this.updatePage,
-      this.toast
+      this.updatePage
     );
   };
 

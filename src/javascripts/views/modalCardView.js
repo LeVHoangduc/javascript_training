@@ -16,8 +16,8 @@ class ModalCardView {
   //----- EVENT HANDLER -----//
   /**
    * Method to add an event listener for form submission.
-   * @param {Promise<Boolean>} saveCard - Promise indicating successful card addition.
-   * @param {Callback} loadCards - Renders cards after successful addition.
+   * @param {Function} saveCard - Promise indicating successful card addition.
+   * @param {Function} loadCards - Renders cards after successful addition.
    */
   addEventSubmission = (saveCard, loadCards, languageView) => {
     this.cardFormEl?.addEventListener("submit", async (e) => {

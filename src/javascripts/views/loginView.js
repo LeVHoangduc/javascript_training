@@ -14,7 +14,7 @@ class LoginView {
 
   /**
    * Method to login action when the login button is clicked
-   * @param {Callback} isValidUSer Check if User exists in database
+   * @param {Function} isValidUSer Check if User exists in database
    */
   addEventLogin = (isValidUSer) => {
     this.buttonEl?.addEventListener("click", async (e) => {
