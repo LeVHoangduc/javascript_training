@@ -11,7 +11,7 @@ class OverlayView {
     this.confirmFormEl = document.querySelector(".modal-confirm");
   }
 
-  //----- EVENT HANDLER -----//
+  //----- EVENT LISTENER -----//
 
   addEventClickOutSide = () => {
     this.overlayEl.addEventListener("click", () => {

@@ -12,7 +12,7 @@ class LanguageView {
     this.overlayEl = document.querySelector(".overlay");
   }
 
-  //----- EVENT HANDLER -----//
+  //----- EVENT LISTENER -----//
 
   /**
    * Method to add an event listener to language items to show the modal card.
@@ -48,6 +48,8 @@ class LanguageView {
       });
     });
   };
+
+  //----- RENDERING -----//
 
   /**
    * Renders the language list based on data from Models.

@@ -11,6 +11,7 @@ class CardView {
   }
 
   //----- EVENT LISTENER -----//
+
   addEventFindCard = (findCard) => {
     this.searchEL.addEventListener("click", () => this.handleFindCard(findCard));
   };
@@ -22,6 +23,7 @@ class CardView {
       }
     });
   };
+
   //----- RENDERING -----//
 
   /**
@@ -68,6 +70,8 @@ class CardView {
       this.renderCard(card);
     });
   };
+
+  //----- METHOD -----//
 
   handleFindCard = async (findCard) => {
     let inputData = this.inputEl.value.toLowerCase();

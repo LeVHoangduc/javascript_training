@@ -5,6 +5,8 @@ class LogoutView {
     this.buttonEl = document.querySelector(".header__logout");
   }
 
+  //----- EVENT LISTENER -----//
+
   addEventLogOut = () => {
     this.buttonEl?.addEventListener("click", () => {
       helpers.removeLocalStorage("user");

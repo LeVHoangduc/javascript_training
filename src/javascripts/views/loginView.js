@@ -10,7 +10,7 @@ class LoginView {
     this.buttonEl = document.querySelector(".login-form__button");
   }
 
-  //----- EVENT HANDLER -----//
+  //----- EVENT LISTENER -----//
 
   /**
    * Method to login action when the login button is clicked

@@ -23,7 +23,7 @@ class ModalDetailView {
     this.overlayEl = document.querySelector(".overlay");
   }
 
-  //----- EVENT HANDLER -----//
+  //----- EVENT LISTENER -----//
 
   /**
    * Method to add an event listener for opening the modal when a card is clicked.

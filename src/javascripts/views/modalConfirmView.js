@@ -8,6 +8,8 @@ class ModalConfirm {
     this.overlayEl = document.querySelector(".overlay");
   }
 
+  //----- EVENT LISTENER -----//
+
   /**
    * Adds event listeners for the confirmation modal.
    * @param {Function} deleteCard - Function to delete a card.
@@ -22,7 +24,7 @@ class ModalConfirm {
       let id = this.confirmFormEl.getAttribute("data-id");
       let type = this.confirmFormEl.getAttribute("type");
 
-      // send id to database
+      // Send id to database
       if (type === "language") {
         await deleteLanguage(id);
 

@@ -13,7 +13,8 @@ class ModalCardView {
     this.overlayEl = document.querySelector(".overlay");
   }
 
-  //----- EVENT HANDLER -----//
+  //----- EVENT LISTENER -----//
+
   /**
    * Method to add an event listener for form submission.
    * @param {Function} saveCard - Promise indicating successful card addition.
@@ -44,6 +45,7 @@ class ModalCardView {
 
         loadCards(cardData.language);
 
+        // Switch to the corresponding selected language after submitting the card
         languageView.switchLanguage(null, cardData.language);
 
         this.resetForm();
