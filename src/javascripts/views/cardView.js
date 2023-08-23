@@ -79,6 +79,8 @@ class CardView {
     const isCard = await findCard(inputData);
 
     this.renderFindCard(isCard);
+
+    this.inputEl.value = "";
   };
 }
 

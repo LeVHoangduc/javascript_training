@@ -24,15 +24,17 @@ class User {
   isValidUser = async ({ email, password }) => {
     const userList = await this.getUserList();
 
-    const isValidUSer = userList.find((user) =>
+    const validUSer = userList.find((user) =>
       user.email === email && user.password === password ? true : false
     );
 
-    if (isValidUSer) {
-      helpers.saveLocalStorage("user", isValidUSer);
+    if (validUSer) {
+      const email = validUSer.email;
+
+      helpers.saveLocalStorage("user", email);
     }
 
-    return isValidUSer;
+    return validUSer;
   };
 }
 

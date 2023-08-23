@@ -7,8 +7,18 @@ class Helpers {
    */
   saveCategoryCurrent = (categoryCurrent) => (this.categoryCurrent = categoryCurrent);
 
-  saveLocalStorage = (key, item) => {
-    localStorage.setItem(key, item);
+  saveLocalStorage = (key, value) => {
+    const data = this.stringifyData(value);
+
+    localStorage.setItem(key, data);
+  };
+
+  getLocalStorage = (key) => {
+    const data = localStorage.getItem(key);
+
+    const parseData = this.parsedData(data);
+
+    return parseData;
   };
 
   removeLocalStorage = (key) => {
@@ -20,6 +30,10 @@ class Helpers {
 
     return isUserLogged ? true : false;
   };
+
+  stringifyData = (data) => JSON.stringify(data);
+
+  parsedData = (data) => JSON.parse(data);
 
   wait = (time) =>
     new Promise((resolve) => {
