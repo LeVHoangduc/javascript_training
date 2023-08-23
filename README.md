@@ -16,7 +16,7 @@
 
 ## Information
 
-- Time line: 2023/08/04 – 2023/08/14
+- Time line: 2023/08/04 – 2023/08/22
 - Editor: Visual Studio Code
 - Supported browser: Chrome, Firefox, MS Edge, Opera, Safari lasted
 - Supported screen: Screen width 996px or larger
@@ -64,6 +64,12 @@ List of features need to work on:
 
 ```
 .
+|
+├── json-server/
+│     └── .gitignore
+|     └── db.json
+|     └── package.json
+|     └── server.js
 ├── src/
 │   ├── assets/
 │   │   ├── fonts/
@@ -79,8 +85,6 @@ List of features need to work on:
 │   │   ├── views/
 │   │   ├── app.js
 │   │   └── main.js
-│   ├── json-server/
-│   │   └── db.json
 │   ├── styles/
 │   │   ├── base/
 │   │   ├── components/
@@ -111,14 +115,36 @@ git clone https://github.com/LeVHoangduc/javascript_training.git
 git checkout feature/javascript-practice
 ```
 
-- Step 03: Install packages
+- Step 03: Move to folder which just cloned in your computer:
+
+```bash
+cd javascript_training
+```
+
+- Step 04: Install packages
 
 ```bash
 npm install
 ```
 
-- Step 04: Run
+- Step 05: Move to folder which json-server in your computer:
 
 ```bash
-npx parcel src/index.html
+cd json-server
 ```
+
+- Step 06: Run json-server
+
+```bash
+json-server --watch src/json-server/db.json
+```
+
+- Step 07: Run
+
+```bash
+npm start
+```
+
+## Reference
+
+- Pattern structure [here](https://gist.github.com/rveitch/84cea9650092119527bc)
