@@ -1,4 +1,4 @@
-import { FORM_TYPES } from "../constants/constants";
+import { DATA_SOURCES } from "../constants/constants";
 import ValidationService from "../services/validationService";
 import Error from "./errorView";
 
@@ -36,7 +36,7 @@ class ModalCardView {
       };
 
       // Validate form inputs
-      const inputCheck = this.validationService.formValidator(FORM_TYPES.card, this.cardFormEl);
+      const inputCheck = this.validationService.formValidator(DATA_SOURCES.card, this.cardFormEl);
 
       const isValidation = this.isValidation(inputCheck);
 

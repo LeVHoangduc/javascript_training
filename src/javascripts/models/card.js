@@ -1,3 +1,4 @@
+import { DEFAULT_VALUES } from "../constants/constants";
 import ApiService from "../services/apiService";
 
 class Card {
@@ -42,8 +43,8 @@ class Card {
   findCard = async (searchData) => {
     const cardList = await this.getCardList();
 
-    return searchData === ""
-      ? []
+    return searchData === DEFAULT_VALUES.EMPTY_STRING
+      ? DEFAULT_VALUES.EMPTY_ARRAY
       : cardList.filter((card) => card.word.toLowerCase().includes(searchData));
   };
 }

@@ -1,3 +1,5 @@
+import { DATA_SOURCES } from "../constants/constants";
+
 class Helpers {
   constructor() {}
   /**
@@ -26,7 +28,7 @@ class Helpers {
   };
 
   saveStatusLogin = () => {
-    const isUserLogged = localStorage.getItem("user");
+    const isUserLogged = localStorage.getItem(DATA_SOURCES.USER);
 
     return isUserLogged ? true : false;
   };

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { helpers } from "../helpers/helpers";
-import { STATE, MESSAGE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
+import { REQUEST_STATE, MESSAGE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
 
 class Controller {
   /**
@@ -133,9 +133,9 @@ class Controller {
     try {
       await this.model.card.deleteCard(id);
 
-      this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.DELETE_CARD);
+      this.view.toastView.showToast(REQUEST_STATE.SUCCESS, SUCCESS_MESSAGE.DELETE_CARD);
     } catch (error) {
-      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.DELETE_CARD);
+      this.view.toastView.showToast(REQUEST_STATE.FAILED, ERROR_MESSAGE.DELETE_CARD);
     }
   };
 
@@ -165,9 +165,9 @@ class Controller {
       try {
         await this.model.card.editCard(cardCurrent);
 
-        this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.EDIT_CARD);
+        this.view.toastView.showToast(REQUEST_STATE.SUCCESS, SUCCESS_MESSAGE.EDIT_CARD);
       } catch (error) {
-        this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.EDIT_CARD);
+        this.view.toastView.showToast(REQUEST_STATE.FAILED, ERROR_MESSAGE.EDIT_CARD);
       }
     } else {
       const newCard = { id: uuidv4(), ...cardCurrent };
@@ -175,9 +175,9 @@ class Controller {
       try {
         await this.model.card.addCard(newCard);
 
-        this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.ADD_CARD);
+        this.view.toastView.showToast(REQUEST_STATE.SUCCESS, SUCCESS_MESSAGE.ADD_CARD);
       } catch (error) {
-        this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.ADD_CARD);
+        this.view.toastView.showToast(REQUEST_STATE.FAILED, ERROR_MESSAGE.ADD_CARD);
       }
     }
   };
@@ -196,7 +196,7 @@ class Controller {
 
       return languageList;
     } catch (error) {
-      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.GET_LANGUAGE_LIST);
+      this.view.toastView.showToast(REQUEST_STATE.failed, ERROR_MESSAGE.GET_LANGUAGE_LIST);
     }
   };
 
@@ -214,10 +214,10 @@ class Controller {
       const isAdd = await this.model.language.addLanguage(newLanguage);
 
       isAdd
-        ? this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.ADD_LANGUAGE)
-        : this.view.toastView.showToast(STATE.failed, MESSAGE.EXIST_LANGUAGE);
+        ? this.view.toastView.showToast(REQUEST_STATE.SUCCESS, SUCCESS_MESSAGE.ADD_LANGUAGE)
+        : this.view.toastView.showToast(REQUEST_STATE.FAILED, MESSAGE.EXIST_LANGUAGE);
     } catch (error) {
-      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.ADD_LANGUAGE);
+      this.view.toastView.showToast(REQUEST_STATE.FAILED, ERROR_MESSAGE.ADD_LANGUAGE);
     }
   };
 
@@ -225,9 +225,9 @@ class Controller {
     try {
       await this.model.language.deleteLanguage(id);
 
-      this.view.toastView.showToast(STATE.success, SUCCESS_MESSAGE.DELETE_LANGUAGE);
+      this.view.toastView.showToast(REQUEST_STATE.SUCCESS, SUCCESS_MESSAGE.DELETE_LANGUAGE);
     } catch (error) {
-      this.view.toastView.showToast(STATE.failed, ERROR_MESSAGE.DELETE_LANGUAGE);
+      this.view.toastView.showToast(REQUEST_STATE.FAILED, ERROR_MESSAGE.DELETE_LANGUAGE);
     }
   };
 

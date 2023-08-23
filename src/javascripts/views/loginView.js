@@ -1,4 +1,4 @@
-import { FORM_TYPES } from "../constants/constants";
+import { DATA_SOURCES } from "../constants/constants";
 import ValidationService from "../services/validationService.js";
 import Error from "./errorView";
 
@@ -25,8 +25,9 @@ class LoginView {
         password: this.loginForm.password.value,
       };
 
-      const inputCheck = this.service.formValidator(FORM_TYPES.user, this.loginForm);
+      const inputCheck = this.service.formValidator(DATA_SOURCES.user, this.loginForm);
       const isValidation = this.isValidation(inputCheck);
+
       if (isValidation) {
         const isUSer = await isValidUSer(userCurrent);
 

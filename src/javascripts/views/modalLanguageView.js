@@ -1,4 +1,4 @@
-import { FORM_TYPES, ERROR_MESSAGE } from "../constants/constants";
+import { DATA_SOURCES, ERROR_MESSAGE } from "../constants/constants";
 import ValidationService from "../services/validationService";
 import Error from "./errorView";
 
@@ -43,7 +43,7 @@ class ModalLanguageView {
 
       // Return a field result of check with regex
       const inputCheck = this.validationService.formValidator(
-        FORM_TYPES.language,
+        DATA_SOURCES.language,
         this.formLanguageEL
       );
 

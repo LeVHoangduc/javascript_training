@@ -65,16 +65,32 @@ export const REGEX = {
   IMAGE: /^https?:\/\/.*\.(jpg|jpeg|png|gif|bmp)$/,
 };
 
-export const STATE = {
-  success: "success",
-  failed: "failed",
+export const REQUEST_STATE = {
+  SUCCESS: "success",
+  FAILED: "failed",
 };
 
 /**
  * Three types of forms in this app
  */
-export const FORM_TYPES = {
-  user: "user",
-  card: "card",
-  language: "language",
+export const DATA_SOURCES = {
+  USER: "user",
+  CARD: "card",
+  LANGUAGE: "language",
+};
+
+export const FORM_INPUT = {
+  EMAIL: "email",
+  PASSWORD: "password",
+
+  LANGUAGE: "language",
+  WORD: "word",
+  MEANING: "meaning",
+  DESCRIPTION: "description",
+  CAPTION_PHOTO: "captionPhoto",
+};
+
+export const DEFAULT_VALUES = {
+  EMPTY_STRING: "",
+  EMPTY_ARRAY: [],
 };
