@@ -1,3 +1,5 @@
+import { DATA_SOURCES } from "../constants/constants";
+
 class ModalConfirm {
   constructor() {
     this.confirmFormEl = document.querySelector(".modal-confirm");
@@ -25,7 +27,7 @@ class ModalConfirm {
       let type = this.confirmFormEl.getAttribute("type");
 
       // Send id to database
-      if (type === "language") {
+      if (type === DATA_SOURCES.LANGUAGE) {
         await deleteLanguage(id);
 
         updateLanguageView();

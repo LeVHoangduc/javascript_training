@@ -38,18 +38,15 @@ class OverlayView {
       const errorEl = input.nextElementSibling;
 
       this.error.clearError(input, errorEl);
+
+      input.value = DEFAULT_VALUES.EMPTY_STRING;
     });
 
+    // Remove if there is an error
     const inputLanguageEl = document.querySelector(".modal-language__input");
     const errorLanguageEl = inputLanguageEl.nextElementSibling;
 
     this.error.clearError(inputLanguageEl, errorLanguageEl);
-
-    this.cardFormEl.word.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.type.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.meaning.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.description.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.captionPhoto.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 }
 

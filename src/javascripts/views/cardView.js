@@ -63,9 +63,9 @@ class CardView {
 
   renderFindCard = (cards) => {
     this.cardListEl.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
-    if (cards.length === 0) {
-      this.error.showEmpty();
-    }
+
+    if (cards.length === 0) this.error.showEmpty();
+
     cards.forEach((card) => {
       this.renderCard(card);
     });
@@ -80,6 +80,7 @@ class CardView {
 
     this.renderFindCard(isCard);
 
+    // Reset input value after finding card
     this.inputEl.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 }

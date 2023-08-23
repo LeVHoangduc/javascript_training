@@ -37,7 +37,7 @@ class Helpers {
 
   parsedData = (data) => JSON.parse(data);
 
-  wait = (time) =>
+  toastDelay = (time) =>
     new Promise((resolve) => {
       setTimeout(() => resolve(), time);
     });

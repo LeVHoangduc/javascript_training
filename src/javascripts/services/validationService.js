@@ -16,11 +16,13 @@ class ValidationService {
       let value = object[field.name];
       let isValidField = field.regex.test(value);
 
+      // Check if the optional field is typed
       if (field.name === FORM_INPUT.CAPTION_PHOTO) {
         isValidField = value !== DEFAULT_VALUES.EMPTY_STRING && field.regex.test(value);
         if (value === DEFAULT_VALUES.EMPTY_STRING) isValidField = !field.regex.test(value);
       }
 
+      // Check if the value is empty
       if (value.trim() === DEFAULT_VALUES.EMPTY_STRING) {
         if (field.name !== FORM_INPUT.CAPTION_PHOTO) {
           fieldCheck.push({
@@ -34,13 +36,19 @@ class ValidationService {
             isValid: true,
           });
         }
-      } else if (!isValidField) {
+      }
+
+      // Check value with regex
+      else if (!isValidField) {
         fieldCheck.push({
           field: field.name,
           isValid: false,
           message: field.invalidMessage,
         });
-      } else {
+      }
+
+      // Push the result of the test to the array
+      else {
         fieldCheck.push({
           field: field.name,
           isValid: true,

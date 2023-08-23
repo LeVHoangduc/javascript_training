@@ -16,7 +16,7 @@ class ToastView {
     this.toastEl.classList.add(`toast--${state}`);
     this.toastMessageEl.innerText = message;
 
-    await helpers.wait(2000);
+    await helpers.toastDelay(2000);
     this.toastEl.classList.remove(`toast--${state}`);
   };
 }

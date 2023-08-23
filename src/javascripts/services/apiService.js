@@ -1,4 +1,5 @@
 import API_BASE_URL from "../constants/urls";
+import { API_REQUEST } from "../constants/constants";
 
 class ApiService {
   /**
@@ -14,7 +15,7 @@ class ApiService {
    * Method to return an array of object list
    * @returns {Array}
    */
-  getList = () => this.sendRequest(null, "GET");
+  getList = () => this.sendRequest(null, API_REQUEST.GET);
 
   /**
    * Method to fetch details of an item from the API.
@@ -22,21 +23,21 @@ class ApiService {
    * @return {Promise<Object>} A promise that resolves to the retrieved data.
    */
 
-  getDetail = (id) => this.sendRequest(id, "GET");
+  getDetail = (id) => this.sendRequest(id, API_REQUEST.GET);
 
   /**
    * Send POST HTTP request.
    * @param {Object} data
    * @returns {Promise<Object>} response from server.
    */
-  postItem = (data) => this.sendRequest(null, "POST", data);
+  postItem = (data) => this.sendRequest(null, API_REQUEST.POST, data);
 
   /**
    * Send DELETE HTTP request.
    * @param {String} id
    * @returns {Promise<Object>} response from server.
    */
-  deleteItem = (id) => this.sendRequest(id, "DELETE");
+  deleteItem = (id) => this.sendRequest(id, API_REQUEST.DELETE);
 
   /**
    * Send PATCH HTTP request.
@@ -44,7 +45,7 @@ class ApiService {
    * @param {Object} data - The data to update the item with.
    * @returns {Promise<Object>} - The response from the server.
    */
-  updateItem = (id, data) => this.sendRequest(id, "PATCH", data);
+  updateItem = (id, data) => this.sendRequest(id, API_REQUEST.PATCH, data);
 
   /**
    * MEthod to send an HTTP request to the API endpoint.

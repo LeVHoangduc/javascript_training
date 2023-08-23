@@ -94,3 +94,10 @@ export const DEFAULT_VALUES = {
   EMPTY_STRING: "",
   EMPTY_ARRAY: [],
 };
+
+export const API_REQUEST = {
+  GET: "GET",
+  POST: "POST",
+  DELETE: "DELETE",
+  PATCH: "PATCH",
+};

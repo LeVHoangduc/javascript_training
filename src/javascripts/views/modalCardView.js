@@ -84,13 +84,9 @@ class ModalCardView {
       const errorEl = input.nextElementSibling;
 
       this.error.clearError(input, errorEl);
-    });
 
-    this.cardFormEl.word.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.type.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.meaning.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.description.value = DEFAULT_VALUES.EMPTY_STRING;
-    this.cardFormEl.captionPhoto.value = DEFAULT_VALUES.EMPTY_STRING;
+      input.value = DEFAULT_VALUES.EMPTY_STRING;
+    });
   };
 
   /**
@@ -109,13 +105,14 @@ class ModalCardView {
       const inputEl = this.cardFormEl[input.field];
       const errorEl = inputEl.nextElementSibling;
 
-      if (input.isValid) {
-        this.error.clearError(inputEl, errorEl);
-      } else {
+      if (input.isValid) this.error.clearError(inputEl, errorEl);
+      else {
         this.error.showError(inputEl, errorEl, input.message);
+
         isValid = false;
       }
     });
+
     return isValid;
   };
 }

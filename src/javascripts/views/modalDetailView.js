@@ -16,7 +16,7 @@ class ModalDetailView {
 
     this.meaning = document.querySelector(".modal-detail__meaning");
     this.description = document.querySelector(".modal-detail__description");
-    this.descriptionPhoto = document.querySelector(".modal-detail__picture");
+    this.captionPhoto = document.querySelector(".modal-detail__picture");
 
     this.cardListEl = document.querySelector(".card__list");
 
@@ -45,9 +45,7 @@ class ModalDetailView {
         this.detailFormEl.setAttribute("data-id", cardData.id);
         this.meaning.textContent = `${cardData.meaning}`;
         this.description.textContent = `${cardData.description}`;
-        this.descriptionPhoto.src = `${
-          cardData.captionPhoto ? cardData.captionPhoto : imageDefault
-        }`;
+        this.captionPhoto.src = `${cardData.captionPhoto ? cardData.captionPhoto : imageDefault}`;
 
         this.detailFormEl.classList.add("open");
 
@@ -60,7 +58,6 @@ class ModalDetailView {
     this.btnFormDetailEl.close.addEventListener("click", (e) => {
       e.preventDefault();
       this.detailFormEl.classList.remove("open");
-
       this.overlayEl.classList.remove("open");
     });
   };
@@ -102,8 +99,10 @@ class ModalDetailView {
   //----- METHOD   -----//
 
   openConfirmDelete = () => {
+    // Get the type (e.g., "card", "language")
     const type = this.cardEl.getAttribute("type");
 
+    // Capitalize the language to be removed
     const cardContent = this.cardEl.querySelector(".card__term").textContent;
     const card = cardContent.charAt(0).toUpperCase() + cardContent.slice(1);
 

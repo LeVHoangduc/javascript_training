@@ -61,6 +61,7 @@ class LoginView {
    */
   isValidation = (inputs) => {
     let isValid = true;
+
     inputs.forEach((input) => {
       const inputEl = this.loginForm[input.field];
       const errorEl = inputEl.nextElementSibling;

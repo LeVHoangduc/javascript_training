@@ -1,4 +1,5 @@
 import Template from "../templates/templates";
+import { DEFAULT_VALUES } from "../constants/constants";
 
 class LanguageView {
   constructor() {
@@ -59,8 +60,8 @@ class LanguageView {
   renderLanguageList = async (getLanguageList, loadCards) => {
     const languageList = await getLanguageList();
 
-    this.languageListEl.innerHTML = " ";
-    this.cardFormEl.language.innerHTML = " ";
+    this.languageListEl.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.language.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
 
     languageList.forEach((language) => {
       this.renderLanguage(language);
@@ -78,21 +79,23 @@ class LanguageView {
     const languageSelectTemplate = Template.renderSelectLanguage(language);
 
     // Append languageTemplate to the language list element.
-    if (this.languageListEl) {
-      this.languageListEl.innerHTML += languageTemplate;
-    }
+    if (this.languageListEl) this.languageListEl.innerHTML += languageTemplate;
 
     // Append languageSelectTemplate to the modal card element.
-    if (this.cardFormEl) {
-      this.cardFormEl.language.innerHTML += languageSelectTemplate;
-    }
+    if (this.cardFormEl) this.cardFormEl.language.innerHTML += languageSelectTemplate;
   };
 
   //----- METHOD -----//
 
+  /**
+   * Opens a confirmation dialog for language deletion.
+   * @param {Element} button - Button element that triggered the deletion request.
+   */
   openConfirmDelete = (button) => {
+    // Get the type (e.g., "card", "language")
     const type = button.parentElement.getAttribute("type");
 
+    // Capitalize the language to be removed
     const languageData = button.parentElement.querySelector("p").textContent;
     const language = languageData.charAt(0).toUpperCase() + languageData.slice(1);
 
@@ -102,6 +105,11 @@ class LanguageView {
     this.overlayEl.classList.add("open");
   };
 
+  /**
+   * Switches the currently active language and associated UI elements.
+   * @param {Element} languageEl - New active language element.
+   * @param {string} nameLanguage - Name of the language to activate.
+   */
   switchLanguage = (languageEl, nameLanguage) => {
     const languageItem = document.querySelector(".language__item.active");
 

@@ -8,7 +8,6 @@ class ModalLanguageView {
     this.error = new Error();
 
     this.btnAddLanguage = document.querySelector(".language__add");
-
     this.formLanguageEL = document.querySelector(".modal-language");
 
     this.overlayEl = document.querySelector(".overlay");
