@@ -36,7 +36,7 @@ class ModalCardView {
       };
 
       // Validate form inputs
-      const inputCheck = this.validationService.formValidator(DATA_SOURCES.card, this.cardFormEl);
+      const inputCheck = this.validationService.formValidator(DATA_SOURCES.CARD, this.cardFormEl);
 
       const isValidation = this.isValidation(inputCheck);
 
@@ -57,7 +57,6 @@ class ModalCardView {
   addEventOpenFormListener = () => {
     this.btnAddEl.addEventListener("click", () => {
       this.cardFormEl.classList.add("open");
-
       this.overlayEl.classList.add("open");
     });
   };
@@ -80,6 +79,7 @@ class ModalCardView {
 
   resetForm = () => {
     const inputs = document.querySelectorAll(".modal-card__input");
+
     inputs.forEach((input) => {
       const errorEl = input.nextElementSibling;
 
@@ -107,8 +107,8 @@ class ModalCardView {
     let isValid = true;
     inputs.forEach((input) => {
       const inputEl = this.cardFormEl[input.field];
-
       const errorEl = inputEl.nextElementSibling;
+
       if (input.isValid) {
         this.error.clearError(inputEl, errorEl);
       } else {

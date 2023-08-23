@@ -6,6 +6,7 @@ class LoginView {
   constructor() {
     this.service = new ValidationService();
     this.error = new Error();
+
     this.loginForm = document.querySelector(".login-form");
     this.buttonEl = document.querySelector(".login-form__button");
   }
@@ -25,7 +26,7 @@ class LoginView {
         password: this.loginForm.password.value,
       };
 
-      const inputCheck = this.service.formValidator(DATA_SOURCES.user, this.loginForm);
+      const inputCheck = this.service.formValidator(DATA_SOURCES.USER, this.loginForm);
       const isValidation = this.isValidation(inputCheck);
 
       if (isValidation) {
@@ -63,10 +64,11 @@ class LoginView {
     inputs.forEach((input) => {
       const inputEl = this.loginForm[input.field];
       const errorEl = inputEl.nextElementSibling;
-      if (input.isValid) {
-        this.error.clearError(inputEl, errorEl);
-      } else {
+
+      if (input.isValid) this.error.clearError(inputEl, errorEl);
+      else {
         this.error.showError(inputEl, errorEl, input.message);
+
         isValid = false;
       }
     });

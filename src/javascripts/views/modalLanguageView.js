@@ -20,7 +20,6 @@ class ModalLanguageView {
     this.btnAddLanguage.addEventListener("click", (e) => {
       e.preventDefault();
       this.formLanguageEL.classList.add("open");
-
       this.overlayEl.classList.add("open");
     });
   };
@@ -43,7 +42,7 @@ class ModalLanguageView {
 
       // Return a field result of check with regex
       const inputCheck = this.validationService.formValidator(
-        DATA_SOURCES.language,
+        DATA_SOURCES.LANGUAGE,
         this.formLanguageEL
       );
 
@@ -73,7 +72,6 @@ class ModalLanguageView {
 
   closeForm = () => {
     this.formLanguageEL.classList.remove("open");
-
     this.overlayEl.classList.remove("open");
   };
 
@@ -94,9 +92,8 @@ class ModalLanguageView {
       const inputEl = this.formLanguageEL[input.field];
       const errorEl = inputEl.nextElementSibling;
 
-      if (input.isValid) {
-        this.error.clearError(inputEl, errorEl);
-      } else {
+      if (input.isValid) this.error.clearError(inputEl, errorEl);
+      else {
         this.error.showError(inputEl, errorEl, input.message);
         isValid = false;
       }
