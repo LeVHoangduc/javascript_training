@@ -54,6 +54,7 @@ class ModalLanguageView {
 
         this.resetForm();
         this.closeForm();
+
         updateLanguageView();
       }
     });
@@ -67,6 +68,10 @@ class ModalLanguageView {
   // ---- METHOD ----- //
 
   resetForm = () => {
+    const inputLanguageEl = this.formLanguageEL.language;
+    const errorLanguageEl = inputLanguageEl.nextElementSibling;
+
+    this.error.clearError(inputLanguageEl, errorLanguageEl);
     this.formLanguageEL.language.value = "";
   };
 

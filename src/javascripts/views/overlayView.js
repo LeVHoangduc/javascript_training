@@ -32,11 +32,17 @@ class OverlayView {
 
   resetForm = () => {
     const inputs = document.querySelectorAll(".modal-card__input");
+
     inputs.forEach((input) => {
       const errorEl = input.nextElementSibling;
 
       this.error.clearError(input, errorEl);
     });
+
+    const inputLanguageEl = document.querySelector(".modal-language__input");
+    const errorLanguageEl = inputLanguageEl.nextElementSibling;
+
+    this.error.clearError(inputLanguageEl, errorLanguageEl);
 
     this.cardFormEl.word.value = "";
     this.cardFormEl.type.value = "";

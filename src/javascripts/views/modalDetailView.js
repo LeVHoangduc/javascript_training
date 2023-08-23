@@ -48,6 +48,7 @@ class ModalDetailView {
         this.descriptionPhoto.src = `${
           cardData.captionPhoto ? cardData.captionPhoto : imageDefault
         }`;
+
         this.detailFormEl.classList.add("open");
 
         this.overlayEl.classList.add("open");
@@ -61,7 +62,6 @@ class ModalDetailView {
       this.detailFormEl.classList.remove("open");
 
       this.overlayEl.classList.remove("open");
-      // this.detailFormEl.removeAttribute("data-id");
     });
   };
 
