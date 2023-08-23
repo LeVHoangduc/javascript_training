@@ -1,4 +1,4 @@
-import { DATA_SOURCES } from "../constants/constants";
+import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
 import ValidationService from "../services/validationService";
 import Error from "./errorView";
 
@@ -86,11 +86,11 @@ class ModalCardView {
       this.error.clearError(input, errorEl);
     });
 
-    this.cardFormEl.word.value = "";
-    this.cardFormEl.type.value = "";
-    this.cardFormEl.meaning.value = "";
-    this.cardFormEl.description.value = "";
-    this.cardFormEl.captionPhoto.value = "";
+    this.cardFormEl.word.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.type.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.meaning.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.description.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.captionPhoto.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 
   /**

@@ -1,4 +1,5 @@
 import Error from "./errorView";
+import { DEFAULT_VALUES } from "../constants/constants";
 
 class OverlayView {
   constructor() {
@@ -44,11 +45,11 @@ class OverlayView {
 
     this.error.clearError(inputLanguageEl, errorLanguageEl);
 
-    this.cardFormEl.word.value = "";
-    this.cardFormEl.type.value = "";
-    this.cardFormEl.meaning.value = "";
-    this.cardFormEl.description.value = "";
-    this.cardFormEl.captionPhoto.value = "";
+    this.cardFormEl.word.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.type.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.meaning.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.description.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.cardFormEl.captionPhoto.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 }
 

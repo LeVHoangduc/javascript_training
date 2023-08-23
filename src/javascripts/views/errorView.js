@@ -1,4 +1,5 @@
 import Template from "../templates/templates";
+import { DEFAULT_VALUES } from "../constants/constants";
 
 class Error {
   constructor() {
@@ -28,7 +29,7 @@ class Error {
   }
 
   showEmpty() {
-    this.cardListEl.innerHTML = "";
+    this.cardListEl.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
     this.cardListEl.innerHTML += Template.renderEmpty();
   }
 }

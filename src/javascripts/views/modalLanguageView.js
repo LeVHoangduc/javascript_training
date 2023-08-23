@@ -1,4 +1,4 @@
-import { DATA_SOURCES, ERROR_MESSAGE } from "../constants/constants";
+import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
 import ValidationService from "../services/validationService";
 import Error from "./errorView";
 
@@ -72,7 +72,7 @@ class ModalLanguageView {
     const errorLanguageEl = inputLanguageEl.nextElementSibling;
 
     this.error.clearError(inputLanguageEl, errorLanguageEl);
-    this.formLanguageEL.language.value = "";
+    this.formLanguageEL.language.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 
   closeForm = () => {

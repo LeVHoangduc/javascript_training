@@ -1,6 +1,6 @@
 import Template from "../templates/templates";
 import Error from "./errorView";
-
+import { DEFAULT_VALUES } from "../constants/constants";
 class CardView {
   constructor() {
     this.error = new Error();
@@ -37,7 +37,7 @@ class CardView {
     const cardListData = await cardList();
 
     // Clear existing card elements before loading new data
-    this.cardListEl.innerHTML = "";
+    this.cardListEl.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
 
     // Filter and render cards based on the specified category
     const cards = cardListData.filter((card) => card.language === category);
@@ -62,7 +62,7 @@ class CardView {
   };
 
   renderFindCard = (cards) => {
-    this.cardListEl.innerHTML = "";
+    this.cardListEl.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
     if (cards.length === 0) {
       this.error.showEmpty();
     }
@@ -80,7 +80,7 @@ class CardView {
 
     this.renderFindCard(isCard);
 
-    this.inputEl.value = "";
+    this.inputEl.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 }
 

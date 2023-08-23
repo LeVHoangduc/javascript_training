@@ -1,4 +1,4 @@
-import { DATA_SOURCES } from "../constants/constants";
+import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
 import ValidationService from "../services/validationService.js";
 import Error from "./errorView";
 
@@ -77,8 +77,8 @@ class LoginView {
   };
 
   resetForm = () => {
-    this.loginForm.email.value = "";
-    this.loginForm.password.value = "";
+    this.loginForm.email.value = DEFAULT_VALUES.EMPTY_STRING;
+    this.loginForm.password.value = DEFAULT_VALUES.EMPTY_STRING;
   };
 }
 

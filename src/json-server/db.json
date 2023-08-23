@@ -223,6 +223,15 @@
       "meaning": "Chất lượng",
       "description": "A quality of a product",
       "captionPhoto": ""
+    },
+    {
+      "id": "iKUVb2H",
+      "language": "english",
+      "word": "Smarphont",
+      "type": "noun",
+      "meaning": "Điện thoại",
+      "description": "Điện thoại di động",
+      "captionPhoto": ""
     }
   ],
   "languages": [
@@ -241,6 +250,10 @@
     {
       "id": "18b5ca6c-4425-4cfd-87c6-a2f09eb23d32",
       "language": "korea"
+    },
+    {
+      "id": "4aad97b1-791e-48fa-b234-082c38341039",
+      "language": "malay"
     }
   ]
 }
