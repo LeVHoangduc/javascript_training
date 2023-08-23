@@ -1,7 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 import { utilityHelpers } from "../helpers/utilityHelper";
 import { localStorageHelper } from "../helpers/localStorageHelper";
-import { REQUEST_STATE, MESSAGE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
+import {
+  REQUEST_STATE,
+  MESSAGE,
+  SUCCESS_MESSAGE,
+  ERROR_MESSAGE,
+  DATA_SOURCES,
+} from "../constants/constants";
 
 class Controller {
   /**
@@ -17,6 +23,12 @@ class Controller {
   //----- LOGIN AND LOGOUT CONTROLLER          -----//
 
   initLogin = () => {
+    const location = window.location.pathname;
+
+    if (location === "/" || location === "/index.html") {
+      localStorageHelper.removeLocalStorage(DATA_SOURCES.USER);
+    }
+
     this.view.loginView.addEventLogin(this.isValidUser);
   };
 
