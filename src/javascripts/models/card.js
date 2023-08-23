@@ -40,6 +40,12 @@ class Card {
    */
   editCard = async (cardCurrent) => await this.apiService.updateItem(cardCurrent.id, cardCurrent);
 
+  /**
+   * Method to find cards in the card list based on search data.
+   * @param {string} searchData - The search data to match against card words.
+   * @returns {Array} An array of cards that match the search criteria.
+   * If searchData is an empty string, returns an empty array.
+   */
   findCard = async (searchData) => {
     const cardList = await this.getCardList();
 

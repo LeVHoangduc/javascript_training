@@ -1,4 +1,4 @@
-import { helpers } from "../helpers/helpers";
+import { localStorageHelper } from "../helpers/localStorageHelper";
 import { DATA_SOURCES } from "../constants/constants";
 class LogoutView {
   constructor() {
@@ -9,7 +9,7 @@ class LogoutView {
 
   addEventLogOut = () => {
     this.buttonEl?.addEventListener("click", () => {
-      helpers.removeLocalStorage(DATA_SOURCES.USER);
+      localStorageHelper.removeLocalStorage(DATA_SOURCES.USER);
 
       window.location.href = "index.html";
     });

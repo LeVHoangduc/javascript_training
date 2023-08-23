@@ -1,4 +1,4 @@
-import { helpers } from "../helpers/helpers";
+import { utilityHelpers } from "../helpers/utilityHelper";
 
 class ToastView {
   constructor() {
@@ -16,7 +16,7 @@ class ToastView {
     this.toastEl.classList.add(`toast--${state}`);
     this.toastMessageEl.innerText = message;
 
-    await helpers.toastDelay(2000);
+    await utilityHelpers.toastDelay(2000);
     this.toastEl.classList.remove(`toast--${state}`);
   };
 }

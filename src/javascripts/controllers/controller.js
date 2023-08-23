@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { helpers } from "../helpers/helpers";
+import { utilityHelpers } from "../helpers/utilityHelper";
+import { localStorageHelper } from "../helpers/localStorageHelper";
 import { REQUEST_STATE, MESSAGE, SUCCESS_MESSAGE, ERROR_MESSAGE } from "../constants/constants";
 
 class Controller {
@@ -26,7 +27,7 @@ class Controller {
   //----- HOME CONTROLLER          -----//
 
   initHome = async () => {
-    if (helpers.saveStatusLogin()) {
+    if (utilityHelpers.saveStatusLogin()) {
       await this.initLanguageView();
       this.initModalConfirm();
       this.initModalCard();
@@ -129,6 +130,10 @@ class Controller {
     }
   };
 
+  /**
+   * Method to delete a card by its ID.
+   * @param {string} id - The ID of the card to be deleted.
+   */
   deleteCard = async (id) => {
     try {
       await this.model.card.deleteCard(id);
@@ -139,7 +144,11 @@ class Controller {
     }
   };
 
-  // Click category from languageView
+  /**
+   * Method to load cards based on a specific category.
+   * @param {string} category - The category for which to load cards.
+   * @returns {boolean} - Returns true if cards are successfully loaded, otherwise false.
+   */
   loadCards = async (category) => {
     try {
       // view receive category and render as follow category
@@ -148,7 +157,7 @@ class Controller {
       if (isLoadCards) {
         this.updateModalDetail();
 
-        helpers.saveCategoryCurrent(category);
+        utilityHelpers.saveCategoryCurrent(category);
       }
     } catch (error) {
       return false;
@@ -182,6 +191,11 @@ class Controller {
     }
   };
 
+  /**
+   * Method to find a card based on the provided search data.
+   * @param {Object} searchData - The search criteria for finding the card.
+   * @returns {Promise<Object>} - A Promise that resolves to the found card object or false if not found.
+   */
   findCard = async (searchData) => {
     try {
       return await this.model.card.findCard(searchData);
@@ -221,6 +235,10 @@ class Controller {
     }
   };
 
+  /**
+   * Method to delete a language card by its ID.
+   * @param {string} id - The ID of the language card to be deleted.
+   */
   deleteLanguage = async (id) => {
     try {
       await this.model.language.deleteLanguage(id);
@@ -234,7 +252,7 @@ class Controller {
   updatePage = async () => {
     this.updateModalDetail();
 
-    this.loadCards(helpers.categoryCurrent);
+    this.loadCards(utilityHelpers.categoryCurrent);
   };
 
   updateLanguageView = async () => {

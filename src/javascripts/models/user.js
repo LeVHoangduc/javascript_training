@@ -1,4 +1,4 @@
-import { helpers } from "../helpers/helpers";
+import { localStorageHelper } from "../helpers/localStorageHelper";
 import { DATA_SOURCES } from "../constants/constants";
 import ApiService from "../services/apiService";
 
@@ -32,7 +32,7 @@ class User {
     if (validUSer) {
       const email = validUSer.email;
 
-      helpers.saveLocalStorage(DATA_SOURCES.USER, email);
+      localStorageHelper.saveLocalStorage(DATA_SOURCES.USER, email);
     }
 
     return validUSer;
