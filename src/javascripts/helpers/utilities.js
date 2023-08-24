@@ -1,6 +1,6 @@
 import { DATA_SOURCES } from "../constants/constants";
 
-class UtilityHelpers {
+class Utilities {
   constructor() {}
   /**
    * Saves the current category to the class instance.
@@ -30,4 +30,4 @@ class UtilityHelpers {
     });
 }
 
-export const utilityHelpers = new UtilityHelpers();
+export const utilities = new Utilities();

@@ -1,4 +1,4 @@
-import { utilityHelpers } from "../helpers/utilityHelper";
+import { utilities } from "../helpers/utilities";
 
 class ToastNotificationView {
   constructor() {
@@ -16,7 +16,7 @@ class ToastNotificationView {
     this.toastEl.classList.add(`toast--${state}`);
     this.toastMessageEl.innerText = message;
 
-    await utilityHelpers.toastDelay(2000);
+    await utilities.toastDelay(2000);
     this.toastEl.classList.remove(`toast--${state}`);
   };
 }

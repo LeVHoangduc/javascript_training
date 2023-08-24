@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { utilityHelpers } from "../helpers/utilityHelper";
+import { utilities } from "../helpers/utilities";
 import { localStorageHelper } from "../helpers/localStorageHelper";
 import {
   REQUEST_STATE,
@@ -40,7 +40,7 @@ class Controller {
   //----- HOME CONTROLLER          -----//
 
   initHome = async () => {
-    if (utilityHelpers.saveStatusLogin()) {
+    if (utilities.saveStatusLogin()) {
       await this.initLanguageView();
       this.initModalConfirm();
       this.initModalCard();
@@ -176,7 +176,7 @@ class Controller {
       if (isLoadCards) {
         this.updateModalDetail();
 
-        utilityHelpers.saveCategoryCurrent(category);
+        utilities.saveCategoryCurrent(category);
       }
     } catch (error) {
       return false;
@@ -301,7 +301,7 @@ class Controller {
   updatePage = async () => {
     this.updateModalDetail();
 
-    this.loadCards(utilityHelpers.categoryCurrent);
+    this.loadCards(utilities.categoryCurrent);
   };
 
   updateLanguageView = async () => {
