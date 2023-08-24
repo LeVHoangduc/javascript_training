@@ -1,4 +1,4 @@
-import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
+import { DATA_SOURCES, DEFAULT_VALUES, PATHS } from "../constants/constants";
 import ValidationService from "../services/validationService.js";
 import Error from "./errorView";
 
@@ -35,7 +35,7 @@ class LoginView {
         if (isUSer) {
           this.resetForm();
 
-          window.location.href = "home.html";
+          window.location.href = PATHS.HOME;
         }
       }
     });

@@ -7,6 +7,7 @@ import {
   SUCCESS_MESSAGE,
   ERROR_MESSAGE,
   DATA_SOURCES,
+  PATHS,
 } from "../constants/constants";
 
 class Controller {
@@ -24,8 +25,9 @@ class Controller {
 
   initLogin = () => {
     const location = window.location.pathname;
+    console.log(location);
 
-    if (location === "/" || location === "/index.html") {
+    if (location === PATHS.ROOT || location === PATHS.LOGIN) {
       localStorageHelper.removeLocalStorage(DATA_SOURCES.USER);
     }
 

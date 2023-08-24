@@ -1,5 +1,5 @@
 import { localStorageHelper } from "../helpers/localStorageHelper";
-import { DATA_SOURCES } from "../constants/constants";
+import { DATA_SOURCES, PATHS } from "../constants/constants";
 class LogoutView {
   constructor() {
     this.buttonEl = document.querySelector(".header__logout");
@@ -11,7 +11,7 @@ class LogoutView {
     this.buttonEl?.addEventListener("click", () => {
       localStorageHelper.removeLocalStorage(DATA_SOURCES.USER);
 
-      window.location.href = "index.html";
+      window.location.href = PATHS.LOGIN;
     });
   };
 }

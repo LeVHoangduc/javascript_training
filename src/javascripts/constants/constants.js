@@ -101,3 +101,9 @@ export const API_REQUEST = {
   DELETE: "DELETE",
   PATCH: "PATCH",
 };
+
+export const PATHS = {
+  HOME: "home.html",
+  ROOT: "/",
+  LOGIN: "/index.html",
+};
