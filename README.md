@@ -16,9 +16,9 @@
 
 ## Information
 
-- Time line: 2023/08/04 – 2023/08/22
+- Time line: 2023/08/04 – 2023/08/18
 - Editor: Visual Studio Code
-- Supported browser: Chrome, Firefox, MS Edge, Opera, Safari lasted
+- Supported browser: Chrome, MS Edge latest
 - Supported screen: Screen width 996px or larger
 
 ## Requirement
@@ -36,13 +36,12 @@ List of features need to work on:
   - Validate the username and password
   - Validate the format of username and password before press to button login
 - Card
-  - Create the card with properties. ( you can decide which properties need to save)
+  - Create the card with properties
   - Update the card
   - Delete the card
   - Show the card detail as a popup
 - Language
   - Create the language
-  - Update the language
   - Archive the language
   - Filter cards follow the language
 
@@ -53,7 +52,7 @@ List of features need to work on:
 ## Develop Environment
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- HTML & CSS
+- HTML & CSS & Javascript
 - [Github](https://github.com/LeVHoangduc/javascript_training)
 
 ## Deployment

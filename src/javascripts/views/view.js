@@ -6,7 +6,7 @@ import ModalLanguageView from "./modalLanguageView";
 import ModalConfirmView from "./modalConfirmView";
 import ModalCardView from "./modalCardView";
 import ModalDetailView from "./modalDetailView";
-import ToastView from "./toastView";
+import ToastNotificationView from "./toastNotificationView";
 import OverlayView from "./overlayView";
 
 class View {
@@ -19,7 +19,7 @@ class View {
     this.modalDetailView = new ModalDetailView();
     this.modalConfirm = new ModalConfirmView();
     this.modalCardView = new ModalCardView();
-    this.toastView = new ToastView();
+    this.toastNotificationView = new ToastNotificationView();
     this.overlayView = new OverlayView();
   }
 }

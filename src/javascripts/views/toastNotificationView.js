@@ -1,6 +1,6 @@
 import { utilityHelpers } from "../helpers/utilityHelper";
 
-class ToastView {
+class ToastNotificationView {
   constructor() {
     this.toastEl = document.querySelector(".toast");
     this.toastIconEl = document.querySelector(".toast__icon");
@@ -12,7 +12,7 @@ class ToastView {
    * @param {string} state - The state of the toast ('success', 'error')
    * @param {string} message - The message content to be displayed in the toast
    */
-  showToast = async (state, message) => {
+  showToastNotification = async (state, message) => {
     this.toastEl.classList.add(`toast--${state}`);
     this.toastMessageEl.innerText = message;
 
@@ -21,4 +21,4 @@ class ToastView {
   };
 }
 
-export default ToastView;
+export default ToastNotificationView;
