@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Flashcards</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header__content container">
+        <h1 class="text text--light text--md text--extrabold text--uppercase">Flashcards</h1>
+      </div>
+    </header>
+
+    <main class="main-content container">
+      <form class="login-form" novalidate>
+        <div class="login-form__wrapper">
+          <div class="login-form__header">
+            <p class="text text--xxl text--extrabold">Welcome back</p>
+            <img src="assets/images/logo.png" alt="login-image" />
+          </div>
+          <div class="login-form__body">
+            <div class="login-form__inputs">
+              <input
+                type="email"
+                placeholder="Email"
+                id="username"
+                name="email"
+                class="text text--input login-form__input"
+              />
+              <p>error</p>
+            </div>
+            <div class="login-form__inputs">
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+                class="text text--input login-form__input"
+              />
+              <p>error</p>
+            </div>
+            <button type="submit" class="text text--light btn btn--submit login-form__button">
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script type="module" src="./javascripts/main.js"></script>
+  </body>
+</html>

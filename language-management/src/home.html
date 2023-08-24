@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Flashcards</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header__content container">
+        <h1 class="text text--light text--md text--extrabold text--uppercase">Flashcards</h1>
+        <div class="header__search">
+          <input
+            type="text"
+            placeholder="Find your vocabulary"
+            class="text text--input header__search__input"
+          />
+          <img src="assets/icons/search.svg" class="header__search__icon" />
+        </div>
+        <button class="text text--light text--md text--uppercase header__logout">Log out</button>
+      </div>
+    </header>
+
+    <main class="main-content container">
+      <section class="language">
+        <ul class="language__list">
+          <!-- TODO: This section will be render by template -->
+        </ul>
+        <img src="assets/icons/add.svg" alt="icon-add" class="language__add" />
+      </section>
+
+      <section class="cards">
+        <div class="cards__add">
+          <img src="assets/icons/add.svg" alt="icon-add" />
+          <p class="text text--lg text--light">Add new word</p>
+        </div>
+        <div class="card__list">
+          <!-- TODO: this section will be render by template -->
+          <p></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- modal detail -->
+    <form class="modal-detail">
+      <div class="modal-detail__header">
+        <img
+          class="modal-detail__picture"
+          src="https://th.bing.com/th/id/R.f6d19108472c1a6c0883cc3c5f1f28ac?rik=pA22UQYQWktZcg&riu=http%3a%2f%2fobrazki.4ever.eu%2fdata%2fdownload%2frysunkowe%2fhello%2c-rysunkowa-postac%2c-chmury-235781.jpg%3fno-logo&ehk=bfeXHm%2bGU3NSDQf4bHxC1DewSvuDQRZ1qfKHlQHeu6o%3d&risl=&pid=ImgRaw&r=0"
+          alt="picture"
+        />
+        <img src="assets/icons/close.svg" alt="icon-close" class="modal-detail__close" />
+      </div>
+      <div class="modal-detail__body">
+        <p class="text text--xxl text--capitalize modal-detail__meaning">Xin Chào</p>
+        <p class="text text--lg modal-detail__description">Lời chào trang trọng khi mới gặp mặt.</p>
+      </div>
+      <div class="modal-detail__buttons">
+        <button class="btn btn--delete modal-detail__button__delete" name="delete">Delete</button>
+        <button class="btn btn--save modal-detail__button__edit" name="edit">Edit</button>
+      </div>
+    </form>
+
+    <!-- modal card -->
+    <form class="modal-card">
+      <div class="modal-card__header">
+        <p class="text text--xxl text--extrabold text--light">Add your vocabulary</p>
+        <img src="assets/images/add-image.png" alt="logo" />
+      </div>
+      <div class="modal-card__body">
+        <div class="modal-card__inputs">
+          <label for="language" class="text text--md">Select language*</label>
+          <select
+            name="language"
+            id="language"
+            class="text text--input text--capitalize modal-card__select"
+          >
+            <!-- render selection-->
+          </select>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="type" class="text text--md">Type*</label>
+          <select name="type" id="type" class="text text--input modal-card__select">
+            <option value="noun" selected class="text text--input text--capitalize">Noun</option>
+            <option value="verb" class="text text--input text--capitalize">Verb</option>
+            <option value="adjective" class="text text--input text--capitalize">Adjective</option>
+            <option value="adverb" class="text text--input text--capitalize">Adverb</option>
+          </select>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="vocabulary" class="text text--md">Vocabulary*</label>
+          <input
+            type="text"
+            name="word"
+            id="vocabulary"
+            class="text text--input modal-card__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="meaning" class="text text--md">Meaning*</label>
+          <input
+            type="text"
+            name="meaning"
+            id="meaning"
+            class="text text--input modal-card__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="caption-photo" class="text text--md">Caption photo</label>
+          <input
+            type="text text--sm"
+            placeholder="You can share image links in .jpg, .jpeg, or .png formats here"
+            id="caption-photo"
+            name="captionPhoto"
+            class="text text--input modal-card__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-card__inputs">
+          <label for="description" class="text text--md">Description*</label>
+          <textarea
+            id="description"
+            name="description"
+            class="text text--input modal-card__input modal-card__input--textarea"
+          ></textarea>
+          <p class="text text--sm">error</p>
+        </div>
+      </div>
+      <div class="modal-card__footer">
+        <button type="submit" name="btnSave" class="btn btn--submit modal-card__save">Save</button>
+      </div>
+    </form>
+
+    <!-- modal language -->
+    <form class="modal-language">
+      <div class="modal-language__wrapper">
+        <div class="modal-language__header">
+          <p class="text text--xl text--extrabold text--light">Add your language</p>
+          <img src="assets/images/add-image.png" alt="logo" />
+        </div>
+        <div class="modal-language__body">
+          <input
+            type="text"
+            name="language"
+            placeholder="Typing your language here"
+            class="text text--input modal-language__input"
+          />
+          <p class="text text--sm">error</p>
+        </div>
+        <div class="modal-language__footer">
+          <button type="button" class="btn btn--submit" name="btnSave">Save</button>
+          <button type="button" class="btn btn--delete" name="btnCancel">Cancel</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- modal confirm -->
+    <form class="modal-confirm">
+      <p class="modal-confirm__message text text--lg text--center">
+        Do you want to delete language
+      </p>
+      <div class="modal-confirm__buttons">
+        <button type="submit" name="delete" class="btn btn--delete modal-confirm__delete">
+          Yes
+        </button>
+        <button type="button" name="cancel" class="btn btn--submit">Cancel</button>
+      </div>
+    </form>
+
+    <!-- Start toast -->
+    <div class="toast">
+      <div class="toast__icon"></div>
+      <p class="text text--md text--light toast__message">Add card successfully</p>
+    </div>
+
+    <!-- Start overlay -->
+    <div class="overlay"></div>
+
+    <script type="module" src="./javascripts/main.js"></script>
+  </body>
+</html>
