@@ -56,6 +56,7 @@ class ModalCardView {
 
   addEventOpenFormListener = () => {
     this.btnAddEl.addEventListener("click", () => {
+      this.cardFormEl.setAttribute("data-id", null);
       this.cardFormEl.classList.add("open");
       this.overlayEl.classList.add("open");
     });
