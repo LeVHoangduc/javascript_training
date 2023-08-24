@@ -119,7 +119,10 @@ class Controller {
 
       if (isUser) return true;
     } catch (error) {
-      return false;
+      this.view.toastNotificationView.showToastNotification(
+        REQUEST_STATE.FAILED,
+        ERROR_MESSAGE.SERVER_ERROR
+      );
     }
   };
 
@@ -129,7 +132,10 @@ class Controller {
 
       return data;
     } catch (error) {
-      return false;
+      this.view.toastNotificationView.showToastNotification(
+        REQUEST_STATE.FAILED,
+        ERROR_MESSAGE.SERVER_ERROR
+      );
     }
   };
 
@@ -139,7 +145,10 @@ class Controller {
 
       return data;
     } catch (error) {
-      return false;
+      this.view.toastNotificationView.showToastNotification(
+        REQUEST_STATE.FAILED,
+        ERROR_MESSAGE.SERVER_ERROR
+      );
     }
   };
 
@@ -174,12 +183,13 @@ class Controller {
       const isLoadCards = await this.view.cardView.renderCardList(this.getCardList, category);
 
       if (isLoadCards) {
-        this.updateModalDetail();
-
         utilities.saveCategoryCurrent(category);
       }
     } catch (error) {
-      return false;
+      this.view.toastNotificationView.showToastNotification(
+        REQUEST_STATE.FAILED,
+        ERROR_MESSAGE.SERVER_ERROR
+      );
     }
   };
 
@@ -231,7 +241,10 @@ class Controller {
     try {
       return await this.model.card.findCard(searchData);
     } catch (error) {
-      return false;
+      this.view.toastNotificationView.showToastNotification(
+        REQUEST_STATE.FAILED,
+        ERROR_MESSAGE.SERVER_ERROR
+      );
     }
   };
 
@@ -299,8 +312,6 @@ class Controller {
   };
 
   updatePage = async () => {
-    this.updateModalDetail();
-
     this.loadCards(utilities.categoryCurrent);
   };
 
@@ -308,17 +319,10 @@ class Controller {
     try {
       await this.initLanguageView();
     } catch (error) {
-      return false;
-    }
-  };
-
-  updateModalDetail = async () => {
-    try {
-      const data = await this.getCardList();
-
-      this.view.modalDetailView.init(data);
-    } catch (error) {
-      return false;
+      this.view.toastNotificationView.showToastNotification(
+        REQUEST_STATE.FAILED,
+        ERROR_MESSAGE.SERVER_ERROR
+      );
     }
   };
 }
