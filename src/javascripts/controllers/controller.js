@@ -25,7 +25,6 @@ class Controller {
 
   initLogin = () => {
     const location = window.location.pathname;
-    console.log(location);
 
     if (location === PATHS.ROOT || location === PATHS.LOGIN) {
       localStorageHelper.removeLocalStorage(DATA_SOURCES.USER);
