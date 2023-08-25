@@ -25,9 +25,7 @@ class User {
   isValidUser = async ({ email, password }) => {
     const userList = await this.getUserList();
 
-    const validUSer = userList.find((user) =>
-      user.email === email && user.password === password ? true : false
-    );
+    const validUSer = userList.some((user) => user.email === email && user.password === password);
 
     if (validUSer) {
       const email = validUSer.email;
@@ -35,6 +33,7 @@ class User {
       localStorageHelper.saveLocalStorage(DATA_SOURCES.USER, email);
     }
 
+    console.log(validUSer);
     return validUSer;
   };
 }

@@ -24,7 +24,7 @@ export const MESSAGE = {
  */
 export const ERROR_MESSAGE = {
   LOGIN_VALIDATION: "Login failed, please check your username or password",
-  INVALID_INFORMATION: "Something maybe is wrong in your information!",
+  INVALID_INFORMATION: "Something maybe is wrong in your email or password!",
 
   ADD_CARD: "Couldn't add card",
   ADD_LANGUAGE: "Couldn't add language",
