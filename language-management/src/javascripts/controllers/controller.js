@@ -8,6 +8,7 @@ import {
   ERROR_MESSAGE,
   DATA_SOURCES,
   PATHS,
+  DEFAULT_VALUES,
 } from "../constants/constants";
 
 class Controller {
@@ -178,7 +179,7 @@ class Controller {
    * @param {string} category - The category for which to load cards.
    * @returns {boolean} - Returns true if cards are successfully loaded, otherwise false.
    */
-  loadCards = async (category) => {
+  loadCards = async (category = DEFAULT_VALUES.CATEGORY) => {
     try {
       // view receive category and render as follow category
       const isLoadCards = await this.view.cardView.renderCardList(this.getCardList, category);
