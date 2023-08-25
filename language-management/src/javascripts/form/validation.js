@@ -1,6 +1,6 @@
 import { MESSAGE, REGEX, DATA_SOURCES, FORM_INPUT, DEFAULT_VALUES } from "../constants/constants";
 
-class ValidationService {
+class ValidationForm {
   constructor() {}
 
   /**
@@ -168,4 +168,4 @@ class ValidationService {
   };
 }
 
-export default ValidationService;
+export default ValidationForm;
