@@ -118,7 +118,14 @@ class Controller {
     try {
       const isUser = await this.model.user.isValidUser(userCurrent);
 
-      if (isUser) return true;
+      if (!isUser) {
+        this.view.toastNotificationView.showToastNotification(
+          REQUEST_STATE.FAILED,
+          ERROR_MESSAGE.INVALID_INFORMATION
+        );
+      }
+
+      return isUser;
     } catch (error) {
       this.view.toastNotificationView.showToastNotification(
         REQUEST_STATE.FAILED,
