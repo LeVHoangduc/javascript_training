@@ -6,8 +6,8 @@ export const MESSAGE = {
   INVALID_EMAIL: "The email is invalid",
 
   PASSWORD_REQUIRED: "The password is required",
-  INVALID_PASSWORD: "The password is invalid",
-
+  INVALID_PASSWORD:
+    "Must be 8 or more characters and contain at least 1 number and 1 special character",
   INVALID_CONTENT: "The content is invalid!",
   CONTENT_REQUIRED: "The content is required",
 
@@ -59,7 +59,7 @@ export const SUCCESS_MESSAGE = {
  */
 export const REGEX = {
   EMAIL: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  PASSWORD: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+  PASSWORD: /^(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
   LANGUAGE: /^[^\d\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/,
   CONTENT: /^.{1,128}$/,
   IMAGE: /^https?:\/\/.*\.(jpg|jpeg|png|gif|bmp)$/,
