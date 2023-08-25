@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { utilities } from "../helpers/utilities";
 import { localStorageHelper } from "../helpers/localStorageHelper";
 import {
@@ -215,7 +214,7 @@ class Controller {
         );
       }
     } else {
-      const newCard = { id: uuidv4(), ...cardCurrent };
+      const newCard = cardCurrent;
 
       try {
         await this.model.card.addCard(newCard);
@@ -268,12 +267,8 @@ class Controller {
    * @returns {Promise<boolean>} - A Promise that resolves to true if add success, otherwise false.
    */
   saveLanguage = async (languageData) => {
-    const newLanguage = {
-      id: uuidv4(),
-      ...languageData,
-    };
     try {
-      const isAdd = await this.model.language.addLanguage(newLanguage);
+      const isAdd = await this.model.language.addLanguage(languageData);
 
       isAdd
         ? this.view.toastNotificationView.showToastNotification(
