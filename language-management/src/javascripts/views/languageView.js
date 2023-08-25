@@ -37,16 +37,20 @@ class LanguageView {
   };
 
   addEventDeleteLanguage = () => {
-    // Must load full language and then query btnDelete
-    this.btnDelete = document.querySelectorAll(".language__delete");
+    this.languageListEl.addEventListener("click", (e) => {
+      const btnDelete = e.target.closest(".language__item .language__delete");
 
-    this.btnDelete.forEach((button) => {
-      button.addEventListener("click", () => {
-        this.confirmFormEl.setAttribute("data-id", button.parentElement.getAttribute("data-id"));
-        this.confirmFormEl.setAttribute("type", button.parentElement.getAttribute("type"));
+      // For get data-id of the language will be removed
+      const languageItemEl = btnDelete?.parentElement;
 
-        this.openConfirmDelete(button);
-      });
+      // If the user clicks in delete button, it will execute the delete
+      // Avoid to missing event listener with show cards
+      if (languageItemEl) {
+        this.confirmFormEl.setAttribute("data-id", languageItemEl.getAttribute("data-id"));
+        this.confirmFormEl.setAttribute("type", languageItemEl.getAttribute("type"));
+
+        this.openConfirmDelete(btnDelete);
+      }
     });
   };
 
@@ -55,9 +59,8 @@ class LanguageView {
   /**
    * Renders the language list based on data from Models.
    * @param {Function} getLanguageList - List of language objects.
-   * @param {Function} loadCards  - Promise that resolves language item.
    */
-  renderLanguageList = async (getLanguageList, loadCards) => {
+  renderLanguageList = async (getLanguageList) => {
     const languageList = await getLanguageList();
 
     this.languageListEl.innerHTML = DEFAULT_VALUES.EMPTY_STRING;
@@ -66,8 +69,6 @@ class LanguageView {
     languageList.forEach((language) => {
       this.renderLanguage(language);
     });
-
-    this.addEventShowCard(loadCards);
   };
 
   /**

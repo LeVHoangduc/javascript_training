@@ -26,9 +26,9 @@ class ModalLanguageView {
   /**
    * Method to add an event listeners for saving and canceling the language form.
    * @param {Function} saveLanguage - The function to save the language data.
-   * @param {Function} updateLanguageView - The function to update the language view.
+   * @param {Function} loadLanguages - The function to update the language view.
    */
-  addEventAddLanguage = (saveLanguage, updateLanguageView, toast) => {
+  addEventAddLanguage = (saveLanguage, loadLanguages) => {
     const btnSave = this.formLanguageEL.btnSave;
     const btnCancel = this.formLanguageEL.btnCancel;
 
@@ -54,7 +54,7 @@ class ModalLanguageView {
         this.resetForm();
         this.closeForm();
 
-        updateLanguageView();
+        loadLanguages();
       }
     });
 

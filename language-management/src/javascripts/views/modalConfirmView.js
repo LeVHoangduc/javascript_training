@@ -16,10 +16,10 @@ class ModalConfirm {
    * Adds event listeners for the confirmation modal.
    * @param {Function} deleteCard - Function to delete a card.
    * @param {Function} deleteLanguage - Function to delete a language.
-   * @param {Function} updateLanguageView - Function to update the language view.
-   * @param {Function} updatePage - Function to update the page.
+   * @param {Function} loadLanguages - Function to update the language view.
+   * @param {Function} loadCards - Function to update the card.
    */
-  addEventConfirm = (deleteCard, deleteLanguage, updateLanguageView, updatePage) => {
+  addEventConfirm = (deleteCard, deleteLanguage, loadLanguages, loadCards) => {
     this.confirmFormEl.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -30,11 +30,11 @@ class ModalConfirm {
       if (type === DATA_SOURCES.LANGUAGE) {
         await deleteLanguage(id);
 
-        updateLanguageView();
+        loadLanguages();
       } else {
         await deleteCard(id);
 
-        updatePage();
+        loadCards();
       }
 
       this.closeForm();

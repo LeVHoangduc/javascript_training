@@ -56,7 +56,8 @@ class Controller {
   //----- LANGUAGE CONTROLLER          -----//
 
   initLanguageView = async () => {
-    await this.view.languageView.renderLanguageList(this.getLanguageList, this.loadCards);
+    await this.view.languageView.renderLanguageList(this.getLanguageList);
+    this.view.languageView.addEventShowCard(this.loadCards);
     this.view.languageView.addEventDeleteLanguage();
   };
 
@@ -73,8 +74,8 @@ class Controller {
     this.view.modalConfirm.addEventConfirm(
       this.deleteCard,
       this.deleteLanguage,
-      this.updateLanguageView,
-      this.updatePage
+      this.loadLanguages,
+      this.loadCards(utilities.categoryCurrent)
     );
   };
 
@@ -97,7 +98,7 @@ class Controller {
 
   initModalLanguageView = () => {
     this.view.modalLanguageView.addEventOpenFormListener();
-    this.view.modalLanguageView.addEventAddLanguage(this.saveLanguage, this.updateLanguageView);
+    this.view.modalLanguageView.addEventAddLanguage(this.saveLanguage, this.loadLanguages);
   };
 
   //----- OVERLAY CONTROLLER          -----//
@@ -311,19 +312,8 @@ class Controller {
     }
   };
 
-  updatePage = async () => {
-    this.loadCards(utilities.categoryCurrent);
-  };
-
-  updateLanguageView = async () => {
-    try {
-      await this.initLanguageView();
-    } catch (error) {
-      this.view.toastNotificationView.showToastNotification(
-        REQUEST_STATE.FAILED,
-        ERROR_MESSAGE.SERVER_ERROR
-      );
-    }
+  loadLanguages = () => {
+    this.view.languageView.renderLanguageList(this.getLanguageList);
   };
 }
 
