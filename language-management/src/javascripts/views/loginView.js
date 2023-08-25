@@ -1,10 +1,10 @@
 import { DATA_SOURCES, DEFAULT_VALUES, PATHS } from "../constants/constants";
-import ValidationService from "../services/validationService.js";
+import ValidationForm from "../validation/validationForm";
 import Error from "./errorView";
 
 class LoginView {
   constructor() {
-    this.service = new ValidationService();
+    this.validationForm = new ValidationForm();
     this.error = new Error();
 
     this.loginForm = document.querySelector(".login-form");
@@ -26,7 +26,7 @@ class LoginView {
         password: this.loginForm.password.value,
       };
 
-      const inputCheck = this.service.formValidator(DATA_SOURCES.USER, this.loginForm);
+      const inputCheck = this.validationForm.formValidator(DATA_SOURCES.USER, this.loginForm);
       const isValidation = this.isValidation(inputCheck);
 
       if (isValidation) {

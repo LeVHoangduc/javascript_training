@@ -1,10 +1,10 @@
 import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
-import ValidationService from "../services/validationService";
+import ValidationForm from "../validation/validationForm";
 import Error from "./errorView";
 
 class ModalLanguageView {
   constructor() {
-    this.validationService = new ValidationService();
+    this.validationForm = new ValidationForm();
     this.error = new Error();
 
     this.btnAddLanguage = document.querySelector(".language__add");
@@ -40,7 +40,7 @@ class ModalLanguageView {
       };
 
       // Return a field result of check with regex
-      const inputCheck = this.validationService.formValidator(
+      const inputCheck = this.validationForm.formValidator(
         DATA_SOURCES.LANGUAGE,
         this.formLanguageEL
       );

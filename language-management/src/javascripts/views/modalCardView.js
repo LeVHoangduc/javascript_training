@@ -1,10 +1,10 @@
 import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
-import ValidationService from "../services/validationService";
+import ValidationForm from "../validation/validationForm";
 import Error from "./errorView";
 
 class ModalCardView {
   constructor() {
-    this.validationService = new ValidationService();
+    this.validationForm = new ValidationForm();
     this.error = new Error();
 
     this.cardFormEl = document.querySelector(".modal-card");
@@ -36,7 +36,7 @@ class ModalCardView {
       };
 
       // Validate form inputs
-      const inputCheck = this.validationService.formValidator(DATA_SOURCES.CARD, this.cardFormEl);
+      const inputCheck = this.validationForm.formValidator(DATA_SOURCES.CARD, this.cardFormEl);
 
       const isValidation = this.isValidation(inputCheck);
 
