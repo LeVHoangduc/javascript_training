@@ -33,7 +33,6 @@ class User {
       localStorageHelper.saveLocalStorage(DATA_SOURCES.USER, email);
     }
 
-    console.log(validUSer);
     return validUSer;
   };
 }
