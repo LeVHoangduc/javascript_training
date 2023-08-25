@@ -1,5 +1,5 @@
 import { DATA_SOURCES, DEFAULT_VALUES } from "../constants/constants";
-import ValidationForm from "../form/validation";
+import ValidationForm from "../form/validationForm";
 import Error from "./errorView";
 
 class ModalCardView {
