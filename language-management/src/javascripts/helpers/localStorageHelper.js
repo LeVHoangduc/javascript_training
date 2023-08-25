@@ -7,7 +7,7 @@ class LocalStorageHelper {
    * @param {*} value - The data to be stored.
    */
   saveLocalStorage = (key, value) => {
-    const data = this.stringifyData(value);
+    const data = this.convertStringData(value);
 
     localStorage.setItem(key, data);
   };
@@ -20,7 +20,7 @@ class LocalStorageHelper {
   getLocalStorage = (key) => {
     const data = localStorage.getItem(key);
 
-    const parseData = this.parsedData(data);
+    const parseData = this.convertObjectData(data);
 
     return parseData;
   };
@@ -38,14 +38,14 @@ class LocalStorageHelper {
    * @param {*} data - The data to be converted.
    * @returns {string} - The JSON string representation of the data.
    */
-  stringifyData = (data) => JSON.stringify(data);
+  convertStringData = (data) => JSON.stringify(data);
 
   /**
-   * Convert data to a JSON string.
-   * @param {*} data - The data to be converted.
-   * @returns {string} - The JSON string representation of the data.
+   * Parse a JSON string into a JavaScript object.
+   * @param {string} data - The JSON string to be parsed.
+   * @returns {*} - The JavaScript object parsed from the JSON string.
    */
-  parsedData = (data) => JSON.parse(data);
+  convertObjectData = (data) => JSON.parse(data);
 }
 
 export const localStorageHelper = new LocalStorageHelper();
