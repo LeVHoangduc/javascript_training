@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "id": 3,
+      "id": 1,
       "email": "Admin1@gmail.com",
       "password": "Admin@123"
     },
     {
-      "id": 3,
+      "id": 2,
       "email": "Admin2@gmail.com",
       "password": "Admin@123"
     },
@@ -18,7 +18,7 @@
   ],
   "cards": [
     {
-      "id": "009bc7a0-27ba-4254-86cb-09a3dc149d",
+      "id": 1,
       "language": "english",
       "word": "Work",
       "type": "verb",
@@ -27,16 +27,16 @@
       "captionPhoto": ""
     },
     {
-      "id": "bf3f0125-2682-4a10-83fa-a2d125a0ef3a",
+      "id": 2,
       "language": "china",
       "word": "爱 ",
       "type": "noun",
       "meaning": "Tình yêu",
       "description": "diễn đạt tình cảm yêu thương và quan tâm. Nó thể hiện sự gắn kết và tình cảm sâu sắc giữa những người thân yêu.",
-      "captionPhoto": "http://www.quickmeme.com/img/df/df42037ad03b54bea4a901ac53df2d64fc6bd761cca6de67765a0af53bcdb03a.jpg"
+      "captionPhoto": ""
     },
     {
-      "id": "a2d34929-3115-4471-9181-40a72846fc79",
+      "id": 3,
       "language": "france",
       "word": "Bonjour",
       "type": "noun",
@@ -45,7 +45,7 @@
       "captionPhoto": "http://www.quickmeme.com/img/df/df42037ad03b54bea4a901ac53df2d64fc6bd761cca6de67765a0af53bcdb03a.jpg"
     },
     {
-      "id": "a4e7f64b-b1de-41bb-b5be-481f243fa4a9",
+      "id": 4,
       "language": "Korea",
       "word": "인내",
       "type": "noun",
@@ -54,7 +54,7 @@
       "captionPhoto": "https://thumbs.dreamstime.com/z/korean-love-sign-hand-folded-heart-symbol-i-you-gesture-vector-illustration-185192788.jpg"
     },
     {
-      "id": "79811c64-9e2c-48c2-9616-5b0b2b9c9d09",
+      "id": 5,
       "language": "france",
       "word": "La vie",
       "type": "noun",
@@ -63,7 +63,7 @@
       "captionPhoto": "https://i.etsystatic.com/10986386/r/il/66616a/1600008331/il_570xN.1600008331_ijhu.jpg"
     },
     {
-      "id": "3ec4c54b-fee3-47c8-9ba9-5a4d209657da",
+      "id": 6,
       "language": "china",
       "word": "再见",
       "type": "noun",
@@ -72,7 +72,7 @@
       "captionPhoto": "https://images.ctfassets.net/awpxl2koull4/33guHHuo0EmeKUMAEESw2a/6c5c0b0a860a70d86b4dc9c72654e72b/goodbye-blue.jpg"
     },
     {
-      "id": "6e84cc85-191c-4e52-adb5-e899685fcc43",
+      "id": 7,
       "language": "france",
       "word": "bisou",
       "type": "noun",
@@ -81,7 +81,7 @@
       "captionPhoto": "https://images.ctfassets.net/awpxl2koull4/33guHHuo0EmeKUMAEESw2a/6c5c0b0a860a70d86b4dc9c72654e72b/goodbye-blue.jpg"
     },
     {
-      "id": "EdlUGKm",
+      "id": 8,
       "language": "china",
       "word": "和平 ",
       "type": "noun",
@@ -90,7 +90,7 @@
       "captionPhoto": "https://thumbs.dreamstime.com/z/korean-love-sign-hand-folded-heart-symbol-i-you-gesture-vector-illustration-185192788.jpg"
     },
     {
-      "id": "EibyQkH",
+      "id": 9,
       "language": "english",
       "word": "provision ",
       "type": "noun",
@@ -99,7 +99,7 @@
       "captionPhoto": "https://www.desicomments.com/wallpapers/wp-content/uploads/2014/12/Beautiful-Waterfall-Image.jpg"
     },
     {
-      "id": "CCWsBv3",
+      "id": 10,
       "language": "france",
       "word": "Distribution",
       "type": "noun",
@@ -108,7 +108,7 @@
       "captionPhoto": "http://www.quickmeme.com/img/df/df42037ad03b54bea4a901ac53df2d64fc6bd761cca6de67765a0af53bcdb03a.jpg"
     },
     {
-      "id": "0YybyLH",
+      "id": 11,
       "language": "korea",
       "word": "再见",
       "type": "verb",
@@ -117,7 +117,7 @@
       "captionPhoto": ""
     },
     {
-      "id": "4TuJC8s",
+      "id": 12,
       "language": "korea",
       "word": "再见",
       "type": "verb",
@@ -126,7 +126,7 @@
       "captionPhoto": ""
     },
     {
-      "id": "QBpmeNK",
+      "id": 13,
       "language": "buncha",
       "word": "dsa",
       "type": "adverb",
@@ -135,7 +135,7 @@
       "captionPhoto": ""
     },
     {
-      "id": "ejAVVEh",
+      "id": 14,
       "language": "buncha",
       "word": "das",
       "type": "verb",
@@ -144,31 +144,44 @@
       "captionPhoto": ""
     },
     {
-      "id": "0Wbc-ns",
+      "id": 15,
       "language": "english",
       "word": "Quality",
       "type": "noun",
       "meaning": "Chất lượng",
       "description": "A quality of a product",
       "captionPhoto": ""
+    },
+    {
+      "id": 16,
+      "language": "laos",
+      "word": "ໂຄງການ",
+      "type": "noun",
+      "meaning": "lập trình",
+      "description": "lập trình web app",
+      "captionPhoto": ""
     }
   ],
   "languages": [
     {
-      "id": "c27e5d5d-9171-424c-b16c-d8972fcf6479",
-      "language": "english"
+      "language": "english",
+      "id": 1
     },
     {
-      "id": "b722e629-c584-4029-bc57-85f4c61dec8e",
-      "language": "china"
+      "language": "korea",
+      "id": 2
     },
     {
-      "id": "37580225-2b27-4dee-96c8-3e5fbad8d951",
-      "language": "france"
+      "language": "france",
+      "id": 3
     },
     {
-      "id": "18b5ca6c-4425-4cfd-87c6-a2f09eb23d32",
-      "language": "korea"
+      "language": "china",
+      "id": 4
+    },
+    {
+      "language": "laos",
+      "id": 5
     }
   ]
 }

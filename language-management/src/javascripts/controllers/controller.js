@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { utilities } from "../helpers/utilities";
 import { localStorageHelper } from "../helpers/localStorageHelper";
 import {
@@ -8,6 +7,7 @@ import {
   ERROR_MESSAGE,
   DATA_SOURCES,
   PATHS,
+  DEFAULT_VALUES,
 } from "../constants/constants";
 
 class Controller {
@@ -118,7 +118,14 @@ class Controller {
     try {
       const isUser = await this.model.user.isValidUser(userCurrent);
 
-      if (isUser) return true;
+      if (!isUser) {
+        this.view.toastNotificationView.showToastNotification(
+          REQUEST_STATE.FAILED,
+          ERROR_MESSAGE.INVALID_INFORMATION
+        );
+      }
+
+      return isUser;
     } catch (error) {
       this.view.toastNotificationView.showToastNotification(
         REQUEST_STATE.FAILED,
@@ -178,7 +185,7 @@ class Controller {
    * @param {string} category - The category for which to load cards.
    * @returns {boolean} - Returns true if cards are successfully loaded, otherwise false.
    */
-  loadCards = async (category) => {
+  loadCards = async (category = DEFAULT_VALUES.CATEGORY) => {
     try {
       // view receive category and render as follow category
       const isLoadCards = await this.view.cardView.renderCardList(this.getCardList, category);
@@ -215,7 +222,7 @@ class Controller {
         );
       }
     } else {
-      const newCard = { id: uuidv4(), ...cardCurrent };
+      const newCard = cardCurrent;
 
       try {
         await this.model.card.addCard(newCard);
@@ -268,12 +275,8 @@ class Controller {
    * @returns {Promise<boolean>} - A Promise that resolves to true if add success, otherwise false.
    */
   saveLanguage = async (languageData) => {
-    const newLanguage = {
-      id: uuidv4(),
-      ...languageData,
-    };
     try {
-      const isAdd = await this.model.language.addLanguage(newLanguage);
+      const isAdd = await this.model.language.addLanguage(languageData);
 
       isAdd
         ? this.view.toastNotificationView.showToastNotification(
