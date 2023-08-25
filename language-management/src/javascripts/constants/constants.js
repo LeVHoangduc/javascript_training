@@ -93,6 +93,7 @@ export const FORM_INPUT = {
 export const DEFAULT_VALUES = {
   EMPTY_STRING: "",
   EMPTY_ARRAY: [],
+  CATEGORY: "english",
 };
 
 export const API_REQUEST = {

@@ -1,3 +1,4 @@
+import { DEFAULT_VALUES } from "../constants/constants";
 class Template {
   constructor() {}
 
@@ -8,7 +9,9 @@ class Template {
    */
   static renderLanguage = (language) =>
     `
-      <li class="language__item" data-id="${language.id}" type="language">
+      <li class="language__item ${
+        language.language === DEFAULT_VALUES.CATEGORY ? "active" : DEFAULT_VALUES.EMPTY_STRING
+      }" data-id="${language.id}" type="language">
           <p class="text text--xl text--capitalize">${language.language} </p>
         <img src="${require("../../assets/icons/delete.svg")}" alt="icon-delete" class="language__delete" />
       </li>`;
